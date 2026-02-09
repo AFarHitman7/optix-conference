@@ -1,0 +1,99 @@
+.page {
+  background: #ffffff;
+  color: #111111;
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* HERO CARD (OPTIX) */
+.heroCard {
+  background: linear-gradient(180deg, #0e0f13f1, #12141add);
+  border-radius: 14px;
+  padding: 2.8rem 3rem;
+  margin-bottom: 4rem;
+  width: 100%;
+  color: #e9ebf0;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9aa0aa;
+  margin-bottom: 0.8rem;
+}
+
+.heroTitle {
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.heroText {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #d5d9e0;
+  max-width: 800px;
+}
+
+.heroSub {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #aeb3bd;
+}
+
+/* OPTICA SECTION */
+.section {
+  margin-top: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  letter-spacing: -0.015em;
+}
+
+/* CARD GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 1.8rem;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #444;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 4rem;
+  font-size: 0.85rem;
+  color: #666;
+}
