@@ -1,10 +1,10 @@
 import styles from "./About.module.css";
 import Navbar from "./components/Navbar";
 
-export default function About() {
+export default function About({ noNav = false }) {
   return (
     <>
-      <Navbar />
+      {!noNav && <Navbar />}
       <section className={styles.page}>
         <div className={styles.container}>
           {/* OPTIX CONFERENCE */}

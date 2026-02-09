@@ -2,9 +2,11 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import styles from "./Home.module.css";
 import background2 from "./assets/background2.svg";
-import prev1 from "./assets/prev1.jpg";
-import prev2 from "./assets/prev2.jpg";
-import prev3 from "./assets/prev3.jpg";
+import prev1 from "./assets/prev1.webp";
+import prev2 from "./assets/prev2.webp";
+import prev3 from "./assets/prev3.webp";
+import About from "./About";
+import Contact from "./Contact";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -32,15 +34,15 @@ export default function Home() {
               <span>Register</span>
             </button>{" "}
             <button className={`${styles.moreButton}  ${styles.btnShine}`}>
-              Learn more
+              <span>Learn more</span>
             </button>
           </div>
         </div>
         <div className={styles.rightColumn}>
           <div className={styles.imageStack}>
-            <img src={prev1} alt="group of people" />
-            <img src={prev2} alt="previous event image" />
-            <img src={prev3} alt="previous workshop" />
+            <img src={prev1} loading="lazy" alt="group of people" />
+            <img src={prev2} loading="lazy" alt="previous event image" />
+            <img src={prev3} loading="lazy" alt="previous workshop" />
           </div>
           <p>
             An international academic conference on optics, lasers, and
@@ -48,6 +50,8 @@ export default function Home() {
           </p>
         </div>
       </div>
+      <About noNav={true} />
+      <Contact noNav={true} />
     </div>
   );
 }

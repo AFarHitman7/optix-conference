@@ -2,11 +2,10 @@ import styles from "./Contact.module.css";
 import Navbar from "./components/Navbar";
 import heroImg from "./assets/prism.png"; // adjust path
 
-export default function Contact() {
+export default function Contact({ noNav = false }) {
   return (
     <>
-      {" "}
-      <Navbar />
+      {!noNav && <Navbar />}
       <section className={styles.page}>
         <div className={styles.container}>
           <div
