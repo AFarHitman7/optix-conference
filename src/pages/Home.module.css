@@ -2,54 +2,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 90vh;
+  height: 95vh;
   padding: 0 3rem;
   margin-top: -2rem;
+  background: linear-gradient(145deg, #0f1017 0%, #14172a 50%, #262b55 100%);
+  color: #fff;
 }
 
 .background {
   position: absolute;
-  top: 0;
+  bottom: -5px;
   left: 0;
+  height: 80%;
   width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.3;
+  z-index: 0;
+  opacity: 0.9;
   overflow: hidden;
 }
 .background img {
-  height: 100%;
-  width: auto;
-  min-width: 135%;
+  width: 100%;
   object-fit: cover;
-  will-change: transform;
-  animation: driftZoom 50s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
-}
-
-@keyframes driftZoom {
-  0% {
-    transform: translateX(0) scale(1);
-  }
-
-  18% {
-    transform: translateX(-3%) scale(1.004);
-  }
-
-  37% {
-    transform: translateX(-7%) scale(1.009);
-  }
-
-  61% {
-    transform: translateX(-11%) scale(1.006);
-  }
-
-  82% {
-    transform: translateX(-15%) scale(1.012);
-  }
-
-  100% {
-    transform: translateX(-18%) scale(1.008);
-  }
 }
 
 .leftColumn {
@@ -61,12 +33,16 @@
 }
 
 .leftColumn .date {
-  border: 1px solid #00000055;
-  color: #000000cc;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#0f1017, #0f1017) padding-box,
+    linear-gradient(to right, #2974bb, #ffffff) border-box;
+  color: #fff;
   width: fit-content;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-family: Satoshi-Light;
 }
 
 .leftColumn .title {
@@ -81,7 +57,7 @@
   font-size: 1rem;
   line-height: 1.5;
   width: 520px;
-  color: #555;
+  color: #fff;
 }
 
 .leftColumn .buttons {
@@ -111,7 +87,7 @@
 }
 
 .registerButton {
-  background-color: #333;
+  background-color: #0f1017;
 }
 
 .registerButton span {
@@ -261,6 +237,6 @@
 
 .rightColumn p {
   width: 600px;
-  color: #000000a4;
+  color: #fff;
   text-align: center;
 }

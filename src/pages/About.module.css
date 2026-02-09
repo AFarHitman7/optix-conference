@@ -1,99 +1,84 @@
 .page {
-  background: #ffffff;
-  color: #111111;
-  min-height: 100vh;
+  background: #1d243a;
+  color: #fff;
+  min-height: 90vh;
   padding: 4rem 1.5rem;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 80vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* HERO CARD (OPTIX) */
-.heroCard {
-  background: linear-gradient(180deg, #0e0f13f1, #12141add);
-  border-radius: 14px;
-  padding: 2.8rem 3rem;
-  margin-bottom: 4rem;
-  width: 100%;
-  color: #e9ebf0;
-}
-
-.tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #9aa0aa;
-  margin-bottom: 0.8rem;
-}
-
-.heroTitle {
-  font-size: 2.6rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-}
-
-.heroText {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #d5d9e0;
-  max-width: 800px;
-}
-
-.heroSub {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: #aeb3bd;
-}
-
 /* OPTICA SECTION */
 .section {
   margin-top: 2rem;
+  display: flex;
+  gap: 4rem;
 }
 
-.sectionTitle {
-  font-size: 1.8rem;
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.date {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#0f1017, #0f1017) padding-box,
+    linear-gradient(to right, #949494, #ffffff) border-box;
+  color: #fff;
+  width: fit-content;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-family: Satoshi-Light;
+}
+.media {
+  display: flex;
+  background-color: rgb(46, 47, 57);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.media img {
+  object-fit: contain;
+  width: 500px;
+}
+
+.heading {
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
-  margin-bottom: 2rem;
-  letter-spacing: -0.015em;
+  font-size: 2.4rem;
 }
 
-/* CARD GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+.heading span {
+  font-family: Satoshi-Light;
 }
 
-.card {
-  background: #ffffff;
-  border: 1px solid #e6e6e6;
-  border-radius: 12px;
-  padding: 1.8rem;
+.description {
+  font-family: Satoshi-Light;
+  text-align: justify;
+  line-height: 1.84;
+  color: #cecece;
+  max-width: 85%;
 }
 
-.card h3 {
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-bottom: 0.6rem;
+.cta {
+  background-color: #0f1017;
+  color: #fff;
+  width: 12rem;
 }
 
-.card p {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: #444;
-}
-
-/* FOOTER */
-.footer {
-  margin-top: 4rem;
-  font-size: 0.85rem;
-  color: #666;
+.cta span {
+  color: #fcfcfc;
+  font-size: 0.875rem;
+  letter-spacing: 0.7px;
 }

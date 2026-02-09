@@ -1,0 +1,52 @@
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(145deg, #0f2f6d, #0b2554);
+  color: #fff;
+  width: 95%;
+  border-radius: 0.6rem;
+}
+
+.label {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.title {
+  margin-top: 4px;
+  letter-spacing: 1px;
+}
+
+.right {
+  display: flex;
+  gap: 36px;
+}
+
+.unit {
+  text-align: center;
+}
+
+.value {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.caption {
+  display: block;
+  font-size: 12px;
+  opacity: 0.75;
+  text-transform: capitalize;
+}
+
+.box {
+  transition:
+    background 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.box:hover {
+  background: linear-gradient(145deg, #10346f, #0b285c);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}

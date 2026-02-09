@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import styles from "./Home.module.css";
-import background2 from "./assets/background2.svg";
+import background2 from "./assets/background2.png";
 import prev1 from "./assets/prev1.webp";
 import prev2 from "./assets/prev2.webp";
 import prev3 from "./assets/prev3.webp";

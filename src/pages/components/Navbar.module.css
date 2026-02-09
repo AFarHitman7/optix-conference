@@ -4,11 +4,11 @@
   align-items: center;
   padding: 0.5rem 2rem;
   max-height: 90px;
-  background-color: #fff;
+  background-color: #0f1017;
 }
 
 .logo {
-  width: 11rem;
+  width: 4rem;
   height: fit-content;
 }
 
@@ -35,7 +35,7 @@
   cursor: pointer;
   position: relative;
   transition: color 0.5s ease;
-  color: #000000dd;
+  color: #fff;
 }
 
 .navlinks ul li::after {
@@ -45,14 +45,14 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #00000022, #0000005f, #00000022);
+  background: linear-gradient(90deg, #ffffff, #ffffff5f, #ffffff22);
   background-size: 300% 100%;
   opacity: 0;
   transition: opacity 0.5s;
 }
 
 .navlinks ul li:hover {
-  color: #000000a3;
+  color: #fff;
 }
 
 .navlinks ul li:hover::after {
@@ -69,47 +69,124 @@
   }
 }
 
-.register button {
-  position: relative;
-  cursor: pointer;
-  font-size: 1rem;
-  background: #fff;
-  color: #0f172a;
-  padding: 12px 24px;
-  border-radius: 6px;
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   border: none;
-  z-index: 1;
-  transition: all 0.3s ease;
+  background: none;
+  color: #0f1923;
+  cursor: pointer;
+  position: relative;
+  padding: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.15s ease;
 }
 
-/* ripple layers */
-.register button:before,
-.register button:after,
-.register button span:before,
-.register button span:after {
+.button::before,
+.button::after {
   content: "";
+  display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 16px;
-  height: 15px;
-  border-radius: 50%;
-  background: transparent;
-  transform: translate(-50%, -50%) scale(0);
-  z-index: -1;
-  transition: all 0.5s ease;
-  border: 2px solid rgba(15, 23, 42, 0.12);
-  opacity: 0;
+  right: 0;
+  left: 0;
+  height: calc(50% - 5px);
+  border: 1px solid #7d8082;
+  transition: all 0.15s ease;
 }
 
-/* hover state */
-.register button:hover {
-  background: #fff;
-  font-size: 1rem;
-  text-decoration: underline #0000005f;
-  text-underline-offset: 0.5rem;
+.button::before {
+  top: 0;
+  border-bottom-width: 0;
 }
 
-.register button:active {
-  transform: scale(0.95);
+.button::after {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.button:active,
+.button:focus {
+  outline: none;
+}
+
+.button:active::before,
+.button:active::after {
+  right: 3px;
+  left: 3px;
+}
+
+.button:active::before {
+  top: 3px;
+}
+
+.button:active::after {
+  bottom: 3px;
+}
+
+.button_lg {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #0f1923;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.button_lg::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background-color: #0f1923;
+}
+
+.button_lg::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background-color: #0f1923;
+  transition: all 0.2s ease;
+}
+
+.button_sl {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: -8px;
+  width: 0;
+  background-color: #fff;
+  transform: skew(-15deg);
+  transition: all 0.2s ease;
+}
+
+.button_text {
+  position: relative;
+}
+
+.button:hover {
+  color: #0f1923;
+}
+
+.button:hover .button_text {
+  color: #0f1923;
+}
+
+.button:hover .button_sl {
+  width: calc(100% + 15px);
+}
+
+.button:hover .button_lg::after {
+  background-color: #ff4655;
 }

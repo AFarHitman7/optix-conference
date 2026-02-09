@@ -32,21 +32,25 @@ export default function Navbar() {
             <NavLink to="/program">PROGRAM</NavLink>
           </li>
           <li>
+            <NavLink to="/speakers">SPEAKERS</NavLink>
+          </li>
+          <li>
             <NavLink to="/contact">CONTACT US</NavLink>
           </li>
         </ul>
       </div>
 
       {/* Register button */}
-      <div className={styles.register}>
-        <button
-          onMouseEnter={triggerRipple}
-          onClick={() => navigate("/register")}
-        >
-          <span />
-          REGISTER NOW
-        </button>
-      </div>
+      <button
+        onMouseEnter={triggerRipple}
+        onClick={() => navigate("/register")}
+        className={styles.button}
+      >
+        <span className={styles.button_lg}>
+          <span class={styles.button_sl}></span>
+          <span class={styles.button_text}>Register Now</span>
+        </span>
+      </button>
     </nav>
   );
 }
