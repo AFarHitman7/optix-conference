@@ -1,17 +1,12 @@
 import styles from "./Contact.module.css";
 import Navbar from "./components/Navbar";
-import heroImg from "./assets/prism.png"; // adjust path
-
 export default function Contact({ noNav = false }) {
   return (
     <>
       {!noNav && <Navbar />}
       <section className={styles.page}>
         <div className={styles.container}>
-          <div
-            className={styles.hero}
-            style={{ backgroundImage: `url(${heroImg})` }}
-          >
+          <div className={styles.hero}>
             <div className={styles.heroOverlay} />
             <h1 className={styles.heroTitle}>Contacts</h1>
           </div>
