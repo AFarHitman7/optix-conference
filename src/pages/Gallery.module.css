@@ -1,0 +1,109 @@
+.page {
+  padding: 6rem 1.5rem;
+  color: #fff;
+}
+
+.container {
+  border-radius: 1.5rem;
+  padding: 3rem 5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.35);
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: 0.15rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  margin-top: 0.5rem;
+}
+
+.carouselWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 0;
+  margin-top: 1rem;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.galleryCard {
+  flex: 0 0 35.5%;
+  opacity: 1;
+  transform: scale(0.9);
+  transition: all 0.35s ease;
+  text-align: center;
+}
+
+.galleryCard img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0; /* removed */
+}
+
+.active {
+  opacity: 1;
+  /* transform: scale(1); */
+}
+
+.caption {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: #cfcfcf;
+}
+
+.centerCard {
+  opacity: 1;
+  transform: scale(1);
+}
+.caption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #d0d0d0;
+}
+
+@media (max-width: 768px) {
+  .galleryCard {
+    flex: 0 0 80%;
+  }
+}

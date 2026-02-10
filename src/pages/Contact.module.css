@@ -1,5 +1,5 @@
 .page {
-  background: #ffffff;
+  background: #f8fafc;
   color: #111111;
   min-height: 100vh;
   padding: 4rem 1.5rem;
@@ -60,6 +60,7 @@
 .card {
   border: 1px solid #e6e6e6;
   border-radius: 14px;
+  background-color: #f3f3f3;
   padding: 2rem;
 }
 

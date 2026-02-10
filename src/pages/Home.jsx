@@ -10,6 +10,8 @@ import Speakers from "./Speakers";
 import Contact from "./Contact";
 import EventSchedule from "./EventSchedule";
 import Footer from "./components/Footer";
+import Sponsors from "./Sponsor";
+import Gallery from "./Gallery";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -63,6 +65,12 @@ export default function Home() {
         </div>
         <div id="schedule">
           <EventSchedule />
+        </div>
+        <div id="sponsor">
+          <Sponsors />
+        </div>
+        <div id="gallery">
+          <Gallery />
         </div>
         <div id="contact">
           <Contact />

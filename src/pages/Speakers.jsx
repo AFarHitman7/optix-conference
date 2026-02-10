@@ -1,43 +1,13 @@
 import styles from "./Speakers.module.css";
 import { useRef, useEffect } from "react";
-import sp1 from "./assets/speakers/sp1.png";
-import sp2 from "./assets/speakers/sp2.png";
-import sp3 from "./assets/speakers/sp3.png";
-import sp4 from "./assets/speakers/sp4.png";
-// import sp5 from "./assets/speakers/sp5.png";
-// import sp6 from "./assets/speakers/sp6.png";
-// import sp7 from "./assets/speakers/sp7.png";
 
-const speakers = [
-  {
-    id: 1,
-    img: sp1,
-    name: "Dr. John Smith",
-    designation: "Professor of Photonics",
-  },
-  {
-    id: 2,
-    img: sp2,
-    name: "Dr. Sarah Johnson",
-    designation: "Laser Research Lead",
-  },
-  {
-    id: 3,
-    img: sp3,
-    name: "Dr. Michael Chen",
-    designation: "Optics Specialist",
-  },
-  {
-    id: 4,
-    img: sp4,
-    name: "Dr. Emily Williams",
-    designation: "Quantum Physicist",
-  },
-  { id: 5, img: "", name: "Speaker 5", designation: "Industry Expert" },
-  { id: 6, img: "", name: "Speaker 6", designation: "Research Director" },
-  { id: 7, img: "", name: "Speaker 7", designation: "Principal Scientist" },
-];
+const images = import.meta.glob("./assets/speakers/*.png", { eager: true });
 
+const speakers = Object.values(images).map((m, i) => ({
+  id: i + 1,
+  img: m.default,
+  name: `Speaker ${i + 1}`,
+}));
 const SpeakerCard = ({ speaker }) => {
   return (
     <div className={styles.speakerCard}>

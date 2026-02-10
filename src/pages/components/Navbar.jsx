@@ -51,10 +51,7 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a
-              onClick={() => scrollToSection("about")}
-              style={{ cursor: "pointer" }}
-            >
+            <a onClick={() => navigate("/about")} style={{ cursor: "pointer" }}>
               ABOUT US
             </a>
           </li>
