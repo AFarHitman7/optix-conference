@@ -1,10 +1,12 @@
 .navbar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 2rem;
   max-height: 90px;
-  background-color: #0f1017;
+  background-color: #0f1322;
+  z-index: 3;
 }
 
 .logo {

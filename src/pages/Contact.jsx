@@ -1,9 +1,7 @@
 import styles from "./Contact.module.css";
-import Navbar from "./components/Navbar";
-export default function Contact({ noNav = false }) {
+export default function Contact() {
   return (
     <>
-      {!noNav && <Navbar />}
       <section className={styles.page}>
         <div className={styles.container}>
           <div className={styles.hero}>

@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import styles from "./Navbar.module.css";
 
@@ -11,6 +11,27 @@ const triggerRipple = (e) => {
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId) => {
+    // If not on home page, navigate to home first
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    } else {
+      // Already on home, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -18,28 +39,51 @@ export default function Navbar() {
       <div className={styles.logo} onClick={() => navigate("/")} role="button">
         <img src={logo} alt="Optix Logo" />
       </div>
-
       {/* Nav links */}
       <div className={styles.navlinks}>
         <ul>
           <li>
-            <NavLink to="/">HOME</NavLink>
+            <a
+              onClick={() => scrollToSection("home")}
+              style={{ cursor: "pointer" }}
+            >
+              HOME
+            </a>
           </li>
           <li>
-            <NavLink to="/about">ABOUT US</NavLink>
+            <a
+              onClick={() => scrollToSection("about")}
+              style={{ cursor: "pointer" }}
+            >
+              ABOUT US
+            </a>
           </li>
           <li>
-            <NavLink to="/program">PROGRAM</NavLink>
+            <a
+              onClick={() => scrollToSection("schedule")}
+              style={{ cursor: "pointer" }}
+            >
+              PROGRAM
+            </a>
           </li>
           <li>
-            <NavLink to="/speakers">SPEAKERS</NavLink>
+            <a
+              onClick={() => scrollToSection("speakers")}
+              style={{ cursor: "pointer" }}
+            >
+              SPEAKERS
+            </a>
           </li>
           <li>
-            <NavLink to="/contact">CONTACT US</NavLink>
+            <a
+              onClick={() => scrollToSection("contact")}
+              style={{ cursor: "pointer" }}
+            >
+              CONTACT US
+            </a>
           </li>
         </ul>
       </div>
-
       {/* Register button */}
       <button
         onMouseEnter={triggerRipple}
@@ -47,8 +91,8 @@ export default function Navbar() {
         className={styles.button}
       >
         <span className={styles.button_lg}>
-          <span class={styles.button_sl}></span>
-          <span class={styles.button_text}>Register Now</span>
+          <span className={styles.button_sl}></span>
+          <span className={styles.button_text}>Register Now</span>
         </span>
       </button>
     </nav>

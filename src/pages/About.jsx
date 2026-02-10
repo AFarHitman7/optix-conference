@@ -1,18 +1,14 @@
 import styles from "./About.module.css";
 import CountdownBox from "./components/CountdownBox";
-import Navbar from "./components/Navbar";
-import image1 from "./assets/about.png";
+import image1 from "./assets/about/about.png";
 
-export default function About({ noNav = false }) {
+export default function About() {
   return (
     <>
-      {!noNav && <Navbar />}
       <section className={styles.page}>
         <div className={styles.container}>
           {/* OPTIX CONFERENCE */}
           <CountdownBox />
-
-          {/* OPTICA CLUB */}
           <div className={styles.section}>
             <div className={styles.section}>
               <div className={styles.media}>
@@ -40,18 +36,11 @@ export default function About({ noNav = false }) {
                   keynote lectures, invited talks, and technical sessions.
                 </p>
 
-                <button className={styles.cta}>Register As Attendee →</button>
+                <button className={styles.registerButton}>
+                  <span>Register As Attendee →</span>
+                </button>
               </div>
             </div>
-          </div>
-
-          {/* FOOTNOTE */}
-          <div className={styles.footer}>
-            <p>
-              Based at the National Institute of Technology Calicut.
-              <br />
-              Student-run. Academically grounded.
-            </p>
           </div>
         </div>
       </section>
