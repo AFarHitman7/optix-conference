@@ -7,7 +7,7 @@
 }
 
 .container {
-  max-width: 80vw;
+  max-width: 90vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -53,6 +53,7 @@
   padding: 1rem;
   justify-content: center;
   align-items: center;
+  height: fit-content;
 }
 
 .media img {

@@ -7,7 +7,7 @@
 }
 
 .container {
-  max-width: 85vw;
+  max-width: 75vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
 }
 
 .title {
-  font-size: 4rem;
+  font-size: 3rem;
   font-family: Satoshi-Bold;
   font-weight: 600;
   letter-spacing: 0.2rem;
@@ -44,7 +44,7 @@
 }
 
 .textContainer p {
-  font-size: 1.3rem;
+  font-size: 0.8rem;
   color: #939393;
   font-family: Satoshi-Regular;
   width: 40%;
