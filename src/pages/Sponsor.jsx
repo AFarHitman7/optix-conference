@@ -2,7 +2,6 @@ import styles from "./Sponsor.module.css";
 
 import sponsor1 from "./assets/sponsors/01.png";
 import sponsor2 from "./assets/sponsors/02.jpeg";
-import bg from "./assets/sponsors/bg.png";
 
 const sponsors = [
   {
@@ -22,40 +21,44 @@ const sponsors = [
 export default function Sponsors() {
   return (
     <section className={styles.page}>
-      <img src={bg} alt="background" className={styles.background} />
       <div className={styles.container}>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>
-            <span>Our Sponsors</span>
+            <span>Title Sponsors</span>
           </h1>
         </div>
 
-        <div className={styles.grid}>
-          <div className={styles.sponsorCard}>
-            <div className={styles.imageWrap}>
-              <img
-                src={sponsors[0].img}
-                alt={sponsors[0].name}
-                className={styles.image}
-              />
-              <div className={styles.overlay}>
-                <h3 className={styles.sponsorName}>{sponsors[0].name}</h3>
-                <p className={styles.sponsorTagline}>{sponsors[0].tagline}</p>
-              </div>
+        <div className={styles.sponsorCard}>
+          <div className={styles.imageWrap}>
+            <img
+              src={sponsors[0].img}
+              alt={sponsors[0].name}
+              className={styles.image}
+            />
+            <div className={styles.overlay}>
+              <h3 className={styles.sponsorName}>{sponsors[0].name}</h3>
+              <p className={styles.sponsorTagline}>{sponsors[0].tagline}</p>
             </div>
           </div>
+        </div>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.textContainer}>
+          <h1 className={styles.title}>
+            <span>Co Sponsors</span>
+          </h1>
+        </div>
 
-          <div className={styles.sponsorCard}>
-            <div className={styles.imageWrap}>
-              <img
-                src={sponsors[1].img}
-                alt={sponsors[1].name}
-                className={styles.image}
-              />
-              <div className={styles.overlay}>
-                <h3 className={styles.sponsorName}>{sponsors[1].name}</h3>
-                <p className={styles.sponsorTagline}>{sponsors[1].tagline}</p>
-              </div>
+        <div className={styles.sponsorCard}>
+          <div className={styles.imageWrap}>
+            <img
+              src={sponsors[1].img}
+              alt={sponsors[1].name}
+              className={styles.image}
+            />
+            <div className={styles.overlay}>
+              <h3 className={styles.sponsorName}>{sponsors[1].name}</h3>
+              <p className={styles.sponsorTagline}>{sponsors[1].tagline}</p>
             </div>
           </div>
         </div>
