@@ -8,6 +8,19 @@
   width: 85%;
   border-radius: 0.6rem;
   position: relative;
+  overflow: hidden;
+  transition:
+    background 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.box:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.left {
+  position: relative;
+  z-index: 2;
 }
 
 .imgWrap {
@@ -18,6 +31,7 @@
   width: 40%;
   overflow: hidden;
   opacity: 0.7;
+  z-index: 1;
 }
 
 .imgWrap img {
@@ -38,27 +52,33 @@
 .label {
   font-size: 1.34rem;
   opacity: 0.85;
+  margin: 0;
 }
 
 .title {
   margin-top: 4px;
   font-size: 3rem;
-
   letter-spacing: 1px;
+  margin-bottom: 0;
 }
 
 .right {
   display: flex;
   gap: 36px;
+  z-index: 2;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .unit {
   text-align: center;
+  min-width: 60px;
 }
 
 .value {
   font-size: 3rem;
   font-weight: 600;
+  display: block;
 }
 
 .caption {
@@ -66,14 +86,305 @@
   font-size: 12px;
   opacity: 0.75;
   text-transform: capitalize;
+  margin-top: 4px;
 }
 
-.box {
-  transition:
-    background 240ms ease,
-    box-shadow 240ms ease;
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Large tablets and small desktops */
+@media (max-width: 1200px) {
+  .box {
+    width: 90%;
+    padding: 2.5rem 3rem;
+  }
+
+  .label {
+    font-size: 1.2rem;
+  }
+
+  .title {
+    font-size: 2.6rem;
+  }
+
+  .value {
+    font-size: 2.6rem;
+  }
+
+  .right {
+    gap: 30px;
+  }
+
+  .unit {
+    min-width: 55px;
+  }
 }
 
-.box:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+/* Tablets */
+@media (max-width: 1024px) {
+  .box {
+    padding: 2rem 2.5rem;
+  }
+
+  .label {
+    font-size: 1.1rem;
+  }
+
+  .title {
+    font-size: 2.3rem;
+  }
+
+  .value {
+    font-size: 2.3rem;
+  }
+
+  .right {
+    gap: 24px;
+  }
+
+  .unit {
+    min-width: 50px;
+  }
+
+  .caption {
+    font-size: 11px;
+  }
+}
+
+/* Small tablets */
+@media (max-width: 900px) {
+  .box {
+    width: 95%;
+    padding: 2rem;
+  }
+
+  .imgWrap {
+    width: 35%;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .value {
+    font-size: 2rem;
+  }
+
+  .right {
+    gap: 20px;
+  }
+
+  .unit {
+    min-width: 45px;
+  }
+}
+
+/* Mobile landscape and below */
+@media (max-width: 768px) {
+  .box {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+    width: 95%;
+  }
+
+  .left {
+    text-align: center;
+    width: 100%;
+  }
+
+  .imgWrap {
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: -webkit-gradient(
+      linear,
+      top,
+      bottom,
+      from(rgba(0, 0, 0, 0.6)),
+      to(rgba(0, 0, 0, 0))
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0)
+    );
+    opacity: 0.5;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .right {
+    gap: 18px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .unit {
+    min-width: 50px;
+  }
+
+  .value {
+    font-size: 2rem;
+  }
+
+  .caption {
+    font-size: 11px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 640px) {
+  .box {
+    padding: 1.75rem 1rem;
+    gap: 1.5rem;
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+  }
+
+  .right {
+    gap: 12px;
+  }
+
+  .unit {
+    min-width: 42px;
+  }
+
+  .value {
+    font-size: 1.6rem;
+  }
+
+  .caption {
+    font-size: 9px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .box {
+    padding: 1rem 0.75rem;
+    gap: 1.25rem;
+    width: 85%;
+  }
+
+  .label {
+    font-size: 0.85rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .right {
+    gap: 8px;
+  }
+
+  .unit {
+    min-width: 38px;
+  }
+
+  .value {
+    font-size: 1.4rem;
+  }
+
+  .caption {
+    font-size: 8px;
+    margin-top: 2px;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 380px) {
+  .box {
+    padding: 1.25rem 0.625rem;
+    gap: 1rem;
+  }
+
+  .label {
+    font-size: 0.75rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .right {
+    gap: 6px;
+  }
+
+  .unit {
+    min-width: 32px;
+  }
+
+  .value {
+    font-size: 1.2rem;
+  }
+
+  .caption {
+    font-size: 7px;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .box {
+    flex-direction: row;
+    padding: 1.5rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .imgWrap {
+    width: 30%;
+    -webkit-mask-image: -webkit-gradient(
+      linear,
+      left,
+      right,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(0, 0, 0, 0))
+    );
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .right {
+    gap: 12px;
+  }
+
+  .unit {
+    min-width: 40px;
+  }
+
+  .value {
+    font-size: 1.5rem;
+  }
 }

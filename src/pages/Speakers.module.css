@@ -33,6 +33,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 }
 
 .title {
@@ -41,6 +42,7 @@
   font-weight: 600;
   letter-spacing: 0.2rem;
   width: fit-content;
+  margin: 0;
 }
 
 .textContainer p {
@@ -48,6 +50,7 @@
   color: #939393;
   font-family: Satoshi-Regular;
   width: 40%;
+  margin: 0;
 }
 
 .carouselContainer {
@@ -61,11 +64,7 @@
 .carousel {
   display: flex;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  gap: 1rem;
-  padding: 1rem 0;
-  flex: 1;
   scrollbar-width: none;
 }
 
@@ -73,8 +72,20 @@
   display: none;
 }
 
+.slide {
+  flex: 0 0 25%; /* 4 visible */
+  padding: 0 0.75rem;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.active {
+  transform: scale(1.05);
+}
+
 .speakerCard {
-  flex: 0 0 calc(25% - 0.75rem);
+  width: 100%;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
@@ -105,7 +116,7 @@
 
 .overlay {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   right: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
@@ -146,16 +157,162 @@
   z-index: 10;
   display: flex;
   justify-content: center;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .navButton:hover {
   background: rgba(0, 0, 0, 0.7);
 }
 
-/* Responsive */
+.navButton:active {
+  transform: scale(0.95);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Large desktops */
+@media (max-width: 1400px) {
+  .container {
+    max-width: 85%;
+    padding: 3rem 5rem;
+  }
+
+  .title {
+    font-size: 2.75rem;
+    letter-spacing: 0.15rem;
+  }
+}
+
+/* Tablets and small desktops */
+@media (max-width: 1200px) {
+  .page {
+    padding: 5rem 1.5rem;
+  }
+
+  .container {
+    max-width: 90%;
+    padding: 2.5rem 3rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    letter-spacing: 0.12rem;
+  }
+
+  .textContainer p {
+    font-size: 0.75rem;
+    width: 45%;
+  }
+
+  .slide {
+    flex: 0 0 33.333%; /* 3 visible */
+  }
+}
+
+/* Medium tablets */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95%;
+    padding: 2rem 2rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .textContainer p {
+    width: 50%;
+  }
+
+  .navButton {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+}
+
+/* Small tablets */
+@media (max-width: 900px) {
+  .page {
+    padding: 4rem 1rem;
+  }
+
+  .container {
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .textContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    width: 100%;
+  }
+
+  .textContainer p {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+
+  .slide {
+    flex: 0 0 50%; /* 2 visible */
+  }
+
+  .speakerName {
+    font-size: 1rem;
+  }
+
+  .speakerDesignation {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile landscape and below */
 @media (max-width: 768px) {
-  .speakerCard {
-    flex: 0 0 calc(50% - 0.5rem);
+  .page {
+    padding: 3rem 0.75rem;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 1.75rem 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    letter-spacing: 0.08rem;
+  }
+
+  .textContainer p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .carouselContainer {
+    gap: 0.75rem;
+  }
+
+  .navButton {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    /* Remove 300ms delay on mobile taps */
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .overlay {
+    padding: 1.5rem 0.875rem 0.875rem;
   }
 
   .speakerName {
@@ -164,5 +321,220 @@
 
   .speakerDesignation {
     font-size: 0.8rem;
+  }
+
+  /* Remove grayscale on tablets and below */
+  .image {
+    filter: none;
+  }
+
+  .imageWrap:hover .image {
+    filter: none;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 640px) {
+  .page {
+    padding: 2.5rem 0.5rem;
+  }
+
+  .container {
+    padding: 1.5rem 1rem;
+    gap: 1.25rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    letter-spacing: 0.05rem;
+  }
+
+  .textContainer p {
+    font-size: 0.75rem;
+  }
+
+  .slide {
+    flex: 0 0 70%; /* 1.5 visible for context */
+    padding: 0 0.5rem;
+  }
+
+  .carouselContainer {
+    gap: 0.5rem;
+  }
+
+  .navButton {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    /* Instant tap response */
+    transition:
+      transform 0.1s ease,
+      background 0.1s ease;
+  }
+
+  .navButton:active {
+    transform: scale(0.9);
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .imageWrap {
+    border-radius: 6px;
+  }
+
+  /* Show overlay by default on mobile (no hover) */
+  .overlay {
+    transform: translateY(0);
+    padding: 1.25rem 0.75rem 0.75rem;
+  }
+
+  .speakerName {
+    font-size: 0.9rem;
+  }
+
+  .speakerDesignation {
+    font-size: 0.75rem;
+  }
+
+  /* Disable scale effect on mobile */
+  .active {
+    transform: scale(1);
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .page {
+    padding: 2rem 0.5rem;
+  }
+
+  .container {
+    padding: 1.25rem 0.875rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .textContainer p {
+    font-size: 0.7rem;
+  }
+
+  .slide {
+    flex: 0 0 85%; /* 1 visible with peek */
+    padding: 0 0.4rem;
+  }
+
+  .carouselContainer {
+    gap: 0.4rem;
+  }
+
+  .navButton {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+    transition:
+      transform 0.08s ease,
+      background 0.08s ease;
+  }
+
+  .navButton:active {
+    transform: scale(0.88);
+  }
+
+  .overlay {
+    padding: 1rem 0.625rem 0.625rem;
+  }
+
+  .speakerName {
+    font-size: 0.85rem;
+  }
+
+  .speakerDesignation {
+    font-size: 0.7rem;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 380px) {
+  .page {
+    padding: 1.75rem 0.375rem;
+  }
+
+  .container {
+    padding: 1rem 0.75rem;
+    border-radius: 0.75rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .textContainer p {
+    font-size: 0.65rem;
+  }
+
+  .slide {
+    flex: 0 0 90%; /* Nearly full width */
+  }
+
+  .navButton {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+    transition:
+      transform 0.08s ease,
+      background 0.08s ease;
+  }
+}
+
+/* Touch devices - always show overlay and faster response */
+@media (hover: none) and (pointer: coarse) {
+  .overlay {
+    transform: translateY(0);
+  }
+
+  .imageWrap:hover .overlay {
+    transform: translateY(0);
+  }
+
+  /* Remove hover scale and grayscale on touch devices */
+  .image {
+    filter: none;
+  }
+
+  .imageWrap:hover .image {
+    transform: scale(1);
+    filter: none;
+  }
+
+  /* Super fast button response on touch */
+  .navButton {
+    transition:
+      transform 0.05s ease,
+      background 0.05s ease;
+  }
+
+  .navButton:active {
+    transform: scale(0.85);
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .page {
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    padding: 1.5rem 2rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .slide {
+    flex: 0 0 33.333%; /* 3 visible in landscape */
   }
 }

@@ -12,6 +12,7 @@
 .logo {
   width: 4rem;
   height: fit-content;
+  cursor: pointer;
 }
 
 .logo img {
@@ -24,6 +25,8 @@
   font-size: 0.875rem;
   gap: 4rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .navlinks li a {
@@ -85,6 +88,7 @@
   font-weight: bold;
   font-size: 14px;
   transition: all 0.15s ease;
+  flex-shrink: 0;
 }
 
 .button::before,
@@ -191,4 +195,88 @@
 
 .button:hover .button_lg::after {
   background-color: #ff4655;
+}
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+  .navlinks ul {
+    gap: 2rem;
+  }
+
+  .navlinks ul {
+    font-size: 0.8rem;
+  }
+}
+
+/* Smaller tablets */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .navlinks ul {
+    gap: 1.5rem;
+  }
+
+  .button {
+    font-size: 12px;
+  }
+
+  .button_lg {
+    padding: 8px 16px;
+  }
+}
+
+/* Mobile landscape and below */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .navlinks ul {
+    gap: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .logo {
+    width: 3rem;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 640px) {
+  .navlinks {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .button {
+    font-size: 11px;
+  }
+
+  .button_lg {
+    padding: 8px 12px;
+  }
+}
+
+/* Very small mobile */
+@media (max-width: 380px) {
+  .navbar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .logo {
+    width: 2.5rem;
+  }
+
+  .button {
+    font-size: 10px;
+  }
+
+  .button_lg {
+    padding: 6px 10px;
+  }
 }

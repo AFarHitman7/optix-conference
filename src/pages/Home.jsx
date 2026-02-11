@@ -2,9 +2,6 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import styles from "./Home.module.css";
 import background2 from "./assets/background.png";
-import prev1 from "./assets/prev1.webp";
-import prev2 from "./assets/prev2.webp";
-import prev3 from "./assets/prev3.webp";
 import About from "./About";
 import Speakers from "./Speakers";
 import Contact from "./Contact";
@@ -40,7 +37,10 @@ export default function Home() {
               >
                 <span>Register</span>
               </button>{" "}
-              <button className={`${styles.moreButton} ${styles.btnShine}`}>
+              <button
+                className={`${styles.moreButton} ${styles.btnShine}`}
+                onClick={() => navigate("./about")}
+              >
                 <span>Learn more</span>
               </button>
             </div>

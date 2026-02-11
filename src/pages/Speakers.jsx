@@ -1,13 +1,38 @@
 import styles from "./Speakers.module.css";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const images = import.meta.glob("./assets/speakers/*.png", { eager: true });
 
-const speakers = Object.values(images).map((m, i) => ({
-  id: i + 1,
-  img: m.default,
-  name: `Speaker ${i + 1}`,
-}));
+const speakerMeta = {
+  "101.png": {
+    name: "Dr. A. Raman",
+    designation: "IISc Bangalore",
+  },
+  "102.png": {
+    name: "Prof. Meera Nair",
+    designation: "NIT Calicut",
+  },
+  "103.png": {
+    name: "Dr. Arjun Menon",
+    designation: "IIT Madras",
+  },
+  "104.png": {
+    name: "Dr. Kavya Iyer",
+    designation: "TIFR Mumbai",
+  },
+};
+
+const speakers = Object.entries(images).map(([path, module], index) => {
+  const fileName = path.split("/").pop(); // "01.png"
+
+  return {
+    id: index + 1,
+    img: module.default,
+    name: speakerMeta[fileName]?.name || "Unknown Speaker",
+    designation: speakerMeta[fileName]?.designation || "",
+  };
+});
+
 const SpeakerCard = ({ speaker }) => {
   return (
     <div className={styles.speakerCard}>
@@ -25,46 +50,82 @@ const SpeakerCard = ({ speaker }) => {
 const SpeakerCarousel = () => {
   const carouselRef = useRef(null);
   const intervalRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Duplicate speakers for infinite loop
   const infiniteSpeakers = [...speakers, ...speakers, ...speakers];
 
-  const scroll = (direction) => {
-    if (carouselRef.current) {
-      const cardWidth = carouselRef.current.offsetWidth / 4;
-      const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
+  const updateActive = () => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const center = el.scrollLeft + el.offsetWidth / 2;
+
+    const cards = Array.from(el.children);
+    let closest = 0;
+    let min = Infinity;
+
+    cards.forEach((card, i) => {
+      const box = card.offsetLeft + card.offsetWidth / 2;
+      const d = Math.abs(center - box);
+      if (d < min) {
+        min = d;
+        closest = i;
+      }
+    });
+
+    setActiveIndex(closest);
   };
 
-  const checkAndResetPosition = () => {
-    if (carouselRef.current) {
-      const scrollLeft = carouselRef.current.scrollLeft;
-      const scrollWidth = carouselRef.current.scrollWidth;
-      const clientWidth = carouselRef.current.offsetWidth;
+  const getScrollAmount = () => {
+    const el = carouselRef.current;
+    if (!el) return 0;
 
-      // Calculate the width of one set of speakers
-      const singleSetWidth = scrollWidth / 3;
+    const width = el.offsetWidth;
 
-      // If we've scrolled past 2 sets, reset to the middle set
-      if (scrollLeft >= singleSetWidth * 2 - clientWidth) {
-        carouselRef.current.scrollLeft = singleSetWidth;
-      }
-      // If we've scrolled before the first set, jump to the second set
-      else if (scrollLeft <= 0) {
-        carouselRef.current.scrollLeft = singleSetWidth;
-      }
+    // Responsive scroll amounts based on screen width
+    if (width <= 380) {
+      // Very small mobile - scroll nearly full width (90%)
+      return width * 0.9;
+    } else if (width <= 480) {
+      // Small mobile - scroll 85% of width
+      return width * 0.85;
+    } else if (width <= 640) {
+      // Mobile portrait - scroll 70% of width
+      return width * 0.7;
+    } else if (width <= 900) {
+      // Small tablets - scroll 50% (one card when 2 visible)
+      return width * 0.5;
+    } else if (width <= 1200) {
+      // Tablets - scroll 33% (one card when 3 visible)
+      return width * 0.33;
+    } else {
+      // Desktop - scroll 25% (one card when 4 visible)
+      return width * 0.25;
     }
   };
 
   const autoScroll = () => {
-    if (carouselRef.current) {
-      const cardWidth = carouselRef.current.offsetWidth / 4;
-      carouselRef.current.scrollBy({ left: cardWidth, behavior: "smooth" });
+    const el = carouselRef.current;
+    if (!el) return;
 
-      // Check position after animation completes
-      setTimeout(checkAndResetPosition, 500);
-    }
+    el.scrollBy({
+      left: getScrollAmount(),
+      behavior: "smooth",
+    });
+  };
+
+  const scroll = (dir) => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const amount = getScrollAmount();
+
+    el.scrollBy({
+      left: dir === "left" ? -amount : amount,
+      behavior: "smooth",
+    });
+
+    stopAutoScroll();
   };
 
   const startAutoScroll = () => {
@@ -74,52 +135,68 @@ const SpeakerCarousel = () => {
   const stopAutoScroll = () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
+      intervalRef.current = null;
     }
   };
 
   useEffect(() => {
-    // Set initial scroll position to the middle set
-    if (carouselRef.current) {
-      const singleSetWidth = carouselRef.current.scrollWidth / 3;
-      carouselRef.current.scrollLeft = singleSetWidth;
-    }
+    const el = carouselRef.current;
+    if (!el) return;
+
+    // start from middle set
+    el.scrollLeft = el.scrollWidth / 3;
 
     startAutoScroll();
+
+    el.addEventListener("scroll", updateActive);
+
+    // Handle window resize to recalculate scroll amounts
+    const handleResize = () => {
+      updateActive();
+    };
+    window.addEventListener("resize", handleResize);
 
     return () => {
       stopAutoScroll();
+      el.removeEventListener("scroll", updateActive);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  const handleManualScroll = (direction) => {
-    stopAutoScroll();
-    scroll(direction);
-    setTimeout(checkAndResetPosition, 500);
-    startAutoScroll();
-  };
-
   return (
-    <div
-      className={styles.carouselContainer}
-      onMouseEnter={stopAutoScroll}
-      onMouseLeave={startAutoScroll}
-    >
+    <div className={styles.carouselContainer}>
       <button
         className={styles.navButton}
-        onClick={() => handleManualScroll("left")}
-        aria-label="Previous"
+        onClick={() => scroll("left")}
+        aria-label="Previous speaker"
       >
         ‹
       </button>
-      <div className={styles.carousel} ref={carouselRef}>
-        {infiniteSpeakers.map((speaker, index) => (
-          <SpeakerCard key={`${speaker.id}-${index}`} speaker={speaker} />
+
+      <div
+        className={styles.carousel}
+        ref={carouselRef}
+        onMouseEnter={stopAutoScroll}
+        onMouseLeave={startAutoScroll}
+        onTouchStart={stopAutoScroll}
+        onTouchEnd={startAutoScroll}
+      >
+        {infiniteSpeakers.map((speaker, i) => (
+          <div
+            key={`${speaker.id}-${i}`}
+            className={`${styles.slide} ${
+              i === activeIndex ? styles.active : ""
+            }`}
+          >
+            <SpeakerCard speaker={speaker} />
+          </div>
         ))}
       </div>
+
       <button
         className={styles.navButton}
-        onClick={() => handleManualScroll("right")}
-        aria-label="Next"
+        onClick={() => scroll("right")}
+        aria-label="Next speaker"
       >
         ›
       </button>

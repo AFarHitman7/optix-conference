@@ -31,6 +31,7 @@
   color: #cfd3ff;
   text-transform: uppercase;
   width: 50%;
+  margin: 0;
 }
 
 .title::before,
@@ -52,6 +53,7 @@
   text-shadow:
     0 0 6px rgba(120, 140, 255, 0.35),
     0 0 14px rgba(80, 100, 255, 0.2);
+  white-space: nowrap;
 }
 
 .grid {
@@ -70,7 +72,6 @@
   position: relative;
   width: 21rem;
   height: 6rem;
-  aspect-ratio: 1;
   overflow: hidden;
   border-radius: 0;
   background-color: #0c0e17;
@@ -95,6 +96,7 @@
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
   transform: translateY(100%);
   transition: transform 0.3s ease;
+  pointer-events: none;
 }
 
 .imageWrap:hover .overlay {
@@ -113,22 +115,265 @@
   opacity: 0.85;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Large tablets and small desktops */
+@media (max-width: 1200px) {
+  .page {
+    padding-top: 5rem;
+  }
+
   .container {
-    padding: 2.5rem 2rem;
+    gap: 3.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    letter-spacing: 0.15rem;
+    width: 60%;
+  }
+
+  .imageWrap {
+    width: 19rem;
+    height: 5.5rem;
+  }
+}
+
+/* Medium tablets */
+@media (max-width: 1024px) {
+  .page {
+    padding-top: 4.5rem;
+  }
+
+  .container {
+    gap: 3rem;
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    letter-spacing: 0.12rem;
+    width: 65%;
+    gap: 1.25rem;
+  }
+
+  .imageWrap {
+    width: 18rem;
+    height: 5rem;
+  }
+
+  .sponsorName {
+    font-size: 1rem;
+  }
+
+  .sponsorTagline {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small tablets */
+@media (max-width: 900px) {
+  .page {
+    padding-top: 4rem;
+  }
+
+  .container {
+    gap: 2.75rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+    width: 70%;
+  }
+
+  .imageWrap {
+    width: 16rem;
+    height: 4.75rem;
+  }
+}
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  .page {
+    padding-top: 3.5rem;
+  }
+
+  .container {
+    gap: 2.5rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    letter-spacing: 0.08rem;
+    width: 75%;
+    gap: 1rem;
   }
 
   .grid {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
   }
 
-  .textContainer {
-    flex-direction: column;
-    gap: 1rem;
+  .imageWrap {
+    width: 15rem;
+    height: 4.5rem;
   }
 
-  .textContainer p {
-    width: 100%;
+  .overlay {
+    padding: 1.5rem 0.875rem 0.875rem;
+  }
+
+  .sponsorName {
+    font-size: 0.95rem;
+  }
+
+  .sponsorTagline {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile landscape and below */
+@media (max-width: 640px) {
+  .page {
+    padding-top: 3rem;
+  }
+
+  .container {
+    gap: 2.25rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    letter-spacing: 0.06rem;
+    width: 85%;
+    gap: 0.875rem;
+  }
+
+  .title span {
+    padding: 0 0.375rem;
+  }
+
+  .imageWrap {
+    width: 14rem;
+    height: 4.25rem;
+  }
+
+  /* Hide overlay on mobile - logos should be fully visible */
+  .overlay {
+    display: none;
+  }
+
+  .imageWrap:hover .overlay {
+    display: none;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .page {
+    padding-top: 2.5rem;
+  }
+
+  .container {
+    gap: 2rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .title {
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    width: 90%;
+    gap: 0.75rem;
+  }
+
+  .imageWrap {
+    width: 13rem;
+    height: 4rem;
+  }
+
+  /* Ensure overlay is hidden */
+  .overlay {
+    display: none;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 380px) {
+  .page {
+    padding-top: 2rem;
+  }
+
+  .container {
+    gap: 1.75rem;
+    padding: 0.625rem 0.375rem;
+  }
+
+  .title {
+    font-size: 0.9rem;
+    letter-spacing: 0.04rem;
+    width: 95%;
+    gap: 0.5rem;
+  }
+
+  .imageWrap {
+    width: 11.5rem;
+    height: 3.75rem;
+  }
+
+  /* Ensure overlay is hidden */
+  .overlay {
+    display: none;
+  }
+}
+
+/* Touch devices - hide overlay completely */
+@media (hover: none) and (pointer: coarse) {
+  .overlay {
+    display: none;
+  }
+
+  .imageWrap:hover .overlay {
+    display: none;
+  }
+
+  /* Remove hover effects on touch devices */
+  .imageWrap:hover .image {
+    transform: none;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .page {
+    padding-top: 2rem;
+  }
+
+  .container {
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .imageWrap {
+    width: 14rem;
+    height: 4rem;
+  }
+
+  /* Hide overlay in landscape too */
+  .overlay {
+    display: none;
+  }
+}
+
+/* Very wide screens - limit title width */
+@media (min-width: 1600px) {
+  .title {
+    width: 40%;
   }
 }

@@ -36,6 +36,7 @@
   font-size: 2rem;
   font-weight: 600;
   margin: 0 0 0.5rem 0;
+  line-height: 1.2;
 }
 
 .dateRange {
@@ -63,6 +64,8 @@
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
   border-bottom: 2px solid transparent;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .tab:hover {
@@ -112,6 +115,7 @@
 .location {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.5);
+  line-height: 1.4;
 }
 
 .detailsSection {
@@ -131,6 +135,7 @@
   font-weight: 600;
   margin: 0;
   text-transform: uppercase;
+  line-height: 1.3;
 }
 
 .breakTitle {
@@ -141,6 +146,7 @@
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.5);
   margin: 0;
+  line-height: 1.4;
 }
 
 .eventSection {
@@ -152,6 +158,7 @@
 .eventType {
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
 }
 
 .downloadSection {
@@ -172,6 +179,8 @@
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .downloadButton:hover {
@@ -179,27 +188,415 @@
   border-color: rgba(255, 255, 255, 0.3);
 }
 
+.downloadButton:active {
+  transform: scale(0.98);
+}
+
 .downloadButton svg {
   width: 1rem;
   height: 1rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Large tablets */
+@media (max-width: 1024px) {
   .container {
-    padding: 1.5rem;
+    max-width: 45rem;
+    padding: 2.25rem;
+  }
+
+  .title {
+    font-size: 1.875rem;
+  }
+
+  .scheduleItem {
+    gap: 1.25rem;
+  }
+}
+
+/* Medium tablets */
+@media (max-width: 900px) {
+  .page {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .container {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .scheduleItem {
+    grid-template-columns: 0.9fr 2fr 1fr;
+    gap: 1rem;
+  }
+
+  .time {
+    font-size: 0.85rem;
+  }
+
+  .eventTitle {
+    font-size: 0.9rem;
+  }
+
+  .subtitle {
+    font-size: 0.75rem;
+  }
+
+  .eventType {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  .page {
+    padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+
+  .container {
+    padding: 1.75rem 1.5rem;
+    border-radius: 0.875rem;
+  }
+
+  .header {
+    margin-bottom: 1.75rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .dateRange {
+    font-size: 0.8rem;
+  }
+
+  .tabs {
+    margin-bottom: 1.75rem;
+    justify-content: center;
+  }
+
+  .tab {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  .scheduleList {
+    gap: 1.25rem;
   }
 
   .scheduleItem {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 0.875rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .timeSection {
+    gap: 0.35rem;
+  }
+
+  .time {
+    font-size: 0.875rem;
+  }
+
+  .location {
+    font-size: 0.7rem;
+  }
+
+  .eventTitle {
+    font-size: 0.875rem;
+  }
+
+  .subtitle {
+    font-size: 0.75rem;
   }
 
   .eventSection {
     justify-content: flex-start;
   }
 
+  .eventType {
+    font-size: 0.8rem;
+  }
+
+  .downloadSection {
+    margin-top: 2rem;
+  }
+
+  .downloadButton {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 640px) {
+  .page {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .container {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .header {
+    margin-bottom: 1.5rem;
+  }
+
   .title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .dateRange {
+    font-size: 0.75rem;
+  }
+
+  .tabs {
+    margin-bottom: 1.5rem;
+    gap: 0.375rem;
+  }
+
+  .tab {
+    padding: 0.65rem 1rem;
+    font-size: 0.75rem;
+    flex: 1;
+  }
+
+  .scheduleList {
+    gap: 1.125rem;
+  }
+
+  .scheduleItem {
+    gap: 0.75rem;
+    padding-bottom: 1.125rem;
+  }
+
+  .time {
+    font-size: 0.8rem;
+  }
+
+  .location {
+    font-size: 0.675rem;
+  }
+
+  .eventTitle {
+    font-size: 0.825rem;
+  }
+
+  .subtitle {
+    font-size: 0.7rem;
+  }
+
+  .eventType {
+    font-size: 0.75rem;
+  }
+
+  .downloadSection {
+    margin-top: 1.75rem;
+  }
+
+  .downloadButton {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.75rem;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .page {
+    padding: 1rem 0.625rem;
+  }
+
+  .container {
+    padding: 1.25rem 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .header {
+    margin-bottom: 1.25rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .dateRange {
+    font-size: 0.7rem;
+  }
+
+  .tabs {
+    margin-bottom: 1.25rem;
+  }
+
+  .tab {
+    padding: 0.6rem 0.875rem;
+    font-size: 0.7rem;
+  }
+
+  .scheduleList {
+    gap: 1rem;
+  }
+
+  .scheduleItem {
+    gap: 0.625rem;
+    padding-bottom: 1rem;
+  }
+
+  .timeSection {
+    gap: 0.25rem;
+  }
+
+  .time {
+    font-size: 0.75rem;
+  }
+
+  .location {
+    font-size: 0.65rem;
+  }
+
+  .eventTitle {
+    font-size: 0.775rem;
+  }
+
+  .subtitle {
+    font-size: 0.675rem;
+  }
+
+  .eventType {
+    font-size: 0.7rem;
+  }
+
+  .downloadSection {
+    margin-top: 1.5rem;
+  }
+
+  .downloadButton {
+    padding: 0.6rem 1.125rem;
+    font-size: 0.7rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .downloadButton svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 380px) {
+  .page {
+    padding: 0.875rem 0.5rem;
+  }
+
+  .container {
+    padding: 1rem 0.875rem;
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+
+  .dateRange {
+    font-size: 0.65rem;
+  }
+
+  .tab {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.65rem;
+  }
+
+  .scheduleList {
+    gap: 0.875rem;
+  }
+
+  .scheduleItem {
+    gap: 0.5rem;
+    padding-bottom: 0.875rem;
+  }
+
+  .time {
+    font-size: 0.7rem;
+  }
+
+  .location {
+    font-size: 0.625rem;
+  }
+
+  .eventTitle {
+    font-size: 0.725rem;
+  }
+
+  .subtitle {
+    font-size: 0.65rem;
+  }
+
+  .eventType {
+    font-size: 0.675rem;
+  }
+
+  .downloadButton {
+    padding: 0.55rem 1rem;
+    font-size: 0.675rem;
+  }
+}
+
+/* Touch devices - faster tap response */
+@media (hover: none) and (pointer: coarse) {
+  .tab {
+    transition: all 0.1s ease;
+  }
+
+  .tab:active {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .downloadButton {
+    transition: all 0.1s ease;
+  }
+
+  .downloadButton:active {
+    transform: scale(0.96);
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .page {
+    padding: 1.25rem 1rem;
+  }
+
+  .container {
+    padding: 1.5rem 2rem;
+  }
+
+  .header {
+    margin-bottom: 1.25rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .scheduleList {
+    gap: 1rem;
+  }
+
+  .scheduleItem {
+    padding-bottom: 1rem;
+  }
+
+  .downloadSection {
+    margin-top: 1.5rem;
   }
 }
