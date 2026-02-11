@@ -5,20 +5,48 @@ const images = import.meta.glob("./assets/speakers/*.png", { eager: true });
 
 const speakerMeta = {
   "101.png": {
-    name: "Dr. A. Raman",
-    designation: "IISc Bangalore",
+    name: "Prof Chennupati  Jagadish",
+    designation: "The Australian national univesity canberro",
   },
   "102.png": {
-    name: "Prof. Meera Nair",
-    designation: "NIT Calicut",
+    name: "Prof Ashokan",
+    designation: "IISc Banglore",
   },
   "103.png": {
-    name: "Dr. Arjun Menon",
-    designation: "IIT Madras",
+    name: "Dr Ashok Kumar",
+    designation: "IIST Thiruvananthupuram",
   },
   "104.png": {
-    name: "Dr. Kavya Iyer",
-    designation: "TIFR Mumbai",
+    name: "Aparajita Bandyopadhyay",
+    designation: "Goethe Universitat Frankfurt, Germany",
+  },
+  "105.png": {
+    name: "Dr Mukesh Jewariya",
+    designation: "Senior Scientist, CSIR -NPL",
+  },
+  "106.png": {
+    name: "Prof Pavan Kumar GV",
+    designation: "IISER PUNE",
+  },
+  "107.png": {
+    name: "Dr Amol Choudhary",
+    designation: "IIT Delhi",
+  },
+  "108.png": {
+    name: "Prof V Subramanian",
+    designation: "IIT Madras",
+  },
+  "109.png": {
+    name: "Dr K Nithyanandan",
+    designation: "IIT Hyderbad",
+  },
+  "110.png": {
+    name: "Prof Prem B Bisht",
+    designation: "IIT Madras",
+  },
+  "111.png": {
+    name: "Dr Sajan Daniel George",
+    designation: "Manipal Institute of Applied Physics",
   },
 };
 

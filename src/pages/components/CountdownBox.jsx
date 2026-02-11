@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./CountdownBox.module.css";
 import cdbg from "../assets/about/cdbg.png";
 
-const TARGET_DATE = new Date("2026-02-20T09:00:00");
+const TARGET_DATE = new Date("2026-04-01T09:00:00");
 
 function getTimeLeft() {
   const diff = TARGET_DATE - new Date();
