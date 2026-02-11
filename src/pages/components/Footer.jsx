@@ -160,17 +160,6 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            <div className={styles.newsletter}>
-              <h4 className={styles.newsletterTitle}>Newsletter</h4>
-              <div className={styles.newsletterForm}>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className={styles.newsletterInput}
-                />
-                <button className={styles.newsletterButton}>Subscribe</button>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -181,19 +170,6 @@ const Footer = () => {
             © 2026 Optix International Conference - Optica Student Chapter, NIT
             Calicut. All rights reserved.
           </p>
-          <div className={styles.bottomLinks}>
-            <a href="#privacy" className={styles.bottomLink}>
-              Privacy Policy
-            </a>
-            <span className={styles.separator}>•</span>
-            <a href="#terms" className={styles.bottomLink}>
-              Terms of Service
-            </a>
-            <span className={styles.separator}>•</span>
-            <a href="#cookies" className={styles.bottomLink}>
-              Cookie Policy
-            </a>
-          </div>
         </div>
       </div>
 
