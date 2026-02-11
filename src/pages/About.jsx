@@ -24,15 +24,18 @@ export default function About() {
               </h1>
 
               <p className={styles.description}>
-                OPTIX 2026 is an international academic conference organized by
-                the Optica Student Chapter, Department of Physics, National
-                Institute of Technology Calicut. The conference brings together
-                students, researchers, academicians, and industry professionals
-                to discuss recent advancements and emerging trends in optics,
-                lasers, and photonics. The event aims to foster knowledge
-                exchange, encourage interdisciplinary collaboration, and promote
-                research dissemination through keynote lectures, invited talks,
-                and technical sessions.
+                The National Institute of Technology Calicut (NITC), recognised
+                as an Institution of National Importance and fully funded by the
+                Government of India, boasts a remarkable 63-year legacy of
+                excellence. As one of the leading technical education
+                institutions in the country, NITC is the largest among the NITs,
+                hosting approximately 8,000 students and 420 faculty members.
+                Committed to attaining international acclaim of the highest
+                calibre, NITC offers 11 undergraduate and 30 postgraduate
+                programs across 15 departments, along with several
+                inter-disciplinary and multidisciplinary centres. Additionally,
+                full-time and part-time doctoral research programs are available
+                in all departments.
               </p>
 
               <button className={styles.registerButton}>

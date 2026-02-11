@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
 .page {
   background: linear-gradient(
     145deg,
@@ -177,12 +178,19 @@
 }
 
 .mainColumn .title {
-  font-size: 3.8rem;
-  font-family: Satoshi-Bold;
+  font-size: 5rem;
+  font-family: "Orbitron", sans-serif;
   letter-spacing: 0.1rem;
   text-align: center;
   line-height: 1.2;
   margin: 0;
+}
+
+.subtitle {
+  font-family: Satoshi-Light;
+  font-weight: 300;
+  font-size: 1.875rem;
+  text-align: center;
 }
 
 .mainColumn .description {
@@ -196,6 +204,7 @@
 }
 
 .mainColumn .buttons {
+  font-family: Satoshi-Regular;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -417,11 +426,15 @@
   }
 
   .mainColumn .title {
-    font-size: 1.75rem;
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 
   .mainColumn .description {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     max-width: 340px;
   }
 

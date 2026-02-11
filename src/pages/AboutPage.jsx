@@ -1,7 +1,10 @@
-import React from "react";
 import styles from "./AboutPage.module.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
+import vs from "./assets/about/varisivaji.png";
+import rv from "./assets/about/RaviVarma.png";
+import cs from "./assets/about/chandrashekaran.png";
 
 const AboutPage = () => {
   return (
@@ -20,11 +23,16 @@ const AboutPage = () => {
               <p className={styles.description}>
                 The National Institute of Technology Calicut (NITC), recognised
                 as an Institution of National Importance and fully funded by the
-                Government of India, boasts a 63-year legacy of excellence. As
-                one of the largest NITs in the country, NITC hosts approximately
-                8,000 students and 420 faculty members across 15 departments,
-                offering undergraduate, postgraduate, and doctoral programmes
-                with strong interdisciplinary foundations.
+                Government of India, boasts a remarkable 63-year legacy of
+                excellence. As one of the leading technical education
+                institutions in the country, NITC is the largest among the NITs,
+                hosting approximately 8,000 students and 420 faculty members.
+                Committed to attaining international acclaim of the highest
+                calibre, NITC offers 11 undergraduate and 30 postgraduate
+                programs across 15 departments, along with several
+                inter-disciplinary and multidisciplinary centres. Additionally,
+                full-time and part-time doctoral research programs are available
+                in all departments.
               </p>
             </div>
 
@@ -45,12 +53,18 @@ const AboutPage = () => {
                 NITC <span>Optica Student Chapter</span>
               </h2>
               <p className={styles.description}>
-                Optica is a global platform for optics and photonics that
-                facilitates knowledge exchange through publications, meetings,
-                and collaborative initiatives. The NITC Optica Student Chapter
-                is a student-led body focused on advancing research, innovation,
-                and professional development through workshops, seminars,
-                competitions, and global networking opportunities.
+                Optica serves as a prominent global platform for optics and
+                photonics, aiming to share quality knowledge and facilitate
+                inspiring connections through its worldwide activities,
+                including inspiring interactions, publications, meetings, and
+                membership. The Optica Student Chapter is a student-driven
+                initiative focused on advancing research and innovation in
+                optics, photonics, and related fields. It aims to create
+                opportunities for networking with global experts, peers, and
+                professionals while organising workshops, seminars, and
+                competitions to foster learning and skill development.
+                Additionally, the chapter facilitates access to resources,
+                scholarships, and conferences supported by Optica.
               </p>
             </div>
 
@@ -71,12 +85,25 @@ const AboutPage = () => {
                 About <span>The Conference</span>
               </h2>
               <p className={styles.description}>
-                OPTIX 2026 marks the first international conference organised by
-                the NIT Calicut Optica Student Chapter. Built on years of
-                academic outreach, workshops, and technical events, the
-                conference aims to foster meaningful exchange between
-                researchers, students, and industry professionals in optics and
-                photonics.
+                Through a series of interactive workshops, technical talks,
+                outreach initiatives, and an exhibition focused on optics and
+                photonics for students and the larger academic community, the
+                NIT Calicut Optica Student Chapter has continuously been active
+                in advancing education and awareness in these fields. As the
+                chapter's first international conference, OPTIX-2026 represents
+                a major milestone built upon this solid foundation of academic
+                and outreach initiatives. The chapter's dedication to promoting
+                excellent scientific exchange and providing a forum for
+                communication between researchers, students, and business
+                professionals is reflected in the conference. By organising
+                OPTIX-2026, the chapter hopes to transform its academic
+                involvement from regional endeavours into a worldwide research
+                forum in photonics, optics, and lasers. By introducing them to
+                cutting-edge research fields and distinguished professionals
+                from academia and business, the event also aims to inspire young
+                researchers. All things considered, OPTIX-2026 is a calculated
+                move to improve the culture of optics and photonics research at
+                NIT Calicut and elsewhere.
               </p>
             </div>
 
@@ -113,16 +140,19 @@ const AboutPage = () => {
                     name: "Dr Vari Shivaji Reddy",
                     role: "HoD, Associate Professor",
                     dept: "Dept of Physics, NIT Calicut",
+                    image: vs,
                   },
                   {
                     name: "Prof. Chandrasekharan K.",
                     role: "Professor (HAG)",
                     dept: "Dept of Physics, NIT Calicut",
+                    image: cs,
                   },
                   {
                     name: "Prof. Ravi Varma Mundakkara Kovilakam",
                     role: "Professor",
                     dept: "Dept of Physics, NIT Calicut",
+                    image: rv,
                   },
                   {
                     name: "Prof. Aji A Anappara",
@@ -131,7 +161,9 @@ const AboutPage = () => {
                   },
                 ].map((person, index) => (
                   <div key={index} className={styles.personCard}>
-                    <div className={styles.photoPlaceholder} />
+                    <div className={styles.photoPlaceholder}>
+                      <img src={person.image} alt="" />
+                    </div>
                     <h3>{person.name}</h3>
                     <p className={styles.role}>{person.role}</p>
                     <p className={styles.dept}>{person.dept}</p>

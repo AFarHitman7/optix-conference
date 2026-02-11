@@ -191,7 +191,7 @@
 ================================= */
 
 .mediaWrapper {
-  flex: 1 1 450px;
+  flex: 1 1 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -276,6 +276,11 @@
   );
   border: 1px dashed rgba(255, 255, 255, 0.15);
   margin-bottom: 0.8rem;
+}
+
+.photoPlaceholder img {
+  height: 100%;
+  width: 100%;
 }
 
 .personCard h3 {

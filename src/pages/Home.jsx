@@ -22,13 +22,13 @@ export default function Home() {
           </div>
           <div className={styles.mainColumn}>
             <div className={styles.date}>April 1 - 2 2026, NIT Calicut</div>
-            <h1 className={styles.title}>
-              Optix International <br></br>Conference 2026
+            <h1 className={styles.title}>OPTIX 2026</h1>
+            <h1 className={styles.subtitle}>
+              Internation Conference on Optics, Lasers & Photonics
             </h1>
             <p className={styles.description}>
-              An international academic conference by the Optica Student
-              Chapter, Department of Physics, NIT Calicut, uniting researchers
-              and professionals in optics, lasers, and photonics.
+              Organised by NIT Calicut Optica student chapter, Department of
+              physics, NIT Calicut
             </p>
             <div className={styles.buttons}>
               <button
