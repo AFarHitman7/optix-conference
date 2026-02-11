@@ -1,75 +1,115 @@
-/* ================= CONTAINER ================= */
+/* ================= PAGE ================= */
+
+.page {
+  background: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ================= HERO SECTION ================= */
+
+.heroSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(420px, 60vh, 700px);
+  padding: clamp(2rem, 6vw, 4rem);
+  background: #050308;
+  color: #ffffff;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+}
+
+.background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.leftColumn {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.leftColumn .date {
+  width: fit-content;
+  background: #0f1017;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+.leftColumn .title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.leftColumn .description {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+}
+
+/* ================= FORM CONTAINER ================= */
 
 .container {
-  width: 800px;
-  max-width: 95%;
-  margin: 4rem auto;
-  padding: 2rem;
+  width: min(900px, 95%);
+  margin: clamp(2rem, 6vw, 4rem) auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   background: #ffffff;
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
 .textContainer {
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 1.8rem;
 }
 
 .textContainer .title {
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .subtitle {
   font-size: 0.95rem;
-  color: #475569ce;
-  margin-bottom: 2rem;
+  color: #475569;
 }
 
-/* ================= FORM FLEX LAYOUT ================= */
+/* ================= FORM GRID ================= */
 
 .form {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.2rem;
-  justify-content: space-between;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  flex: 1 1 48%;
 }
 
 .full {
-  flex: 1 1 100%;
+  grid-column: 1 / -1;
 }
+
+/* ================= INPUTS ================= */
+
+.input,
 .select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  padding: 0.75rem 2rem 0.75rem 0.9rem;
-  border-radius: 0;
-  border: 1px solid #33333333;
-  font-size: 0.95rem;
-  background-color: #ffffff;
-  cursor: pointer;
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6 6 6-6' stroke='%230f172a' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 12px;
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.input {
   padding: 0.75rem 0.9rem;
-  border-radius: 0;
   border: 1px solid #33333333;
   font-size: 0.95rem;
   background: #ffffff;
@@ -78,11 +118,20 @@
     box-shadow 0.2s ease;
 }
 
+.select {
+  appearance: none;
+  padding-right: 2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6 6 6-6' stroke='%230f172a' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+
 .input:focus,
 .select:focus {
   outline: none;
   border-color: #0f172a;
-  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.08);
 }
 
 .error {
@@ -91,31 +140,30 @@
   margin-top: 0.4rem;
 }
 
-/* ================= PRESENTATION ROW ================= */
+/* ================= PRESENTATION ================= */
 
 .presentRow {
   display: flex;
-  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-.presentRow > * {
-  width: 49%;
+.presentRow select {
+  flex: 1;
 }
 
 .presentationBoxInline {
   display: flex;
   gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .checkboxCard {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   padding: 0.6rem 1rem;
   border: 1px solid #33333333;
-  border-radius: 0;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -133,21 +181,19 @@
 
 .paymentBox {
   text-align: center;
-  margin-top: 1rem;
 }
 
 .qrImage {
-  width: 300px;
-  height: 300px;
-  background-color: #050308;
+  width: min(260px, 80%);
+  height: auto;
   margin-top: 1rem;
 }
 
 /* ================= SUBMIT ================= */
 
 .submit {
-  width: 100%;
-  margin-top: 2rem;
+  grid-column: 1 / -1;
+  margin-top: 1.5rem;
   padding: 0.9rem;
   border-radius: 10px;
   border: none;
@@ -163,7 +209,7 @@
 
 .submit:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
 }
 
 /* ================= MODAL ================= */
@@ -182,17 +228,16 @@
 
 .modal {
   background: #ffffff;
-  padding: 2rem 2.2rem;
+  padding: 2rem;
   border-radius: 14px;
-  max-width: 380px;
-  width: 90%;
+  width: min(380px, 90%);
   text-align: center;
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
   animation: modalIn 0.25s ease-out;
 }
 
 .modalTitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.6rem;
   color: #0f172a;
@@ -201,16 +246,15 @@
 .modalText {
   font-size: 0.95rem;
   color: #475569;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.4rem;
 }
 
 .modalButton {
   padding: 0.6rem 1.4rem;
-  border-radius: 10px;
+  border-radius: 8px;
   border: none;
   background: #0f172a;
   color: #ffffff;
-  font-size: 0.9rem;
   cursor: pointer;
 }
 
@@ -225,99 +269,28 @@
   }
 }
 
-/* ================= PAGE BACKGROUND ================= */
-
-.page {
-  background-color: #fff;
-
-  position: relative;
-  overflow: hidden;
-}
-
-.page > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* ================= HERO SECTION ================= */
-
-.heroSection {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 65vh;
-  padding: 0 3rem;
-  margin-top: -2rem;
-  background: #050308;
-  color: #fff;
-}
-
-.background {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 100%;
-  width: 50%;
-  opacity: 0.7;
-  overflow: hidden;
-}
-
-.background img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.leftColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 45%;
-}
-
-.leftColumn .date {
-  background: #0f1017;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-}
-
-.leftColumn .title {
-  font-size: 3rem;
-  font-weight: 700;
-}
-
-.leftColumn .description {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.1rem;
-}
-
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 768px) {
-  .field {
-    flex: 1 1 100%;
-  }
-
-  .presentRow {
-    flex-direction: column;
-    align-items: stretch;
+@media (max-width: 900px) {
+  .form {
+    grid-template-columns: 1fr;
   }
 
   .heroSection {
-    flex-direction: column;
-    height: auto;
-    padding: 2rem;
+    text-align: center;
   }
 
   .leftColumn {
-    width: 100%;
+    align-items: center;
   }
 
-  .background {
-    display: none;
+  .leftColumn .description {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .form {
+    width: 90%;
   }
 }
