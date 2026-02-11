@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "./components/Navbar";
 import styles from "./Register.module.css";
-import qrImage from "./assets/logo.svg";
+import qrImage from "./assets/register/qr.png";
 import bg from "./assets/register/bg.png";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import Footer from "./components/Footer";
@@ -161,177 +161,192 @@ export default function Register() {
       </div>
 
       <div className={styles.container}>
-        <h1 className={styles.title}>Register for Optix</h1>
-
+        <div className={styles.textContainer}>
+          <h1 className={styles.title}>Fill the form to join the event.</h1>
+          <p className={styles.subtitle}>
+            Register to participate in OPTIX 2026 International Conference on
+            Optics, Lasers & Photonics.
+          </p>
+        </div>
         <form
           ref={formRef}
           className={styles.form}
           onSubmit={handleSubmit}
           noValidate
         >
-          <div className={styles.grid}>
+          <div className={styles.field}>
+            <input
+              className={styles.input}
+              name="name"
+              placeholder="Full Name"
+            />
+            {errors.name && <span className={styles.error}>{errors.name}</span>}
+          </div>
+
+          <div className={styles.field}>
+            <input
+              className={styles.input}
+              type="email"
+              name="email"
+              placeholder="Email Address"
+            />
+            {errors.email && (
+              <span className={styles.error}>{errors.email}</span>
+            )}
+          </div>
+
+          <div className={styles.field}>
+            <input
+              className={styles.input}
+              name="contact"
+              placeholder="Contact Number"
+            />
+            {errors.contact && (
+              <span className={styles.error}>{errors.contact}</span>
+            )}
+          </div>
+
+          <div className={styles.field}>
+            <select
+              className={styles.select}
+              name="designation"
+              value={designation}
+              onChange={(e) => setDesignation(e.target.value)}
+            >
+              <option value="">Select Designation</option>
+              <option value="ug">Student (UG)</option>
+              <option value="pg">Student (PG)</option>
+              <option value="phd">PhD Scholar</option>
+              <option value="postdoc">Post Doctorate Fellow</option>
+              <option value="faculty">Faculty</option>
+              <option value="industry">Industry Expert</option>
+            </select>
+            {errors.designation && (
+              <span className={styles.error}>{errors.designation}</span>
+            )}
+          </div>
+
+          {["ug", "pg", "phd"].includes(designation) && (
             <div className={styles.field}>
               <input
                 className={styles.input}
-                name="name"
-                placeholder="Full Name"
+                type="number"
+                name="year"
+                placeholder="Current Year"
               />
-              {errors.name && (
-                <span className={styles.error}>{errors.name}</span>
+              {errors.year && (
+                <span className={styles.error}>{errors.year}</span>
               )}
             </div>
+          )}
 
-            <div className={styles.field}>
-              <input
-                className={styles.input}
-                type="email"
-                name="email"
-                placeholder="Email Address"
-              />
-              {errors.email && (
-                <span className={styles.error}>{errors.email}</span>
-              )}
-            </div>
+          <div className={`${styles.field} ${styles.full}`}>
+            <input
+              className={styles.input}
+              name="institute"
+              placeholder="Institute / Industry Name"
+            />
+            {errors.institute && (
+              <span className={styles.error}>{errors.institute}</span>
+            )}
+          </div>
 
-            <div className={styles.field}>
-              <input
-                className={styles.input}
-                name="contact"
-                placeholder="Contact Number"
-              />
-              {errors.contact && (
-                <span className={styles.error}>{errors.contact}</span>
-              )}
-            </div>
+          <div className={styles.field}>
+            <select className={styles.select} name="accommodation">
+              <option value="">Accommodation Required?</option>
+              <option value="yes">Yes (amount later)</option>
+              <option value="no">No</option>
+            </select>
+            {errors.accommodation && (
+              <span className={styles.error}>{errors.accommodation}</span>
+            )}
+          </div>
 
-            <div className={styles.field}>
+          <div className={styles.field}>
+            <select className={styles.select} name="food">
+              <option value="">Food Preference</option>
+              <option value="veg">Vegetarian</option>
+              <option value="nonveg">Non Vegetarian</option>
+            </select>
+            {errors.food && <span className={styles.error}>{errors.food}</span>}
+          </div>
+
+          <div className={`${styles.field} ${styles.full}`}>
+            <div className={styles.presentRow}>
               <select
                 className={styles.select}
-                name="designation"
-                value={designation}
-                onChange={(e) => setDesignation(e.target.value)}
+                name="isPresenting"
+                value={isPresenting}
+                onChange={(e) => {
+                  setIsPresenting(e.target.value);
+                  if (e.target.value === "no") setPresentation([]);
+                }}
               >
-                <option value="">Select Designation</option>
-                <option value="ug">Student (UG)</option>
-                <option value="pg">Student (PG)</option>
-                <option value="phd">PhD Scholar</option>
-                <option value="postdoc">Post Doctorate Fellow</option>
-                <option value="faculty">Faculty</option>
-                <option value="industry">Industry Expert</option>
-              </select>
-              {errors.designation && (
-                <span className={styles.error}>{errors.designation}</span>
-              )}
-            </div>
-
-            {["ug", "pg", "phd"].includes(designation) && (
-              <div className={styles.field}>
-                <input
-                  className={styles.input}
-                  type="number"
-                  name="year"
-                  placeholder="Current Year"
-                />
-                {errors.year && (
-                  <span className={styles.error}>{errors.year}</span>
-                )}
-              </div>
-            )}
-
-            <div className={`${styles.field} ${styles.fullWidth}`}>
-              <input
-                className={styles.input}
-                name="institute"
-                placeholder="Institute / Industry Name"
-              />
-              {errors.institute && (
-                <span className={styles.error}>{errors.institute}</span>
-              )}
-            </div>
-
-            <div className={styles.field}>
-              <select className={styles.select} name="accommodation">
-                <option value="">Accommodation Required?</option>
-                <option value="yes">Yes (amount later)</option>
+                <option value="">Are you presenting?</option>
+                <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
-              {errors.accommodation && (
-                <span className={styles.error}>{errors.accommodation}</span>
-              )}
-            </div>
 
-            <div className={styles.field}>
-              <select className={styles.select} name="food">
-                <option value="">Food Preference</option>
-                <option value="veg">Vegetarian</option>
-                <option value="nonveg">Non Vegetarian</option>
-              </select>
-              {errors.food && (
-                <span className={styles.error}>{errors.food}</span>
-              )}
-            </div>
-
-            <div className={`${styles.field} ${styles.fullWidth}`}>
-              <div className={styles.presentRow}>
-                <select
-                  className={styles.select}
-                  name="isPresenting"
-                  value={isPresenting}
-                  onChange={(e) => {
-                    setIsPresenting(e.target.value);
-                    if (e.target.value === "no") setPresentation([]);
-                  }}
-                >
-                  <option value="">Are you presenting?</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-
+              {isPresenting === "yes" && (
                 <div className={styles.presentationBoxInline}>
-                  {isPresenting === "yes" && (
-                    <>
-                      <label className={styles.checkboxCard}>
-                        <input
-                          type="checkbox"
-                          checked={presentation.includes("paper")}
-                          onChange={() => togglePresentation("paper")}
-                        />
-                        Paper
-                      </label>
+                  <label className={styles.checkboxCard}>
+                    <input
+                      type="checkbox"
+                      checked={presentation.includes("paper")}
+                      onChange={() => togglePresentation("paper")}
+                    />
+                    Paper
+                  </label>
 
-                      <label className={styles.checkboxCard}>
-                        <input
-                          type="checkbox"
-                          checked={presentation.includes("oral")}
-                          onChange={() => togglePresentation("oral")}
-                        />
-                        Oral
-                      </label>
-                    </>
-                  )}
+                  <label className={styles.checkboxCard}>
+                    <input
+                      type="checkbox"
+                      checked={presentation.includes("oral")}
+                      onChange={() => togglePresentation("oral")}
+                    />
+                    Oral
+                  </label>
                 </div>
-              </div>
+              )}
             </div>
 
-            {amount && (
-              <div className={`${styles.field} ${styles.fullWidth}`}>
-                <div className={styles.paymentBox}>
-                  <h3>Registration Fee: ₹{amount}</h3>
-                  <img src={qrImage} alt="QR" className={styles.qrImage} />
-                </div>
-              </div>
+            {errors.presentation && (
+              <span className={styles.error}>{errors.presentation}</span>
             )}
+          </div>
 
-            <div className={`${styles.field} ${styles.fullWidth}`}>
+          {isPresenting === "yes" && (
+            <div className={`${styles.field} ${styles.full}`}>
               <input
                 className={styles.input}
-                name="transactionId"
-                placeholder="Enter UPI Transaction ID"
+                type="url"
+                name="abstractLink"
+                placeholder="Google Drive Abstract Link (Make Public)"
               />
-              {errors.transactionId && (
-                <span className={styles.error}>{errors.transactionId}</span>
+              {errors.abstractLink && (
+                <span className={styles.error}>{errors.abstractLink}</span>
               )}
             </div>
+          )}
+
+          {amount && (
+            <div className={`${styles.field} ${styles.full}`}>
+              <div className={styles.paymentBox}>
+                <h3>Registration Fee: ₹{amount}</h3>
+                <img src={qrImage} alt="QR" className={styles.qrImage} />
+              </div>
+            </div>
+          )}
+
+          <div className={`${styles.field} ${styles.full}`}>
+            <input
+              className={styles.input}
+              name="transactionId"
+              placeholder="Enter UPI Transaction ID"
+            />
+            {errors.transactionId && (
+              <span className={styles.error}>{errors.transactionId}</span>
+            )}
           </div>
 
           <button className={styles.submit} disabled={loading}>

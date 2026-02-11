@@ -110,16 +110,6 @@ const AboutPage = () => {
               <div className={styles.peopleGrid}>
                 {[
                   {
-                    name: "Dr Natesan Yogesh",
-                    role: "Asst. Professor (Grade II)",
-                    dept: "Dept of Physics, NIT Calicut",
-                  },
-                  {
-                    name: "Dr P Muhammed Shafi",
-                    role: "INSPIRE Faculty",
-                    dept: "Dept of Physics, NIT Calicut",
-                  },
-                  {
                     name: "Dr Vari Shivaji Reddy",
                     role: "HoD, Associate Professor",
                     dept: "Dept of Physics, NIT Calicut",
@@ -163,6 +153,8 @@ const AboutPage = () => {
 
               <div className={styles.peopleGrid}>
                 {[
+                  ["Faculty Advisor", "Dr Natesan Yogesh"],
+                  ["Faculty Co-Advisor", "Dr P Muhammed Shafi"],
                   ["President", "Hasana Jahan E K"],
                   ["Vice President", "Salma Jose"],
                   ["Secretary", "Nazeeb Abdu Taikkaden"],
