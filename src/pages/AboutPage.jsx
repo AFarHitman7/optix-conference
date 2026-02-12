@@ -6,6 +6,10 @@ import vs from "./assets/about/varisivaji.png";
 import rv from "./assets/about/RaviVarma.png";
 import cs from "./assets/about/chandrashekaran.png";
 
+import prev1 from "./assets/prev1.webp";
+import prev2 from "./assets/prev2.webp";
+import prev3 from "./assets/prev3.webp";
+
 const AboutPage = () => {
   return (
     <>
@@ -109,18 +113,9 @@ const AboutPage = () => {
 
             <div className={styles.mediaWrapper}>
               <div className={styles.imageStack}>
-                <img
-                  src="https://placehold.co/400x300/101015/FFF?text=Workshops"
-                  alt="Workshops"
-                />
-                <img
-                  src="https://placehold.co/400x300/1e1e3a/FFF?text=Exhibition"
-                  alt="Exhibition"
-                />
-                <img
-                  src="https://placehold.co/400x300/262b55/FFF?text=Talks"
-                  alt="Talks"
-                />
+                <img src={prev1} alt="Workshops" />
+                <img src={prev2} alt="Exhibition" />
+                <img src={prev3} alt="Talks" />
               </div>
             </div>
           </section>
@@ -181,12 +176,42 @@ const AboutPage = () => {
                 Organizing <span>Committee</span>
               </h2>
 
+              {/* ===== Faculty Advisors Section ===== */}
+              <div className={styles.advisorSection}>
+                <h3 className={styles.subHeading}>Faculty Advisors</h3>
+
+                <div className={styles.peopleGrid}>
+                  {[
+                    {
+                      name: "Dr Natesan Yogesh",
+                      role: "Faculty Advisor",
+                      dept: "Dept of Physics, NIT Calicut",
+                      image: vs,
+                    },
+                    {
+                      name: "Dr P Muhammed Shafi",
+                      role: "Faculty Co-Advisor",
+                      dept: "Dept of Physics, NIT Calicut",
+                      image: cs,
+                    },
+                  ].map((person, index) => (
+                    <div key={index} className={styles.personCard}>
+                      <div className={styles.photoPlaceholder}>
+                        <img src={person.image} alt="" />
+                      </div>
+                      <h3>{person.name}</h3>
+                      <p className={styles.role}>{person.role}</p>
+                      <p className={styles.dept}>{person.dept}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* ===== Student Chapter Section ===== */}
               <h3 className={styles.subHeading}>NITC Optica Student Chapter</h3>
 
               <div className={styles.peopleGrid}>
                 {[
-                  ["Faculty Advisor", "Dr Natesan Yogesh"],
-                  ["Faculty Co-Advisor", "Dr P Muhammed Shafi"],
                   ["President", "Hasana Jahan E K"],
                   ["Vice President", "Salma Jose"],
                   ["Secretary", "Nazeeb Abdu Taikkaden"],
@@ -201,6 +226,7 @@ const AboutPage = () => {
                 ))}
               </div>
 
+              {/* ===== Bhauthiki Members ===== */}
               <h3 className={styles.subHeading}>Bhauthiki Members</h3>
 
               <div className={styles.peopleGrid}>

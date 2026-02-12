@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import styles from "./Register.module.css";
 import qrImage from "./assets/register/image.png";
@@ -17,6 +19,20 @@ export default function Register() {
   const [amount, setAmount] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId) => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
 
   const formRef = useRef(null);
 
@@ -195,8 +211,6 @@ export default function Register() {
     setLoading(false);
   };
 
-  /* ---------------- UI ---------------- */
-
   return (
     <div className={styles.page}>
       <Navbar />
@@ -230,6 +244,16 @@ export default function Register() {
           <p className={styles.abstractLinkWrapper}>
             Want full abstract guidelines?{" "}
             <a href="/abstract" className={styles.abstractLink}>
+              View details →
+            </a>
+          </p>
+          <p className={styles.abstractLinkWrapper}>
+            See Fee Structure{" "}
+            <a
+              onClick={() => scrollToSection("fees")}
+              style={{ cursor: "pointer" }}
+              className={styles.abstractLink}
+            >
               View details →
             </a>
           </p>
