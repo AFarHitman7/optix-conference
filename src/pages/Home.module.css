@@ -307,6 +307,20 @@
   transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+.feeWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #131314;
+  margin-top: 2rem;
+}
+
+.feeWrapper img {
+  width: 50%;
+  height: 100%;
+  object-fit: fill;
+}
+
 /* ============================================
    RESPONSIVE STYLES
    ============================================ */
@@ -457,6 +471,12 @@
 
   .page::after {
     opacity: 0.5;
+  }
+
+  .feeWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
   }
 }
 

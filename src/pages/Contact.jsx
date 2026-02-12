@@ -16,21 +16,22 @@ export default function Contact() {
 
               <div className={styles.item}>
                 <span className={styles.label}>Email</span>
-                <a href="mailto:optica@nitc.ac.in" className={styles.value}>
-                  optica@nitc.ac.in
+                <a href="mailto:osc@nitc.ac.in" className={styles.value}>
+                  osc@nitc.ac.in
                 </a>
               </div>
 
               <div className={styles.item}>
                 <span className={styles.label}>Phone</span>
-                <a href="tel:+911234543210" className={styles.value}>
-                  +91 12345 43210
+                <a href="tel:+916235747806" className={styles.value}>
+                  +91 62357 47806
                 </a>
               </div>
 
               <div className={styles.item}>
                 <span className={styles.label}>Location</span>
                 <span className={styles.value}>
+                  ABC Block, <br />
                   National Institute of Technology Calicut,
                   <br />
                   Kozhikode, Kerala

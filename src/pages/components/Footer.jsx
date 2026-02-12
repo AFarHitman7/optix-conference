@@ -33,7 +33,7 @@ const Footer = () => {
               </p>
               <p className={styles.infoItem}>
                 <span className={styles.icon}>📍</span>
-                NIT Calicut, Kerala, India
+                ABC Block, NIT Calicut Campus, Kerala, India
               </p>
             </div>
           </div>
@@ -89,14 +89,14 @@ const Footer = () => {
             <ul className={styles.contactList}>
               <li>
                 <span className={styles.icon}>📧</span>
-                <a href="mailto:optica@nitc.ac.in" className={styles.link}>
-                  optica@nitc.ac.in
+                <a href="mailto:osc@nitc.ac.in" className={styles.link}>
+                  osc@nitc.ac.in
                 </a>
               </li>
               <li>
                 <span className={styles.icon}>📞</span>
-                <a href="tel:+914952286831" className={styles.link}>
-                  +91 495 228 6831
+                <a href="tel:+916235747806" className={styles.link}>
+                  +91 6235747806
                 </a>
               </li>
               <li>
@@ -113,17 +113,11 @@ const Footer = () => {
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Follow Us</h3>
             <div className={styles.socialLinks}>
-              <a href="#" className={styles.socialLink} aria-label="Twitter">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-                </svg>
-              </a>
-              <a href="#" className={styles.socialLink} aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/company/the-optical-society/"
+                className={styles.socialLink}
+                aria-label="LinkedIn"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -134,17 +128,11 @@ const Footer = () => {
                   <circle cx="4" cy="4" r="2" />
                 </svg>
               </a>
-              <a href="#" className={styles.socialLink} aria-label="Facebook">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                </svg>
-              </a>
-              <a href="#" className={styles.socialLink} aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/opticanitc/"
+                className={styles.socialLink}
+                aria-label="Instagram"
+              >
                 <svg
                   width="24"
                   height="24"

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "./components/Navbar";
 import styles from "./Register.module.css";
-import qrImage from "./assets/register/qr.png";
+import qrImage from "./assets/register/image.png";
 import bg from "./assets/register/bg.png";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import Footer from "./components/Footer";
@@ -212,6 +212,12 @@ export default function Register() {
             NIT Calicut
           </p>
         </div>
+        <div className={styles.scrollIndicator}>
+          <span className={styles.mouse}>
+            <span className={styles.wheel}></span>
+          </span>
+          <span className={styles.scrollText}>Scroll</span>
+        </div>
       </div>
 
       <div className={styles.container}>
@@ -221,6 +227,12 @@ export default function Register() {
             Register to participate in OPTIX 2026 International Conference on
             Optics, Lasers & Photonics.
           </p>
+          <p className={styles.abstractLinkWrapper}>
+            Want full abstract guidelines?{" "}
+            <a href="/abstract" className={styles.abstractLink}>
+              View details →
+            </a>
+          </p>
           {isEarlyBird && (
             <div className={styles.earlyBirdBanner}>
               🎉 Early Bird Registration Available Until March 15, 2026
@@ -228,6 +240,7 @@ export default function Register() {
           )}
         </div>
         <form
+          id="registerForm"
           ref={formRef}
           className={styles.form}
           onSubmit={handleSubmit}

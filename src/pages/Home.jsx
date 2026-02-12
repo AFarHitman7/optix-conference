@@ -2,10 +2,11 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import styles from "./Home.module.css";
 import background2 from "./assets/background.png";
+import fees from "./assets/fees.png";
 import About from "./About";
 import Speakers from "./Speakers";
 import Contact from "./Contact";
-import EventSchedule from "./EventSchedule";
+import TechnicalProgramme from "./TechnicalProgramme";
 import Footer from "./components/Footer";
 import Sponsors from "./Sponsor";
 import Gallery from "./Gallery";
@@ -28,7 +29,7 @@ export default function Home() {
             </h1>
             <p className={styles.description}>
               Organised by NIT Calicut Optica student chapter, Department of
-              physics, NIT Calicut
+              physics, National Institute of Technology Calicut
             </p>
             <div className={styles.buttons}>
               <button
@@ -52,8 +53,13 @@ export default function Home() {
         <div id="speakers">
           <Speakers />
         </div>
-        <div id="schedule">
-          <EventSchedule />
+        <div id="technical">
+          <TechnicalProgramme />
+        </div>
+        <div id="fees">
+          <div className={styles.feeWrapper}>
+            <img src={fees} alt="fee structure" />
+          </div>
         </div>
         <div id="sponsor">
           <Sponsors />

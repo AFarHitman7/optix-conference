@@ -57,10 +57,10 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              onClick={() => scrollToSection("schedule")}
+              onClick={() => navigate("/abstract")}
               style={{ cursor: "pointer" }}
             >
-              PROGRAM
+              ABSTRACT
             </a>
           </li>
           <li>
