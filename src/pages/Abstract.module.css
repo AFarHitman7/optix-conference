@@ -1,0 +1,734 @@
+/* ===============================
+   PAGE BACKGROUND
+================================= */
+
+.page {
+  background: linear-gradient(
+    145deg,
+    #0a0a15 0%,
+    #141428 25%,
+    #1e1e3a 50%,
+    #141428 75%,
+    #0a0a15 100%
+  );
+  animation: gradient 20s ease infinite;
+  background-size: 600% 600%;
+  position: relative;
+  overflow-x: hidden;
+  color: #fff;
+  min-height: 100vh;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 10% 20%,
+      rgba(0, 100, 150, 0.25) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 90% 80%,
+      rgba(50, 80, 150, 0.2) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(80, 60, 150, 0.18) 0%,
+      transparent 60%
+    );
+  animation: fiberGlow 10s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+@keyframes fiberGlow {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 15% 25%, rgba(60, 120, 180, 0.6), transparent),
+    radial-gradient(2px 2px at 85% 75%, rgba(80, 90, 160, 0.5), transparent),
+    radial-gradient(2px 2px at 45% 55%, rgba(100, 80, 170, 0.6), transparent);
+  background-size: 200% 200%;
+  animation: photons 35s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes photons {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* ===============================
+   CONTAINER
+================================= */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 6vw, 6rem);
+  position: relative;
+  z-index: 2;
+}
+
+/* ===============================
+   HERO SECTION
+================================= */
+
+.hero {
+  text-align: center;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tag {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #64b5f6;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(100, 181, 246, 0.6);
+  }
+}
+
+.heroTitle {
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  background: linear-gradient(90deg, #fff, #b3c7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle span {
+  display: inline-block;
+  font-weight: 300;
+  background: linear-gradient(90deg, #64b5f6, #90caf9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroDescription {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.7;
+  color: #d1d5db;
+  max-width: 750px;
+  margin: 0 auto 2.5rem;
+}
+
+.deadline {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(100, 181, 246, 0.1),
+    rgba(144, 202, 249, 0.05)
+  );
+  border: 1px solid rgba(100, 181, 246, 0.3);
+  border-radius: 6px;
+  padding: 1.2rem 1.8rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.deadlineLabel {
+  font-size: 0.85rem;
+  color: #b3c7ff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.deadlineDate {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ===============================
+   SECTION
+================================= */
+
+.section {
+  animation: fadeIn 0.8s ease-out;
+  padding: 0 clamp(1rem, 2vw, 2rem);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sectionTitle {
+  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: clamp(2rem, 3vw, 3rem);
+  background: linear-gradient(90deg, #fff, #b3c7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionTitle span {
+  display: inline-block;
+  font-weight: 300;
+  background: linear-gradient(90deg, #64b5f6, #90caf9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===============================
+   FORMATS GRID
+================================= */
+
+.formatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.formatCard {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.formatCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(100, 181, 246, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.formatCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(100, 181, 246, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.formatCard:hover::before {
+  opacity: 1;
+}
+
+.formatCard h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.formatDetails {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+}
+
+.award {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.15),
+    rgba(255, 193, 7, 0.1)
+  );
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: #ffd700;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ===============================
+   GUIDELINES GRID
+================================= */
+
+.requirementBox {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.requirementBox h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.requirementBox p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+.subsectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #64b5f6;
+  margin: 2.5rem 0 1rem;
+}
+
+.subsectionIntro {
+  font-size: 1rem;
+  color: #d1d5db;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.guidelinesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.guidelineCard {
+  display: flex;
+  gap: 1.2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.guidelineCard:hover {
+  border-color: rgba(100, 181, 246, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(100, 181, 246, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.guidelineNumber {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #64b5f6, #42a5f5);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.guidelineContent h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.guidelineContent p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #b0b7c3;
+}
+
+.infoBox {
+  background: linear-gradient(
+    135deg,
+    rgba(100, 181, 246, 0.08),
+    rgba(144, 202, 249, 0.04)
+  );
+  border: 1px solid rgba(100, 181, 246, 0.2);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.infoContent h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: #90caf9;
+}
+
+.infoContent p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+/* ===============================
+   CATEGORIES
+================================= */
+
+.categoriesGrid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.categoryCard {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: slideIn 0.5s ease-out backwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.categoryCard:hover {
+  border-color: rgba(100, 181, 246, 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(100, 181, 246, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.categoryActive {
+  border-color: rgba(100, 181, 246, 0.5);
+  background: linear-gradient(
+    135deg,
+    rgba(100, 181, 246, 0.08),
+    rgba(144, 202, 249, 0.04)
+  );
+}
+
+.categoryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.categoryHeader h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  flex: 1;
+}
+
+.categorySubtitle {
+  font-size: 0.85rem;
+  color: #90caf9;
+  margin-top: 0.3rem;
+  font-style: italic;
+}
+
+.expandIcon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: rgba(100, 181, 246, 0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #64b5f6;
+  transition: all 0.3s ease;
+}
+
+.categoryCard:hover .expandIcon {
+  background: rgba(100, 181, 246, 0.3);
+  transform: scale(1.1);
+}
+
+.categoryTopics {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: expandDown 0.3s ease-out;
+}
+
+@keyframes expandDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+.categoryTopics ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.categoryTopics li {
+  font-size: 0.95rem;
+  color: #b0b7c3;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.categoryTopics li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #64b5f6;
+  font-weight: bold;
+}
+
+/* ===============================
+   CTA SECTION
+================================= */
+
+.ctaSection {
+  background: linear-gradient(
+    135deg,
+    rgba(100, 181, 246, 0.15),
+    rgba(144, 202, 249, 0.08)
+  );
+  border: 1px solid rgba(100, 181, 246, 0.3);
+  border-radius: 8px;
+  padding: clamp(3rem, 5vw, 4rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.ctaSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(100, 181, 246, 0.2),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(144, 202, 249, 0.2),
+      transparent 50%
+    );
+  animation: ctaPulse 8s ease-in-out infinite;
+}
+
+@keyframes ctaPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaContent h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.ctaContent p {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.6;
+  color: #d1d5db;
+  max-width: 650px;
+  margin: 0 auto 2rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  background: linear-gradient(135deg, #64b5f6, #42a5f5);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(100, 181, 246, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(100, 181, 246, 0.5);
+  background: linear-gradient(135deg, #42a5f5, #64b5f6);
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 968px) {
+  .container {
+    gap: clamp(3rem, 5vw, 4rem);
+  }
+
+  .heroTitle {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .deadline {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .formatsGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .guidelinesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: clamp(2rem, 4vw, 3rem) 1rem;
+  }
+
+  .section {
+    padding: 0;
+  }
+
+  .categoryHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .expandIcon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .guidelineCard {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .infoBox {
+    gap: 1rem;
+  }
+
+  .ctaSection {
+    padding: 2rem 1.5rem;
+  }
+}
