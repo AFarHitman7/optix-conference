@@ -14,18 +14,9 @@ export default function Navbar() {
   const location = useLocation();
 
   const scrollToSection = (sectionId) => {
-    // If not on home page, navigate to home first
     if (location.pathname !== "/") {
-      navigate("/");
-      // Wait for navigation then scroll
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 100);
+      navigate("/", { state: { scrollTo: sectionId } });
     } else {
-      // Already on home, just scroll
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });

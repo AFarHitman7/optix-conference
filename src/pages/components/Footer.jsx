@@ -1,11 +1,19 @@
 import styles from "./Footer.module.css";
 import logo from "../assets/logo.svg";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   };
 
@@ -42,18 +50,12 @@ const Footer = () => {
             <h3 className={styles.columnTitle}>Quick Links</h3>
             <ul className={styles.linkList}>
               <li>
-                <a
-                  onClick={() => scrollToSection("home")}
-                  className={styles.link}
-                >
+                <a onClick={() => navigate("/")} className={styles.link}>
                   Home
                 </a>
               </li>
               <li>
-                <a
-                  onClick={() => scrollToSection("about")}
-                  className={styles.link}
-                >
+                <a onClick={() => navigate("/about")} className={styles.link}>
                   About Us
                 </a>
               </li>
@@ -67,10 +69,10 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  onClick={() => scrollToSection("schedule")}
+                  onClick={() => navigate("/abstract")}
                   className={styles.link}
                 >
-                  Schedule
+                  Abstract
                 </a>
               </li>
               <li>
