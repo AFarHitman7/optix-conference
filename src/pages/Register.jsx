@@ -8,8 +8,10 @@ import Footer from "./components/Footer";
 
 export default function Register() {
   const [designation, setDesignation] = useState("");
+  const [isOpticaMember, setIsOpticaMember] = useState("");
   const [isPresenting, setIsPresenting] = useState("");
   const [presentation, setPresentation] = useState([]);
+  const [abstractTopic, setAbstractTopic] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [amount, setAmount] = useState(null);
@@ -18,18 +20,55 @@ export default function Register() {
 
   const formRef = useRef(null);
 
+  // Early Bird deadline - March 15, 2026
+  const EARLY_BIRD_DEADLINE = new Date("2026-03-15T23:59:59");
+  const isEarlyBird = new Date() <= EARLY_BIRD_DEADLINE;
+
+  /* ---------------- Abstract Upload Links ---------------- */
+  const abstractUploadLinks = {
+    "Laser Physics": "https://forms.gle/laser-physics-upload",
+    "Quantum Optics": "https://forms.gle/quantum-optics-upload",
+    "Fiber Optics": "https://forms.gle/fiber-optics-upload",
+    "Photonics Applications": "https://forms.gle/photonics-applications-upload",
+    "Optical Materials": "https://forms.gle/optical-materials-upload",
+  };
+
   /* ---------------- Pricing ---------------- */
 
-  const deriveAmount = (designation) => {
-    if (["ug", "pg", "phd"].includes(designation)) return 3500;
-    if (["faculty", "postdoc"].includes(designation)) return 6500;
-    if (designation === "industry") return 8500;
+  const deriveAmount = (designation, isOpticaMember) => {
+    const isMember = isOpticaMember === "yes";
+    const isEarly = isEarlyBird;
+
+    // Students (UG/PG/PhD)
+    if (["ug", "pg", "phd"].includes(designation)) {
+      if (isMember) {
+        return isEarly ? 2200 : 2800;
+      }
+      return isEarly ? 2800 : 3500;
+    }
+
+    // Faculty/Scientists/Postdocs
+    if (["faculty", "postdoc"].includes(designation)) {
+      if (isMember) {
+        return isEarly ? 5000 : 6000;
+      }
+      return isEarly ? 5500 : 6500;
+    }
+
+    // Industry
+    if (designation === "industry") {
+      if (isMember) {
+        return isEarly ? 7000 : 8000;
+      }
+      return isEarly ? 7500 : 8500;
+    }
+
     return null;
   };
 
   useEffect(() => {
-    setAmount(deriveAmount(designation));
-  }, [designation]);
+    setAmount(deriveAmount(designation, isOpticaMember));
+  }, [designation, isOpticaMember]);
 
   /* ---------------- Validation ---------------- */
 
@@ -53,6 +92,13 @@ export default function Register() {
     }
 
     if (!form.get("institute")) errs.institute = "Institute required";
+    if (!form.get("isOpticaMember"))
+      errs.isOpticaMember = "Select Optica membership status";
+
+    if (form.get("isOpticaMember") === "yes" && !form.get("opticaId")) {
+      errs.opticaId = "Optica ID required";
+    }
+
     if (!form.get("accommodation"))
       errs.accommodation = "Select accommodation option";
     if (!form.get("food")) errs.food = "Select food preference";
@@ -60,10 +106,12 @@ export default function Register() {
     if (form.get("isPresenting") === "yes") {
       if (presentation.length === 0)
         errs.presentation = "Select presentation type";
-      if (!form.get("abstractLink"))
-        errs.abstractLink = "Provide public Drive link";
+      if (!form.get("abstractTopic"))
+        errs.abstractTopic = "Select abstract topic";
     }
 
+    if (!form.get("transactionType"))
+      errs.transactionType = "Select transaction type";
     if (!form.get("transactionId"))
       errs.transactionId = "Transaction ID required";
 
@@ -123,6 +171,7 @@ export default function Register() {
             ...formData,
             amount,
             presentation,
+            isEarlyBird,
           }),
         },
       );
@@ -133,7 +182,9 @@ export default function Register() {
       e.target.reset();
       setPresentation([]);
       setDesignation("");
+      setIsOpticaMember("");
       setIsPresenting("");
+      setAbstractTopic("");
     } catch {
       setShowErrorModal(true);
     }
@@ -167,6 +218,11 @@ export default function Register() {
             Register to participate in OPTIX 2026 International Conference on
             Optics, Lasers & Photonics.
           </p>
+          {isEarlyBird && (
+            <div className={styles.earlyBirdBanner}>
+              🎉 Early Bird Registration Available Until March 15, 2026
+            </div>
+          )}
         </div>
         <form
           ref={formRef}
@@ -252,6 +308,35 @@ export default function Register() {
           </div>
 
           <div className={styles.field}>
+            <select
+              className={styles.select}
+              name="isOpticaMember"
+              value={isOpticaMember}
+              onChange={(e) => setIsOpticaMember(e.target.value)}
+            >
+              <option value="">Are you an OPTICA member?</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            {errors.isOpticaMember && (
+              <span className={styles.error}>{errors.isOpticaMember}</span>
+            )}
+          </div>
+
+          {isOpticaMember === "yes" && (
+            <div className={styles.field}>
+              <input
+                className={styles.input}
+                name="opticaId"
+                placeholder="OPTICA Member ID"
+              />
+              {errors.opticaId && (
+                <span className={styles.error}>{errors.opticaId}</span>
+              )}
+            </div>
+          )}
+
+          <div className={styles.field}>
             <select className={styles.select} name="accommodation">
               <option value="">Accommodation Required?</option>
               <option value="yes">Yes (amount later)</option>
@@ -279,7 +364,10 @@ export default function Register() {
                 value={isPresenting}
                 onChange={(e) => {
                   setIsPresenting(e.target.value);
-                  if (e.target.value === "no") setPresentation([]);
+                  if (e.target.value === "no") {
+                    setPresentation([]);
+                    setAbstractTopic("");
+                  }
                 }}
               >
                 <option value="">Are you presenting?</option>
@@ -316,33 +404,97 @@ export default function Register() {
           </div>
 
           {isPresenting === "yes" && (
-            <div className={`${styles.field} ${styles.full}`}>
-              <input
-                className={styles.input}
-                type="url"
-                name="abstractLink"
-                placeholder="Google Drive Abstract Link (Make Public)"
-              />
-              {errors.abstractLink && (
-                <span className={styles.error}>{errors.abstractLink}</span>
+            <>
+              <div className={`${styles.field} ${styles.full}`}>
+                <select
+                  className={styles.select}
+                  name="abstractTopic"
+                  value={abstractTopic}
+                  onChange={(e) => setAbstractTopic(e.target.value)}
+                >
+                  <option value="">Select Abstract Topic</option>
+                  <option value="Laser Physics">Laser Physics</option>
+                  <option value="Quantum Optics">Quantum Optics</option>
+                  <option value="Fiber Optics">Fiber Optics</option>
+                  <option value="Photonics Applications">
+                    Photonics Applications
+                  </option>
+                  <option value="Optical Materials">Optical Materials</option>
+                </select>
+                {errors.abstractTopic && (
+                  <span className={styles.error}>{errors.abstractTopic}</span>
+                )}
+              </div>
+
+              {abstractTopic && (
+                <div className={`${styles.field} ${styles.full}`}>
+                  <div className={styles.uploadBox}>
+                    <p className={styles.uploadText}>
+                      Upload your abstract for <strong>{abstractTopic}</strong>
+                    </p>
+                    <a
+                      href={abstractUploadLinks[abstractTopic]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.uploadLink}
+                    >
+                      Click here to upload abstract →
+                    </a>
+                  </div>
+                </div>
               )}
-            </div>
+            </>
           )}
 
           {amount && (
             <div className={`${styles.field} ${styles.full}`}>
               <div className={styles.paymentBox}>
-                <h3>Registration Fee: ₹{amount}</h3>
+                <h3>
+                  Registration Fee: ₹{amount}
+                  {isEarlyBird && (
+                    <span className={styles.earlyBirdTag}>Early Bird</span>
+                  )}
+                </h3>
                 <img src={qrImage} alt="QR" className={styles.qrImage} />
+                <div className={styles.bankDetails}>
+                  <h4>Bank Account Details</h4>
+                  <div className={styles.bankInfo}>
+                    <p>
+                      <strong>Merchant Name:</strong> DIRECTOR NIT CALICUT
+                    </p>
+                    <p>
+                      <strong>UPI ID Prefix:</strong> OPTIX26
+                    </p>
+                    <p>
+                      <strong>Account No:</strong> 43189409019
+                    </p>
+                    <p>
+                      <strong>IFSC Code:</strong> SBIN0002207
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           )}
 
-          <div className={`${styles.field} ${styles.full}`}>
+          <div className={styles.field}>
+            <select className={styles.select} name="transactionType">
+              <option value="">Transaction Type</option>
+              <option value="upi">UPI</option>
+              <option value="neft">NEFT</option>
+              <option value="rtgs">RTGS</option>
+              <option value="imps">IMPS</option>
+            </select>
+            {errors.transactionType && (
+              <span className={styles.error}>{errors.transactionType}</span>
+            )}
+          </div>
+
+          <div className={styles.field}>
             <input
               className={styles.input}
               name="transactionId"
-              placeholder="Enter UPI Transaction ID"
+              placeholder="Enter Transaction ID"
             />
             {errors.transactionId && (
               <span className={styles.error}>{errors.transactionId}</span>

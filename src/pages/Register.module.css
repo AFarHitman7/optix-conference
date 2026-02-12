@@ -65,7 +65,7 @@
 /* ================= FORM CONTAINER ================= */
 
 .container {
-  width: min(900px, 95%);
+  width: min(900px, 90%);
   margin: clamp(2rem, 6vw, 4rem) auto;
   padding: clamp(1.5rem, 4vw, 2.5rem);
   background: #ffffff;
@@ -86,6 +86,19 @@
 .subtitle {
   font-size: 0.95rem;
   color: #475569;
+  margin-bottom: 0.5rem;
+}
+
+.earlyBirdBanner {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
 }
 
 /* ================= FORM GRID ================= */
@@ -111,6 +124,7 @@
 .select {
   padding: 0.75rem 0.9rem;
   border: 1px solid #33333333;
+  border-radius: 6px;
   font-size: 0.95rem;
   background: #ffffff;
   transition:
@@ -150,6 +164,7 @@
 
 .presentRow select {
   flex: 1;
+  min-width: 200px;
 }
 
 .presentationBoxInline {
@@ -164,8 +179,11 @@
   gap: 0.5rem;
   padding: 0.6rem 1rem;
   border: 1px solid #33333333;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
+  min-width: 150px;
 }
 
 .checkboxCard:hover {
@@ -177,16 +195,118 @@
   accent-color: #0f172a;
 }
 
+/* ================= UPLOAD BOX ================= */
+
+.uploadBox {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.uploadText {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 0.8rem;
+}
+
+.uploadLink {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.uploadLink:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
 /* ================= PAYMENT ================= */
 
 .paymentBox {
   text-align: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.paymentBox h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.earlyBirdTag {
+  font-size: 0.75rem;
+  background: #16a34a;
+  color: #ffffff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .qrImage {
   width: min(260px, 80%);
   height: auto;
-  margin-top: 1rem;
+  margin: 1rem auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.bankDetails {
+  margin-top: 1.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left;
+}
+
+.bankDetails h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #0f172a;
+  text-align: center;
+}
+
+.bankInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bankInfo p {
+  font-size: 0.85rem;
+  color: #475569;
+  margin: 0;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.bankInfo p:last-child {
+  border-bottom: none;
+}
+
+.bankInfo strong {
+  color: #0f172a;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 130px;
 }
 
 /* ================= SUBMIT ================= */
@@ -207,9 +327,14 @@
     box-shadow 0.15s ease;
 }
 
-.submit:hover {
+.submit:hover:not(:disabled) {
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* ================= MODAL ================= */
@@ -256,6 +381,11 @@
   background: #0f172a;
   color: #ffffff;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalButton:hover {
+  background: #1e293b;
 }
 
 @keyframes modalIn {
@@ -287,10 +417,97 @@
   .leftColumn .description {
     justify-content: center;
   }
+
+  .presentRow {
+    flex-direction: column;
+  }
+
+  .presentRow select {
+    min-width: unset;
+  }
+
+  .presentationBoxInline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bankInfo strong {
+    min-width: 110px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1.25rem;
+  }
+
+  .earlyBirdBanner {
+    font-size: 0.85rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .checkboxCard {
+    flex: 1;
+    justify-content: center;
+    min-width: 100px;
+  }
+
+  .paymentBox {
+    padding: 1.25rem;
+  }
+
+  .paymentBox h3 {
+    font-size: 1.1rem;
+  }
+
+  .bankDetails {
+    padding: 0.85rem;
+  }
+
+  .bankInfo p {
+    font-size: 0.8rem;
+  }
+
+  .bankInfo strong {
+    min-width: 100px;
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 400px) {
-  .form {
+  .container {
     width: 90%;
+    padding: 1rem;
+  }
+
+  .leftColumn .title {
+    font-size: 1.75rem;
+  }
+
+  .textContainer .title {
+    font-size: 1.3rem;
+  }
+
+  .input,
+  .select {
+    font-size: 0.9rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .presentationBoxInline {
+    flex-direction: column;
+  }
+
+  .checkboxCard {
+    width: 100%;
+  }
+
+  .uploadLink {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.25rem;
+  }
+
+  .earlyBirdTag {
+    font-size: 0.7rem;
   }
 }
