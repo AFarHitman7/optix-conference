@@ -26,11 +26,14 @@ export default function Register() {
 
   /* ---------------- Abstract Upload Links ---------------- */
   const abstractUploadLinks = {
-    "Laser Physics": "https://forms.gle/laser-physics-upload",
-    "Quantum Optics": "https://forms.gle/quantum-optics-upload",
-    "Fiber Optics": "https://forms.gle/fiber-optics-upload",
-    "Photonics Applications": "https://forms.gle/photonics-applications-upload",
-    "Optical Materials": "https://forms.gle/optical-materials-upload",
+    "Laser & Laser Technology": "https://forms.gle/laser-physics-upload",
+    "Metamaterials & Photonic Crystals":
+      "https://forms.gle/quantum-optics-upload",
+    Optofluidics: "https://forms.gle/fiber-optics-upload",
+    "Quantum Optics": "https://forms.gle/fiber-optics-upload",
+    "Nonlinear and Optical Materials":
+      "https://forms.gle/photonics-applications-upload",
+    "Applied Optics": "https://forms.gle/optical-materials-upload",
   };
 
   /* ---------------- Pricing ---------------- */
@@ -413,13 +416,18 @@ export default function Register() {
                   onChange={(e) => setAbstractTopic(e.target.value)}
                 >
                   <option value="">Select Abstract Topic</option>
-                  <option value="Laser Physics">Laser Physics</option>
-                  <option value="Quantum Optics">Quantum Optics</option>
-                  <option value="Fiber Optics">Fiber Optics</option>
-                  <option value="Photonics Applications">
-                    Photonics Applications
+                  <option value="Laser & Laser Technology">
+                    Laser & Laser Technology
                   </option>
-                  <option value="Optical Materials">Optical Materials</option>
+                  <option value="Metamaterials & Photonic Crystals">
+                    Metamaterials & Photonic Crystals
+                  </option>
+                  <option value="Optofluidics">Optofluidics</option>
+                  <option value="Quantum Optics">Quantum Optics</option>
+                  <option value="Nonlinear and Optical Materials">
+                    Nonlinear and Optical Materials
+                  </option>
+                  <option value="Applied Optics">Applied Optics</option>
                 </select>
                 {errors.abstractTopic && (
                   <span className={styles.error}>{errors.abstractTopic}</span>
