@@ -13,11 +13,11 @@ const TechnicalProgramme = () => {
             The OPTIX 2026 conference, the International Conference on Optics,
             Lasers & Photonics, has a remarkably interesting technical
             programme. There are ample opportunities for the exchange of ideas
-            and collaboration. The technical programme includes keynote
-            speeches by experts in the field, poster sessions of the work of
-            the participants, and various sessions along with cultural events.
-            Taken together, these features of the OPTIX 2026 conference
-            facilitate networking and knowledge sharing among the participants.
+            and collaboration. The technical programme includes keynote speeches
+            by experts in the field, poster sessions of the work of the
+            participants, and various sessions along with cultural events. Taken
+            together, these features of the OPTIX 2026 conference facilitate
+            networking and knowledge sharing among the participants.
           </p>
 
           <h3>Keynote & Invited Talks</h3>
@@ -26,21 +26,20 @@ const TechnicalProgramme = () => {
             personalities from universities, research organizations, and
             industry. They will present their views on the latest developments
             in the field of optics and photonics and will also present their
-            expectations regarding future trends and directions in these
-            fields, with special emphasis on OPTIX and the latest developments
-            in the field of optics and photonics.
+            expectations regarding future trends and directions in these fields,
+            with special emphasis on OPTIX and the latest developments in the
+            field of optics and photonics.
           </p>
 
           <h3>Oral Presentations</h3>
           <p>
-            The conference includes sessions where the participants will
-            discuss a wide range of topics such as laser technology, quantum
-            optics, and photonic materials. These sessions will provide an
-            appropriate forum for the participants to present their latest
-            results in the field of laser technology and quantum optics and to
-            get constructive feedback from their peers. Other topics to be
-            discussed include optical sensing, fiber optics, and applied
-            photonics.
+            The conference includes sessions where the participants will discuss
+            a wide range of topics such as laser technology, quantum optics, and
+            photonic materials. These sessions will provide an appropriate forum
+            for the participants to present their latest results in the field of
+            laser technology and quantum optics and to get constructive feedback
+            from their peers. Other topics to be discussed include optical
+            sensing, fiber optics, and applied photonics.
           </p>
 
           <h3>Poster Presentations</h3>
@@ -74,6 +73,21 @@ const TechnicalProgramme = () => {
             The conference proceedings will include all accepted and presented
             papers, thus forming a permanent scientific record of OPTIX 2026.
           </p>
+          <div className={styles.downloadSection}>
+            <a className={styles.downloadButton}>
+              Download Brochure
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M8 11L4 7H7V3H9V7H12L8 11Z" fill="currentColor" />
+                <path d="M3 13H13V15H3V13Z" fill="currentColor" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>

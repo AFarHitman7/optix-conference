@@ -47,14 +47,18 @@ export default function Register() {
 
   /* ---------------- Abstract Upload Links ---------------- */
   const abstractUploadLinks = {
-    "Laser & Laser Technology": "https://forms.gle/laser-physics-upload",
+    "Laser & Laser Technology":
+      "https://drive.google.com/drive/folders/1bFySP594DGSTH0_WGSjUL8WMCu_GJ6vg?usp=drive_link",
     "Metamaterials & Photonic Crystals":
-      "https://forms.gle/quantum-optics-upload",
-    Optofluidics: "https://forms.gle/fiber-optics-upload",
-    "Quantum Optics": "https://forms.gle/fiber-optics-upload",
+      "https://drive.google.com/drive/folders/1O-S1KLiYwbnPTLuXTqzAO_69BHR-WY_j?usp=drive_link",
+    Optofluidics:
+      "https://drive.google.com/drive/folders/1RNtsxENyqK6raelSaMk1Mbvx-qrF3cM9?usp=drive_link",
+    "Quantum Optics":
+      "https://drive.google.com/drive/folders/10SHqxfv74FoQr4BwlNeKDeIGCdPCM6T3?usp=sharing",
     "Nonlinear and Optical Materials":
-      "https://forms.gle/photonics-applications-upload",
-    "Applied Optics": "https://forms.gle/optical-materials-upload",
+      "https://drive.google.com/drive/folders/1Ip1w4D8FQodHYckCKhiCQkP8nquSB1Mb?usp=drive_link",
+    "Applied Optics":
+      "https://drive.google.com/drive/folders/1qrEiQVRWwf-NjcZExtOdMOqlvRBnj3c0?usp=drive_link",
   };
 
   /* ---------------- Pricing ---------------- */

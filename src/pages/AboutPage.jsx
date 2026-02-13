@@ -87,7 +87,7 @@ const AboutPage = () => {
 
             <div className={styles.mediaWrapper}>
               <img
-                src="https://placehold.co/600x400/141428/FFF?text=Optica+Team"
+                src={prev3}
                 alt="Optica Student Chapter"
                 className={styles.singleImage}
               />
@@ -125,7 +125,7 @@ const AboutPage = () => {
               <div className={styles.imageStack}>
                 <img src={prev1} alt="Workshops" />
                 <img src={prev2} alt="Exhibition" />
-                <img src={prev3} alt="Talks" />
+                <img src="" alt="Talks" />
               </div>
             </div>
           </section>
