@@ -25,6 +25,8 @@ import prev1 from "./assets/prev1.webp";
 import prev2 from "./assets/prev2.webp";
 import prev3 from "./assets/prev3.webp";
 
+import nit from "./assets/about/about.png";
+
 const AboutPage = () => {
   return (
     <>
@@ -44,10 +46,10 @@ const AboutPage = () => {
                 as an Institution of National Importance and fully funded by the
                 Government of India, boasts a remarkable 63-year legacy of
                 excellence. As one of the leading technical education
-                institutions in the country, NITC is the largest among the
-                NITs. Committed to attaining international acclaim of the
-                highest calibre, NITC offers 11 undergraduate and 30
-                postgraduate programs across 15 departments, along with several
+                institutions in the country, NITC is the largest among the NITs.
+                Committed to attaining international acclaim of the highest
+                calibre, NITC offers 11 undergraduate and 30 postgraduate
+                programs across 15 departments, along with several
                 inter-disciplinary and multidisciplinary centres. Additionally,
                 full-time and part-time doctoral research programs are available
                 in all departments.
@@ -56,7 +58,7 @@ const AboutPage = () => {
 
             <div className={styles.mediaWrapper}>
               <img
-                src="https://placehold.co/600x400/141428/FFF?text=NITC+Campus"
+                src={nit}
                 alt="NIT Calicut Campus"
                 className={styles.singleImage}
               />
@@ -74,8 +76,8 @@ const AboutPage = () => {
                 Optica serves as a prominent global platform for optics and
                 photonics, aiming to share quality knowledge and facilitate
                 inspiring connections through its worldwide activities. The
-                Optica Student Chapter is a student-driven initiative focused
-                on advancing research and innovation in optics, photonics, and
+                Optica Student Chapter is a student-driven initiative focused on
+                advancing research and innovation in optics, photonics, and
                 related fields. It aims to create opportunities for networking
                 with global experts, peers, and professionals while organising
                 various events to foster learning and skill development.
@@ -101,19 +103,20 @@ const AboutPage = () => {
               <p className={styles.description}>
                 The NIT Calicut Optica Student Chapter has continuously been
                 active in advancing education and awareness in these fields
-                through a series of events. OPTIX-2026 is the chapter&apos;s first
-                international conference, a major milestone built upon this
-                solid foundation of the successful initiatives. The chapter&apos;s
-                dedication to promoting excellent scientific exchange and
-                providing a forum for communication among academia and business,
-                is reflected in the conference. By organising OPTIX-2026, the
-                chapter hopes to transform its academic involvement from
-                regional endeavours into a worldwide research forum in optics,
-                lasers and photonics. By introducing them to innovative
-                research fields and distinguished professionals, the event also
-                aims to inspire young researchers. All things considered,
-                OPTIX-2026 is a calculated move to improve the culture of
-                optics and photonics research at NIT Calicut and elsewhere.
+                through a series of events. OPTIX-2026 is the chapter&apos;s
+                first international conference, a major milestone built upon
+                this solid foundation of the successful initiatives. The
+                chapter&apos;s dedication to promoting excellent scientific
+                exchange and providing a forum for communication among academia
+                and business, is reflected in the conference. By organising
+                OPTIX-2026, the chapter hopes to transform its academic
+                involvement from regional endeavours into a worldwide research
+                forum in optics, lasers and photonics. By introducing them to
+                innovative research fields and distinguished professionals, the
+                event also aims to inspire young researchers. All things
+                considered, OPTIX-2026 is a calculated move to improve the
+                culture of optics and photonics research at NIT Calicut and
+                elsewhere.
               </p>
             </div>
 
@@ -230,7 +233,9 @@ const AboutPage = () => {
                   ].map((person, index) => (
                     <div key={index} className={styles.personCard}>
                       <div className={styles.photoPlaceholder}>
-                        {person.image ? <img src={person.image} alt="" /> : null}
+                        {person.image ? (
+                          <img src={person.image} alt="" />
+                        ) : null}
                       </div>
                       <h3>{person.name}</h3>
                       <p className={styles.role}>{person.role}</p>
@@ -242,7 +247,9 @@ const AboutPage = () => {
               </div>
 
               {/* ===== Student Chapter Section ===== */}
-              <h3 className={styles.subHeading}>NIT Calicut Optica Student Chapter</h3>
+              <h3 className={styles.subHeading}>
+                NIT Calicut Optica Student Chapter
+              </h3>
 
               <div className={styles.peopleGrid}>
                 {[
@@ -255,13 +262,15 @@ const AboutPage = () => {
                   <div key={index} className={styles.personCard}>
                     <div className={styles.photoPlaceholder}>
                       <img
-                        src={{
-                          "Hasana Jahan E K": hasana,
-                          "Salma Jose": salma,
-                          "Naseeb Abdu Taikkaden": naseed,
-                          "Sreedath Chandran": sreedath,
-                          "Arunya Raj R": arunya,
-                        }[name]}
+                        src={
+                          {
+                            "Hasana Jahan E K": hasana,
+                            "Salma Jose": salma,
+                            "Naseeb Abdu Taikkaden": naseed,
+                            "Sreedath Chandran": sreedath,
+                            "Arunya Raj R": arunya,
+                          }[name]
+                        }
                         alt={name}
                       />
                     </div>
@@ -284,12 +293,14 @@ const AboutPage = () => {
                   <div key={index} className={styles.personCard}>
                     <div className={styles.photoPlaceholder}>
                       <img
-                        src={{
-                          "Athul C Nagesh": athul,
-                          "Amana Fathima Ali S": amana,
-                          "Allen Stephen Samuel": allen,
-                          "Sreedath Chandran": sreedath,
-                        }[name]}
+                        src={
+                          {
+                            "Athul C Nagesh": athul,
+                            "Amana Fathima Ali S": amana,
+                            "Allen Stephen Samuel": allen,
+                            "Sreedath Chandran": sreedath,
+                          }[name]
+                        }
                         alt={name}
                       />
                     </div>

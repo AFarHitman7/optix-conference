@@ -46,7 +46,7 @@ export default function Home() {
             <div className={styles.buttons}>
               <button
                 className={`${styles.registerButton} ${styles.btnShine}`}
-                onClick={() => navigate("./register")}
+                onClick={() => navigate("./abstract")}
               >
                 <span>Call for Abstract</span>
               </button>{" "}
