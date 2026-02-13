@@ -65,25 +65,25 @@ export default function Register() {
     // Students (UG/PG/PhD)
     if (["ug", "pg", "phd"].includes(designation)) {
       if (isMember) {
-        return isEarly ? 2200 : 2800;
+        return isEarly ? 2950 : 3894;
       }
-      return isEarly ? 2800 : 3500;
+      return isEarly ? 3540 : 4484;
     }
 
     // Faculty/Scientists/Postdocs
     if (["faculty", "postdoc"].includes(designation)) {
       if (isMember) {
-        return isEarly ? 5000 : 6000;
+        return isEarly ? 5900 : 7080;
       }
-      return isEarly ? 5500 : 6500;
+      return isEarly ? 6490 : 7788;
     }
 
     // Industry
     if (designation === "industry") {
       if (isMember) {
-        return isEarly ? 7000 : 8000;
+        return isEarly ? 8260 : 9440;
       }
-      return isEarly ? 7500 : 8500;
+      return isEarly ? 8850 : 10030;
     }
 
     return null;
@@ -257,7 +257,12 @@ export default function Register() {
           </p>
           <p className={styles.abstractLinkWrapper}>
             Want full abstract guidelines?{" "}
-            <a href="/abstract" className={styles.abstractLink}>
+            <a
+              onClick={() => {
+                navigate("/abstract");
+              }}
+              className={styles.abstractLink}
+            >
               View details →
             </a>
           </p>

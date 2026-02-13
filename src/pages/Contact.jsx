@@ -37,7 +37,7 @@ export default function Contact() {
               </div>
 
               <div className={styles.item}>
-                <span className={styles.label}>Location</span>
+                <span className={styles.label}>Venue</span>
                 <span className={styles.value}>
                   ABC Block, <br />
                   National Institute of Technology Calicut,

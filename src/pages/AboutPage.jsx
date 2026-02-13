@@ -147,7 +147,7 @@ const AboutPage = () => {
                     image: vs,
                   },
                   {
-                    name: "Prof. Chandrasekharan K.",
+                    name: "Prof Chandrasekharan K",
                     role: "Professor (HAG)",
                     dept: "NIT Calicut",
                     image: cs,
@@ -256,7 +256,7 @@ const AboutPage = () => {
                   ["President", "Hasana Jahan E K"],
                   ["Vice President", "Salma Jose"],
                   ["Secretary", "Naseeb Abdu Taikkaden"],
-                  ["Joint Secretary", "Sreedath Chandran"],
+
                   ["Treasurer", "Arunya Raj R"],
                 ].map(([role, name], index) => (
                   <div key={index} className={styles.personCard}>
@@ -267,7 +267,7 @@ const AboutPage = () => {
                             "Hasana Jahan E K": hasana,
                             "Salma Jose": salma,
                             "Naseeb Abdu Taikkaden": naseed,
-                            "Sreedath Chandran": sreedath,
+
                             "Arunya Raj R": arunya,
                           }[name]
                         }

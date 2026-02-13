@@ -33,7 +33,7 @@ const Abstract = () => {
         "Topological photonics",
         "Tunable, active, and nonlinear metamaterials",
         "Metasurfaces and flat optics",
-        "Electromagnetic, THz and Optical Metamaterials",
+        "Electromagnetic, THz and optical metamaterials",
         "Applications in sensing, imaging, and communication",
       ],
     },
@@ -200,7 +200,6 @@ const Abstract = () => {
               </p>
             </div>
 
-
             <div className={styles.requirementBox}>
               <h3>Abstract Template</h3>
               <p>
@@ -265,8 +264,8 @@ const Abstract = () => {
                 <h4>Category Selection</h4>
                 <p>
                   Category Selection Authors must select the topic category that
-                  best aligns with their work. Submissions may also be
-                  nominated for consideration under a relevant session.
+                  best aligns with their work. Submissions may also be nominated
+                  for consideration under a relevant session.
                 </p>
               </div>
             </div>

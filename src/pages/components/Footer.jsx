@@ -41,7 +41,7 @@ const Footer = () => {
               </p>
               <p className={styles.infoItem}>
                 <span className={styles.icon}>📍</span>
-                ABC Block, NIT Calicut Campus, Kerala, India
+                Department of Physics, NIT Calicut Campus, Kerala, India
               </p>
             </div>
           </div>
