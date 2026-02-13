@@ -357,6 +357,8 @@ export default function Register() {
                 type="number"
                 name="year"
                 placeholder="Current Year"
+                min={1}
+                max={7}
               />
               {errors.year && (
                 <span className={styles.error}>{errors.year}</span>

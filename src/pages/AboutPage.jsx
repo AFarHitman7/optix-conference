@@ -27,6 +27,7 @@ import prev2 from "./assets/prev2.webp";
 import prev3 from "./assets/prev3.webp";
 
 import nit from "./assets/about/nit.png";
+import about2 from "./assets/about/about2.jpeg";
 
 const AboutPage = () => {
   return (
@@ -86,11 +87,11 @@ const AboutPage = () => {
             </div>
 
             <div className={styles.mediaWrapper}>
-              <img
-                src={prev3}
-                alt="Optica Student Chapter"
-                className={styles.singleImage}
-              />
+              <div className={styles.imageStack}>
+                <img src={prev1} alt="Workshops" />
+                <img src={prev2} alt="Exhibition" />
+                <img src={prev3} alt="Talks" />
+              </div>
             </div>
           </section>
 
@@ -122,11 +123,11 @@ const AboutPage = () => {
             </div>
 
             <div className={styles.mediaWrapper}>
-              <div className={styles.imageStack}>
-                <img src={prev1} alt="Workshops" />
-                <img src={prev2} alt="Exhibition" />
-                <img src="" alt="Talks" />
-              </div>
+              <img
+                src={about2}
+                alt="Optica Student Chapter"
+                className={styles.singleImage}
+              />
             </div>
           </section>
 
