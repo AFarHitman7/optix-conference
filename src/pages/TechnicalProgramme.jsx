@@ -10,56 +10,69 @@ const TechnicalProgramme = () => {
 
         <div className={styles.programmeContent}>
           <p>
-            The technical programme of OPTIX 2026 – International Conference on
-            Optics, Lasers & Photonics is designed to foster scientific exchange
-            and collaboration through keynote talks, oral and poster
-            presentations, special sessions, and cultural events.
+            The OPTIX 2026 conference, the International Conference on Optics,
+            Lasers & Photonics, has a remarkably interesting technical
+            programme. There are ample opportunities for the exchange of ideas
+            and collaboration. The technical programme includes keynote
+            speeches by experts in the field, poster sessions of the work of
+            the participants, and various sessions along with cultural events.
+            Taken together, these features of the OPTIX 2026 conference
+            facilitate networking and knowledge sharing among the participants.
           </p>
 
           <h3>Keynote & Invited Talks</h3>
           <p>
-            OPTIX 2026 will feature keynote and invited lectures by leading
-            experts from academia, research laboratories, and industry,
-            highlighting recent advances, emerging trends, and future directions
-            in optics and photonics.
+            The OPTIX 2026 conference will feature keynote speeches by leading
+            personalities from universities, research organizations, and
+            industry. They will present their views on the latest developments
+            in the field of optics and photonics and will also present their
+            expectations regarding future trends and directions in these
+            fields, with special emphasis on OPTIX and the latest developments
+            in the field of optics and photonics.
           </p>
 
           <h3>Oral Presentations</h3>
           <p>
-            The conference includes thematic oral presentation sessions covering
-            a broad range of topics such as laser technology, quantum optics,
-            photonic materials, optical sensing, fiber optics, and applied
-            photonics. These sessions provide a platform for researchers to
-            present and discuss their latest findings.
+            The conference includes sessions where the participants will
+            discuss a wide range of topics such as laser technology, quantum
+            optics, and photonic materials. These sessions will provide an
+            appropriate forum for the participants to present their latest
+            results in the field of laser technology and quantum optics and to
+            get constructive feedback from their peers. Other topics to be
+            discussed include optical sensing, fiber optics, and applied
+            photonics.
           </p>
 
           <h3>Poster Presentations</h3>
           <p>
-            Poster sessions offer an interactive forum for presenting innovative
-            ideas, ongoing research, and preliminary results. Dedicated poster
-            slots encourage direct discussion and networking, particularly
-            benefiting students and early-career researchers.
+            Poster presentation sessions serve as platforms for the
+            dissemination of innovative ideas and ongoing research. The sessions
+            allow participants to present preliminary findings, and they serve
+            as platforms for scholarly discourse. Students and young
+            professionals find poster presentation sessions valuable as they
+            serve as platforms for interaction with others on their research.
           </p>
 
           <h3>Special & Parallel Sessions</h3>
           <p>
-            Special and parallel sessions focus on emerging and
-            interdisciplinary areas, enabling in-depth discussions on
-            specialized topics and applications in optics and photonics.
+            Special and parallel sessions at OPTIX 2026 focus on
+            interdisciplinary themes. The sessions serve as platforms for
+            scholarly discourse on particular themes and applications in the
+            field of optics and photonics.
           </p>
 
           <h3>Cultural & Networking Events</h3>
           <p>
-            OPTIX 2026 also features cultural and networking events, providing
-            opportunities for informal interaction, collaboration, and
-            engagement beyond the technical sessions.
+            OPTIX 2026 will feature a number of cultural events and networking
+            sessions. The events serve as platforms for informal discourse and
+            collaborative engagement, allowing participants to network beyond
+            the technical sessions.
           </p>
 
           <h3>Conference Proceedings</h3>
           <p>
-            All accepted and presented contributions will be published in the
-            conference proceedings, serving as a lasting scientific record of
-            OPTIX 2026.
+            The conference proceedings will include all accepted and presented
+            papers, thus forming a permanent scientific record of OPTIX 2026.
           </p>
         </div>
       </div>

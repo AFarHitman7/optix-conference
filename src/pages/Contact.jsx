@@ -23,8 +23,16 @@ export default function Contact() {
 
               <div className={styles.item}>
                 <span className={styles.label}>Phone</span>
+                <a href="tel:+917358377064" className={styles.value}>
+                  +91 7358377064 Dr Natesan Yogesh (Convenor, OPTIX 2026)
+                </a>
+              </div>
+
+              <div className={styles.item}>
+                <span className={styles.label}>Phone</span>
                 <a href="tel:+916235747806" className={styles.value}>
-                  +91 62357 47806
+                  +91 6235747806 Naseeb Abdu Taikkaden (Student Coordinator,
+                  OPTIX 2026)
                 </a>
               </div>
 

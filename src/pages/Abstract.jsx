@@ -13,7 +13,7 @@ const Abstract = () => {
       topics: [
         "Laser sources and systems (CW, pulsed, ultrafast)",
         "Solid-state, fiber, semiconductor, and gas lasers",
-        "Laser–matter interaction",
+        "Laser-matter interaction",
         "High-power and high-energy lasers",
         "Laser spectroscopy and diagnostics",
         "Laser processing and micromachining",
@@ -39,7 +39,7 @@ const Abstract = () => {
       title: "Optofluidics",
       topics: [
         "Integrated optofluidic systems and lab-on-chip devices",
-        "Light–matter interaction in micro/nanofluidic platforms",
+        "Light-matter interaction in micro/nanofluidic platforms",
         "Optofluidic biosensing and chemical sensing",
         "Reconfigurable and tunable photonic devices using fluids",
         "Optical manipulation and trapping in fluids",
@@ -56,7 +56,7 @@ const Abstract = () => {
         "Quantum communication and cryptography",
         "Quantum sensing and metrology",
         "Integrated and chip-scale quantum photonics",
-        "Atom–photon and matter–light interactions",
+        "Atom-photon and matter-light interactions",
       ],
     },
     {
@@ -144,7 +144,7 @@ const Abstract = () => {
                 <div className={styles.deadlineLabel}>
                   Abstract and summary submission deadline
                 </div>
-                <div className={styles.deadlineDate}>20th March 2026</div>
+                <div className={styles.deadlineDate}>10th March 2026</div>
               </div>
             </div>
           </section>
@@ -198,10 +198,10 @@ const Abstract = () => {
             </div>
 
             <h3 className={styles.subsectionTitle}>
-              PDF Submission Guidelines
+              DOC Submission Guidelines
             </h3>
             <p className={styles.subsectionIntro}>
-              To be eligible for publication, all PDF submissions must include
+              To be eligible for publication, all DOC submissions must include
               the following components:
             </p>
 
@@ -244,9 +244,9 @@ const Abstract = () => {
               <div className={styles.infoContent}>
                 <h4>Category Selection</h4>
                 <p>
-                  Authors must select the topic category that best aligns with
-                  their work. Submissions may also be nominated for
-                  consideration under a relevant symposium.
+                  Category Selection Authors must select the topic category that
+                  best aligns with their work. Submissions may also be
+                  nominated for consideration under a relevant session.
                 </p>
               </div>
             </div>

@@ -6,15 +6,15 @@ const images = import.meta.glob("./assets/speakers/*.png", { eager: true });
 const speakerMeta = {
   "101.png": {
     name: "Prof Chennupati  Jagadish",
-    designation: "The Australian national univesity canberro",
+    designation: "The Australian National University, Canberra",
   },
   "102.png": {
     name: "Prof Ashokan",
-    designation: "IISc Banglore",
+    designation: "IISc Bangalore",
   },
   "103.png": {
     name: "Dr Ashok Kumar",
-    designation: "IIST Thiruvananthupuram",
+    designation: "IIST Thiruvananthapuram",
   },
   "104.png": {
     name: "Aparajita Bandyopadhyay",
@@ -26,7 +26,7 @@ const speakerMeta = {
   },
   "106.png": {
     name: "Prof Pavan Kumar GV",
-    designation: "IISER PUNE",
+    designation: "IISER Pune",
   },
   "107.png": {
     name: "Dr Amol Choudhary",
@@ -38,7 +38,7 @@ const speakerMeta = {
   },
   "109.png": {
     name: "Dr K Nithyanandan",
-    designation: "IIT Hyderbad",
+    designation: "IIT Hyderabad",
   },
   "110.png": {
     name: "Prof Prem B Bisht",
