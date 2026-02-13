@@ -262,17 +262,6 @@ export default function Register() {
             </a>
           </p>
           <p className={styles.abstractLinkWrapper}>
-            Abstract template{" "}
-            <a
-              href={abstractTemplateUrl}
-              target="_blank"
-              rel="noreferrer"
-              className={styles.abstractLink}
-            >
-              Open template →
-            </a>
-          </p>
-          <p className={styles.abstractLinkWrapper}>
             See Fee Structure{" "}
             <a
               onClick={() => scrollToSection("fees")}
@@ -498,8 +487,19 @@ export default function Register() {
                 )}
                 <p className={styles.abstractLinkWrapper}>
                   Category Selection Authors must select the topic category that
-                  best aligns with their work. Submissions may also be
-                  nominated for consideration under a relevant session
+                  best aligns with their work. Submissions may also be nominated
+                  for consideration under a relevant session
+                </p>
+                <p className={styles.abstractLinkWrapper}>
+                  Abstract template{" "}
+                  <a
+                    href={abstractTemplateUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.abstractLink}
+                  >
+                    Open template →
+                  </a>
                 </p>
               </div>
 

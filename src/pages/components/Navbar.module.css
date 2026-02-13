@@ -197,6 +197,25 @@
   background-color: #ff4655;
 }
 
+.button {
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #7d8082;
+}
+
+.button::before,
+.button::after {
+  border-radius: 999px;
+}
+
+.button_lg {
+  border-radius: 999px;
+}
+
+.button_sl {
+  border-radius: 999px;
+}
+
 /* Tablet and below */
 @media (max-width: 1024px) {
   .navlinks ul {

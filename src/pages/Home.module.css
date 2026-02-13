@@ -161,6 +161,7 @@
   font-family: Satoshi-Regular;
   width: fit-content;
   max-width: 100%;
+  margin-top: -3rem;
 }
 
 .mainColumn .date {
@@ -191,11 +192,12 @@
   font-weight: 300;
   font-size: 1.875rem;
   text-align: center;
+  margin-top: -1rem;
 }
 
 .mainColumn .description {
   font-family: Satoshi-Light;
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.5;
   width: 520px;
   max-width: 100%;
@@ -209,6 +211,7 @@
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 3rem;
 }
 
 .buttons button {

@@ -40,8 +40,8 @@ export default function Home() {
               International Conference on Optics, Lasers & Photonics
             </h1>
             <p className={styles.description}>
-              Organised by NIT Calicut Optica Student Chapter, National
-              Institute of Technology Calicut
+              Organised by NIT Calicut Optica Student Chapter, <br />
+              National Institute of Technology Calicut
             </p>
             <div className={styles.buttons}>
               <button
