@@ -215,7 +215,6 @@ const AboutPage = () => {
                   ["President", "Hasana Jahan E K"],
                   ["Vice President", "Salma Jose"],
                   ["Secretary", "Nazeeb Abdu Taikkaden"],
-                  ["Joint Secretary", "Sreedath Chandran"],
                   ["Treasurer", "Arunya Raj R"],
                 ].map(([role, name], index) => (
                   <div key={index} className={styles.personCard}>

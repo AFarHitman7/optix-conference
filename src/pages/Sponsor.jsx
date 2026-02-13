@@ -29,7 +29,7 @@ export default function Sponsors() {
         </div>
 
         <div className={styles.sponsorCard}>
-          <div className={styles.imageWrap}>
+          <div className={`${styles.imageWrap} ${styles.mainSponsorImageWrap}`}>
             <img
               src={sponsors[0].img}
               alt={sponsors[0].name}
@@ -44,13 +44,13 @@ export default function Sponsors() {
       </div>
       <div className={styles.container}>
         <div className={styles.textContainer}>
-          <h1 className={styles.title}>
+          <h1 className={`${styles.title} ${styles.coTitle}`}>
             <span>Co Sponsors</span>
           </h1>
         </div>
 
         <div className={styles.sponsorCard}>
-          <div className={styles.imageWrap}>
+          <div className={`${styles.imageWrap} ${styles.coSponsorImageWrap}`}>
             <img
               src={sponsors[1].img}
               alt={sponsors[1].name}

@@ -39,7 +39,7 @@ export default function About() {
               </p>
 
               <button className={styles.registerButton}>
-                <span>Register As Attendee →</span>
+                <span>Register Now →</span>
               </button>
             </div>
           </div>
