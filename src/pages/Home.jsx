@@ -40,15 +40,15 @@ export default function Home() {
               International Conference on Optics, Lasers & Photonics
             </h1>
             <p className={styles.description}>
-              Organised by NIT Calicut Optica Student Chapter, National Institute
-              of Technology Calicut
+              Organised by NIT Calicut Optica Student Chapter, National
+              Institute of Technology Calicut
             </p>
             <div className={styles.buttons}>
               <button
                 className={`${styles.registerButton} ${styles.btnShine}`}
                 onClick={() => navigate("./register")}
               >
-                <span>Register</span>
+                <span>Call for Abstract</span>
               </button>{" "}
               <button
                 className={`${styles.moreButton} ${styles.btnShine}`}

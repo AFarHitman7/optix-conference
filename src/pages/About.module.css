@@ -45,13 +45,11 @@
 
 .media {
   display: flex;
-  background-color: rgb(46, 47, 57);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(7px);
   backdrop-filter: blur(7px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
-  padding: 1rem;
   justify-content: center;
   align-items: center;
   height: fit-content;

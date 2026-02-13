@@ -37,10 +37,6 @@ export default function About() {
                 full-time and part-time doctoral research programs are available
                 in all departments.
               </p>
-
-              <button className={styles.registerButton}>
-                <span>Register Now →</span>
-              </button>
             </div>
           </div>
         </div>
