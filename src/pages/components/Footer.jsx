@@ -116,7 +116,7 @@ const Footer = () => {
             <h3 className={styles.columnTitle}>Follow Us</h3>
             <div className={styles.socialLinks}>
               <a
-                href="https://www.linkedin.com/company/the-optical-society/"
+                href="https://www.linkedin.com/in/nit-calicut-optica-student-chapter-14ab943b0/"
                 className={styles.socialLink}
                 aria-label="LinkedIn"
               >

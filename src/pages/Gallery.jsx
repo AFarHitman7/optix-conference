@@ -136,7 +136,7 @@ export default function Gallery() {
   return (
     <section className={styles.page}>
       <div className={styles.container}>
-        <h1 className={styles.title}>Gallery</h1>
+        <h1 className={styles.title}>Popular Attractions</h1>
         <div className={styles.carouselWrap}>
           <button
             className={styles.nav}
