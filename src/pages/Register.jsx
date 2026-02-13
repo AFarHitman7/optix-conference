@@ -36,8 +36,8 @@ export default function Register() {
 
   const formRef = useRef(null);
 
-  // Early Bird deadline - March 15, 2026
-  const EARLY_BIRD_DEADLINE = new Date("2026-03-15T23:59:59");
+  // Early Bird deadline - March 22, 2026
+  const EARLY_BIRD_DEADLINE = new Date("2026-03-22T23:59:59");
   const isEarlyBird = new Date() <= EARLY_BIRD_DEADLINE;
 
   /* ---------------- Abstract Upload Links ---------------- */
@@ -259,7 +259,7 @@ export default function Register() {
           </p>
           {isEarlyBird && (
             <div className={styles.earlyBirdBanner}>
-              🎉 Early Bird Registration Available Until March 15, 2026
+              🎉 Early Bird Registration Available Until March 22, 2026
             </div>
           )}
         </div>

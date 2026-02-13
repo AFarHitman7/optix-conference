@@ -104,8 +104,6 @@ const Footer = () => {
               <li>
                 <span className={styles.icon}>🏛️</span>
                 <span className={styles.text}>
-                  Department of Physics
-                  <br />
                   National Institute of Technology Calicut
                 </span>
               </li>
