@@ -2,8 +2,10 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import styles from "./Abstract.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Abstract = () => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const abstractTemplateUrl =
@@ -211,6 +213,7 @@ const Abstract = () => {
                 target="_blank"
                 rel="noreferrer"
                 className={styles.templateLink}
+                style={{ cursor: "pointer" }}
               >
                 Open template →
               </a>
@@ -327,7 +330,12 @@ const Abstract = () => {
                 Be part of a strong scientific forum alongside leading
                 researchers and subject-matter experts at OPTIX 2026.
               </p>
-              <a href="/register" className={styles.ctaButton}>
+              <a
+                onClick={() => {
+                  navigate("/register");
+                }}
+                className={styles.ctaButton}
+              >
                 Register and Submit
               </a>
             </div>

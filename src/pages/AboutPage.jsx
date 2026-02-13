@@ -20,12 +20,13 @@ import amana from "./assets/about/Amana Fathima Ali S .png";
 import allen from "./assets/about/Allen Samuel Stephen 1.png";
 import natesan from "./assets/about/Dr. Natesan Yogesh Asst. Professor (Grade II).jpg.jpeg";
 import shafi from "./assets/about/Dr. Muhammed Shafi P. Inspire Faculty, Department of Physics.png";
+import swapna from "./assets/about/Swapna s Nair.png";
 
 import prev1 from "./assets/prev1.webp";
 import prev2 from "./assets/prev2.webp";
 import prev3 from "./assets/prev3.webp";
 
-import nit from "./assets/about/about.png";
+import nit from "./assets/about/nit.png";
 
 const AboutPage = () => {
   return (
@@ -187,6 +188,12 @@ const AboutPage = () => {
                     role: "Professor",
                     dept: "IIST Thiruvananthapuram",
                     image: narayanan,
+                  },
+                  {
+                    name: "Prof Swapna S Nair",
+                    role: "Professor",
+                    dept: "Central University of Kerala",
+                    image: swapna,
                   },
                 ].map((person, index) => (
                   <div key={index} className={styles.personCard}>

@@ -58,7 +58,7 @@
 
 .media img {
   object-fit: contain;
-  width: 400px;
+  width: 500px;
   max-width: 100%;
   height: auto;
 }
@@ -131,7 +131,7 @@
   }
 
   .media img {
-    width: 350px;
+    width: 375px;
   }
 
   .heading {

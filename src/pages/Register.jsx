@@ -264,6 +264,7 @@ export default function Register() {
                 navigate("/abstract");
               }}
               className={styles.abstractLink}
+              style={{ cursor: "pointer" }}
             >
               View details →
             </a>

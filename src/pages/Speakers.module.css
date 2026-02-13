@@ -37,7 +37,7 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-family: Satoshi-Bold;
   font-weight: 600;
   letter-spacing: 0.2rem;
@@ -46,7 +46,7 @@
 }
 
 .textContainer p {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #939393;
   font-family: Satoshi-Regular;
   width: 40%;

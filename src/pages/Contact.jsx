@@ -39,7 +39,7 @@ export default function Contact() {
               <div className={styles.item}>
                 <span className={styles.label}>Venue</span>
                 <span className={styles.value}>
-                  ABC Block, <br />
+                  ABC Complex, <br />
                   National Institute of Technology Calicut,
                   <br />
                   Kozhikode, Kerala
