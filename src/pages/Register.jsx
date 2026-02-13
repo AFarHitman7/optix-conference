@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 export default function Register() {
   const [designation, setDesignation] = useState("");
   const [isOpticaMember, setIsOpticaMember] = useState("");
+  const [accommodation, setAccommodation] = useState("");
   const [isPresenting, setIsPresenting] = useState("");
   const [presentation, setPresentation] = useState([]);
   const [abstractTopic, setAbstractTopic] = useState("");
@@ -215,6 +216,7 @@ export default function Register() {
       setPresentation([]);
       setDesignation("");
       setIsOpticaMember("");
+      setAccommodation("");
       setIsPresenting("");
       setAbstractTopic("");
       setEmail("");
@@ -398,11 +400,22 @@ export default function Register() {
           )}
 
           <div className={styles.field}>
-            <select className={styles.select} name="accommodation">
+            <select
+              className={styles.select}
+              name="accommodation"
+              value={accommodation}
+              onChange={(e) => setAccommodation(e.target.value)}
+            >
               <option value="">Accommodation Required?</option>
-              <option value="yes">Yes (amount later)</option>
+              <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
+            {accommodation === "yes" && (
+              <span className={styles.note}>
+                Accommodation is subject to availability; payment will be
+                initiated later.
+              </span>
+            )}
             {errors.accommodation && (
               <span className={styles.error}>{errors.accommodation}</span>
             )}
