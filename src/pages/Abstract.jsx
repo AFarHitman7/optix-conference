@@ -244,9 +244,9 @@ const Abstract = () => {
               <div className={styles.infoContent}>
                 <h4>Category Selection</h4>
                 <p>
-                  Authors must select the topic category that best aligns with
-                  their work. Submissions may also be nominated for
-                  consideration under a relevant symposium.
+                  Category Selection Authors must select the topic category that
+                  best aligns with their work. Submissions may also be
+                  nominated for consideration under a relevant session.
                 </p>
               </div>
             </div>

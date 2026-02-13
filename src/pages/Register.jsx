@@ -17,6 +17,7 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [amount, setAmount] = useState(null);
+  const [email, setEmail] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
 
@@ -85,9 +86,18 @@ export default function Register() {
     return null;
   };
 
+  const isNitcEmail = email.trim().toLowerCase().endsWith("@nitc.ac.in");
+
   useEffect(() => {
-    setAmount(deriveAmount(designation, isOpticaMember));
-  }, [designation, isOpticaMember]);
+    const baseAmount = deriveAmount(designation, isOpticaMember);
+
+    if (!baseAmount) {
+      setAmount(null);
+      return;
+    }
+
+    setAmount(isNitcEmail ? Math.round(baseAmount / 1.18) : baseAmount);
+  }, [designation, isOpticaMember, isNitcEmail]);
 
   /* ---------------- Validation ---------------- */
 
@@ -204,6 +214,7 @@ export default function Register() {
       setIsOpticaMember("");
       setIsPresenting("");
       setAbstractTopic("");
+      setEmail("");
     } catch {
       setShowErrorModal(true);
     }
@@ -284,6 +295,8 @@ export default function Register() {
               className={styles.input}
               type="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email Address"
             />
             {errors.email && (
@@ -469,6 +482,11 @@ export default function Register() {
                 {errors.abstractTopic && (
                   <span className={styles.error}>{errors.abstractTopic}</span>
                 )}
+                <p className={styles.abstractLinkWrapper}>
+                  Category Selection Authors must select the topic category that
+                  best aligns with their work. Submissions may also be
+                  nominated for consideration under a relevant session
+                </p>
               </div>
 
               {abstractTopic && (
