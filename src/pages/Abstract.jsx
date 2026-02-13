@@ -6,6 +6,9 @@ import styles from "./Abstract.module.css";
 const Abstract = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
+  const abstractTemplateUrl =
+    "https://docs.google.com/document/d/197eLkyrAXZBg2RQGu4oAmn5xLBHGgr3P/";
+
   const categories = [
     {
       id: "laser",
@@ -195,6 +198,23 @@ const Abstract = () => {
                 An expanded description must clearly state the research problem,
                 methodology, key results, and conclusions.
               </p>
+            </div>
+
+
+            <div className={styles.requirementBox}>
+              <h3>Abstract Template</h3>
+              <p>
+                Use the official OPTIX 2026 abstract template while preparing
+                your submission.
+              </p>
+              <a
+                href={abstractTemplateUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.templateLink}
+              >
+                Open template →
+              </a>
             </div>
 
             <h3 className={styles.subsectionTitle}>

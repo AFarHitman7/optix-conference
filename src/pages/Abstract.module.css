@@ -356,6 +356,18 @@
   color: #d1d5db;
 }
 
+.templateLink {
+  display: inline-block;
+  margin-top: 0.9rem;
+  color: #90caf9;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.templateLink:hover {
+  text-decoration: underline;
+}
+
 .subsectionTitle {
   font-size: 1.5rem;
   font-weight: 600;

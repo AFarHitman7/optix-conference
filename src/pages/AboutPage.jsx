@@ -18,6 +18,8 @@ import arunya from "./assets/about/Arunya Raj .png";
 import athul from "./assets/about/Athul C Nagesh .png";
 import amana from "./assets/about/Amana Fathima Ali S .png";
 import allen from "./assets/about/Allen Samuel Stephen 1.png";
+import natesan from "./assets/about/Dr. Natesan Yogesh Asst. Professor (Grade II).jpg.jpeg";
+import shafi from "./assets/about/Dr. Muhammed Shafi P. Inspire Faculty, Department of Physics.png";
 
 import prev1 from "./assets/prev1.webp";
 import prev2 from "./assets/prev2.webp";
@@ -216,12 +218,14 @@ const AboutPage = () => {
                       role: "Faculty Advisor",
                       designation: "Asst. Professor (Grade I)",
                       dept: "NIT Calicut",
+                      image: natesan,
                     },
                     {
                       name: "Dr P Muhammed Shafi",
                       role: "Faculty Co-Advisor",
                       designation: "Inspire Faculty",
                       dept: "NIT Calicut",
+                      image: shafi,
                     },
                   ].map((person, index) => (
                     <div key={index} className={styles.personCard}>
