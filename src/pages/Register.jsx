@@ -24,6 +24,9 @@ export default function Register() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const abstractTemplateUrl =
+    "https://docs.google.com/document/d/197eLkyrAXZBg2RQGu4oAmn5xLBHGgr3P/";
+
   const scrollToSection = (sectionId) => {
     if (location.pathname !== "/") {
       navigate("/", { state: { scrollTo: sectionId } });
@@ -256,6 +259,17 @@ export default function Register() {
             Want full abstract guidelines?{" "}
             <a href="/abstract" className={styles.abstractLink}>
               View details →
+            </a>
+          </p>
+          <p className={styles.abstractLinkWrapper}>
+            Abstract template{" "}
+            <a
+              href={abstractTemplateUrl}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.abstractLink}
+            >
+              Open template →
             </a>
           </p>
           <p className={styles.abstractLinkWrapper}>
