@@ -1,20 +1,88 @@
 import styles from "./Gallery.module.css";
 import { useRef, useEffect, useState } from "react";
 
-const images = import.meta.glob("./assets/gallery/*.{png,jpg,jpeg}", {
+const imageModules = import.meta.glob("./assets/gallery/*.{png,jpg,jpeg}", {
   eager: true,
 });
 
-const galleryItems = Object.values(images).map((m, i) => ({
-  id: i + 1,
-  img: m.default,
-  title: `Gallery ${i + 1}`,
-}));
+const attractionDetails = [
+  {
+    fileName: "South Beach Kozhikode.jpg",
+    title: "South Beach Kozhikode",
+    description:
+      "Popular seaside promenade ideal for sunset views and evening walks. (~25 km from NIT Calicut)",
+  },
+  {
+    fileName: "Beypore Beach.jpg",
+    title: "Beypore Beach",
+    description:
+      "Historic port area at the Chaliyar River mouth, known for fishing culture and calm shores. (~30 km from NIT Calicut)",
+  },
+  {
+    fileName: "Regional Science Centre and Planetarium, Calicut.jpg",
+    title: "Regional Science Centre and Planetarium, Calicut",
+    description:
+      "Interactive science centre with hands-on exhibits and immersive planetarium shows on astronomy and space science. (~24 km from NIT Calicut)",
+  },
+  {
+    fileName: "Kappad Beach.jpg",
+    title: "Kappad Beach",
+    description:
+      "Historic landing site of Vasco da Gama with a scenic rocky coastline and cultural significance. (~40 km from NIT Calicut)",
+  },
+  {
+    fileName: "Kadalundi Bird Sanctuary.jpg",
+    title: "Kadalundi Bird Sanctuary",
+    description:
+      "Protected wetland habitat famous for migratory birds and nature observation. (~30 km from NIT Calicut)",
+  },
+  {
+    fileName: "SM Street (Mittayi Theruvu), Kozhikode.jpg",
+    title: "SM Street (Mittayi Theruvu), Kozhikode",
+    description:
+      "Traditional market street known for local sweets, snacks, and souvenirs. (~23 km from NIT Calicut)",
+  },
+  {
+    fileName: "wayanad.jpg",
+    title: "Wayanad",
+    description:
+      "Scenic hill district known for forests, waterfalls, wildlife, and a cool climate retreat. (~85 km from NIT Calicut)",
+  },
+  {
+    fileName: "Mananchira Square.jpg",
+    title: "Mananchira Square",
+    description:
+      "Historic urban park with a central pond and heritage surroundings in the city centre. (~23 km from NIT Calicut)",
+  },
+];
+
+const galleryItems = attractionDetails
+  .map((item, index) => {
+    const moduleKey = Object.keys(imageModules).find((key) =>
+      key.endsWith(item.fileName)
+    );
+
+    if (!moduleKey) return null;
+
+    return {
+      id: index + 1,
+      img: imageModules[moduleKey].default,
+      title: item.title,
+      description: item.description,
+    };
+  })
+  .filter(Boolean);
 
 const GalleryCard = ({ item, active }) => {
   return (
     <div className={`${styles.galleryCard} ${active ? styles.active : ""}`}>
-      <img src={item.img} alt={item.title} loading="lazy" decoding="async" />
+      <div className={styles.imageWrap}>
+        <img src={item.img} alt={item.title} loading="lazy" decoding="async" />
+      </div>
+      <div className={styles.cardContent}>
+        <h3 className={styles.cardTitle}>{item.title}</h3>
+        <p className={styles.cardDescription}>{item.description}</p>
+      </div>
     </div>
   );
 };
@@ -53,31 +121,20 @@ export default function Gallery() {
 
     const width = el.offsetWidth;
 
-    // Responsive scroll amounts based on screen width
-    if (width <= 380) {
-      // Very small mobile - scroll 95% of width
-      return width * 0.95;
-    } else if (width <= 480) {
-      // Small mobile - scroll 90% of width
+    if (width <= 768) {
       return width * 0.9;
-    } else if (width <= 640) {
-      // Mobile portrait - scroll 85% of width
-      return width * 0.85;
-    } else if (width <= 768) {
-      // Mobile landscape - scroll 80% of width
-      return width * 0.8;
     } else if (width <= 1024) {
-      // Tablets - scroll 50% of width (one card when 2 visible)
       return width * 0.5;
-    } else {
-      // Desktop - scroll 33.33% (one card when 3 visible)
-      return width * 0.3333;
     }
+
+    return width * 0.3333;
   };
+
+  const isMobileViewport = () => window.innerWidth <= 768;
 
   const autoScroll = () => {
     const el = carouselRef.current;
-    if (!el) return;
+    if (!el || isMobileViewport()) return;
 
     el.scrollBy({
       left: getScrollAmount(),
@@ -100,7 +157,14 @@ export default function Gallery() {
   };
 
   const startAutoScroll = () => {
-    intervalRef.current = setInterval(autoScroll, 3500);
+    if (isMobileViewport()) {
+      stopAutoScroll();
+      return;
+    }
+
+    if (!intervalRef.current) {
+      intervalRef.current = setInterval(autoScroll, 3500);
+    }
   };
 
   const stopAutoScroll = () => {
@@ -112,7 +176,7 @@ export default function Gallery() {
 
   useEffect(() => {
     const el = carouselRef.current;
-    if (!el) return;
+    if (!el || !galleryItems.length) return;
 
     el.scrollLeft = el.scrollWidth / 3;
 
@@ -120,9 +184,14 @@ export default function Gallery() {
 
     el.addEventListener("scroll", updateActive);
 
-    // Handle window resize to recalculate scroll amounts
     const handleResize = () => {
       updateActive();
+
+      if (isMobileViewport()) {
+        stopAutoScroll();
+      } else {
+        startAutoScroll();
+      }
     };
     window.addEventListener("resize", handleResize);
 

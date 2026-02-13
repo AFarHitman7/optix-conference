@@ -5,6 +5,19 @@ import Footer from "./components/Footer";
 import vs from "./assets/about/varisivaji.png";
 import rv from "./assets/about/RaviVarma.png";
 import cs from "./assets/about/chandrashekaran.png";
+import aji from "./assets/about/Aji A Anappara (1).png";
+import ts from "./assets/about/T Srinivas (Professor, IISc Banglore).jpg.jpeg";
+import rg from "./assets/about/R Ganesan (Professor IISc Banglore) (1).png";
+import gar from "./assets/about/Ganesan A. R (iit madras).png";
+import narayanan from "./assets/about/C S Narayananmurthy (IIST Thiruvananthupuram).png";
+import hasana from "./assets/about/Hasana Jahan E K.png";
+import salma from "./assets/about/Salma Jose .png";
+import naseed from "./assets/about/Naseed Abdu .png";
+import sreedath from "./assets/about/Sreedath Chandran .png";
+import arunya from "./assets/about/Arunya Raj .png";
+import athul from "./assets/about/Athul C Nagesh .png";
+import amana from "./assets/about/Amana Fathima Ali S .png";
+import allen from "./assets/about/Allen Samuel Stephen 1.png";
 
 import prev1 from "./assets/prev1.webp";
 import prev2 from "./assets/prev2.webp";
@@ -144,26 +157,31 @@ const AboutPage = () => {
                     name: "Prof Aji A Anappara",
                     role: "Professor",
                     dept: "NIT Calicut",
+                    image: aji,
                   },
                   {
                     name: "Prof T Srinivas",
                     role: "Professor",
                     dept: "IISc Bangalore",
+                    image: ts,
                   },
                   {
                     name: "Prof R Ganesan",
                     role: "Professor",
                     dept: "IISc Bangalore",
+                    image: rg,
                   },
                   {
                     name: "Prof Ganesan A R",
                     role: "Professor",
                     dept: "IIT Madras",
+                    image: gar,
                   },
                   {
                     name: "Prof C S Narayananmurthy",
                     role: "Professor",
                     dept: "IIST Thiruvananthapuram",
+                    image: narayanan,
                   },
                 ].map((person, index) => (
                   <div key={index} className={styles.personCard}>
@@ -198,19 +216,17 @@ const AboutPage = () => {
                       role: "Faculty Advisor",
                       designation: "Asst. Professor (Grade I)",
                       dept: "NIT Calicut",
-                      image: vs,
                     },
                     {
                       name: "Dr P Muhammed Shafi",
                       role: "Faculty Co-Advisor",
                       designation: "Inspire Faculty",
                       dept: "NIT Calicut",
-                      image: cs,
                     },
                   ].map((person, index) => (
                     <div key={index} className={styles.personCard}>
                       <div className={styles.photoPlaceholder}>
-                        <img src={person.image} alt="" />
+                        {person.image ? <img src={person.image} alt="" /> : null}
                       </div>
                       <h3>{person.name}</h3>
                       <p className={styles.role}>{person.role}</p>
@@ -233,7 +249,18 @@ const AboutPage = () => {
                   ["Treasurer", "Arunya Raj R"],
                 ].map(([role, name], index) => (
                   <div key={index} className={styles.personCard}>
-                    <div className={styles.photoPlaceholder} />
+                    <div className={styles.photoPlaceholder}>
+                      <img
+                        src={{
+                          "Hasana Jahan E K": hasana,
+                          "Salma Jose": salma,
+                          "Naseeb Abdu Taikkaden": naseed,
+                          "Sreedath Chandran": sreedath,
+                          "Arunya Raj R": arunya,
+                        }[name]}
+                        alt={name}
+                      />
+                    </div>
                     <h3>{name}</h3>
                     <p className={styles.role}>{role}</p>
                   </div>
@@ -251,7 +278,17 @@ const AboutPage = () => {
                   ["Treasurer", "Sreedath Chandran"],
                 ].map(([role, name], index) => (
                   <div key={index} className={styles.personCard}>
-                    <div className={styles.photoPlaceholder} />
+                    <div className={styles.photoPlaceholder}>
+                      <img
+                        src={{
+                          "Athul C Nagesh": athul,
+                          "Amana Fathima Ali S": amana,
+                          "Allen Stephen Samuel": allen,
+                          "Sreedath Chandran": sreedath,
+                        }[name]}
+                        alt={name}
+                      />
+                    </div>
                     <h3>{name}</h3>
                     <p className={styles.role}>{role}</p>
                   </div>

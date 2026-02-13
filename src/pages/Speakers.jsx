@@ -132,9 +132,11 @@ const SpeakerCarousel = () => {
     }
   };
 
+  const isMobileViewport = () => window.innerWidth <= 768;
+
   const autoScroll = () => {
     const el = carouselRef.current;
-    if (!el) return;
+    if (!el || isMobileViewport()) return;
 
     el.scrollBy({
       left: getScrollAmount(),
@@ -157,7 +159,14 @@ const SpeakerCarousel = () => {
   };
 
   const startAutoScroll = () => {
-    intervalRef.current = setInterval(autoScroll, 3000);
+    if (isMobileViewport()) {
+      stopAutoScroll();
+      return;
+    }
+
+    if (!intervalRef.current) {
+      intervalRef.current = setInterval(autoScroll, 3000);
+    }
   };
 
   const stopAutoScroll = () => {
@@ -181,6 +190,12 @@ const SpeakerCarousel = () => {
     // Handle window resize to recalculate scroll amounts
     const handleResize = () => {
       updateActive();
+
+      if (isMobileViewport()) {
+        stopAutoScroll();
+      } else {
+        startAutoScroll();
+      }
     };
     window.addEventListener("resize", handleResize);
 

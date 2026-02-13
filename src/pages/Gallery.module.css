@@ -24,13 +24,6 @@
   margin: 0 0 1rem 0;
 }
 
-.subtitle {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #a0a0a0;
-  margin-top: 0.5rem;
-}
-
 .carouselWrap {
   display: flex;
   align-items: center;
@@ -68,10 +61,11 @@
 .carousel {
   display: flex;
   overflow-x: auto;
-  gap: 0;
+  gap: 1rem;
   scroll-behavior: smooth;
   scrollbar-width: none;
   flex: 1;
+  padding: 0.5rem 0.25rem;
 }
 
 .carousel::-webkit-scrollbar {
@@ -79,19 +73,45 @@
 }
 
 .galleryCard {
-  flex: 0 0 33.333%;
-  opacity: 0.7;
-  transform: scale(0.9);
+  flex: 0 0 calc((100% - 2rem) / 3);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  opacity: 0.75;
+  transform: scale(0.96);
   transition: all 0.35s ease;
-  text-align: center;
+}
+
+.imageWrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(0, 0, 0, 0.22);
 }
 
 .galleryCard img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  border-radius: 0;
   display: block;
+}
+
+.cardContent {
+  padding: 0.9rem 0.95rem 1rem;
+  text-align: left;
+}
+
+.cardTitle {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.cardDescription {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #d7d7d7;
 }
 
 .active {
@@ -99,89 +119,27 @@
   transform: scale(1);
 }
 
-.caption {
-  margin-top: 0.75rem;
-  font-size: 0.85rem;
-  color: #d0d0d0;
-}
-
-/* ============================================
-   RESPONSIVE STYLES
-   ============================================ */
-
-/* Large tablets and small desktops */
 @media (max-width: 1200px) {
-  .page {
-    padding: 5rem 1.5rem;
-  }
-
   .container {
     padding: 2.5rem 4rem;
   }
 
   .title {
     font-size: 2.75rem;
-    letter-spacing: 0.12rem;
   }
 
   .galleryCard {
-    flex: 0 0 50%;
+    flex: 0 0 calc((100% - 1rem) / 2);
   }
 }
 
-/* Medium tablets */
-@media (max-width: 1024px) {
-  .page {
-    padding: 4.5rem 1.25rem;
-  }
-
-  .container {
-    padding: 2.25rem 3rem;
-  }
-
-  .title {
-    font-size: 2.5rem;
-    letter-spacing: 0.1rem;
-  }
-
-  .nav {
-    width: 38px;
-    height: 38px;
-    font-size: 1.5rem;
-  }
-
-  .galleryCard {
-    flex: 0 0 50%;
-  }
-}
-
-/* Small tablets */
-@media (max-width: 900px) {
-  .page {
-    padding: 4rem 1rem;
-  }
-
-  .container {
-    padding: 2rem 2.5rem;
-  }
-
-  .title {
-    font-size: 2.25rem;
-  }
-
-  .carouselWrap {
-    margin-top: 1.75rem;
-  }
-}
-
-/* Tablets and below */
 @media (max-width: 768px) {
   .page {
     padding: 3.5rem 0.875rem;
   }
 
   .container {
-    padding: 1.75rem 2rem;
+    padding: 1.75rem 1.5rem;
     border-radius: 1.25rem;
   }
 
@@ -191,197 +149,18 @@
   }
 
   .carouselWrap {
-    gap: 0.625rem;
-    margin-top: 1.5rem;
-  }
-
-  .nav {
-    width: 36px;
-    height: 36px;
-    font-size: 1.4rem;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .galleryCard {
-    flex: 0 0 80%;
-    opacity: 0.85;
-  }
-
-  .active {
-    opacity: 1;
-  }
-}
-
-/* Mobile portrait */
-@media (max-width: 640px) {
-  .page {
-    padding: 3rem 0.75rem;
-  }
-
-  .container {
-    padding: 1.5rem 1.5rem;
-    border-radius: 1rem;
-  }
-
-  .title {
-    font-size: 1.75rem;
-    letter-spacing: 0.06rem;
-  }
-
-  .carouselWrap {
     gap: 0.5rem;
-    margin-top: 1.25rem;
   }
 
   .nav {
-    width: 32px;
-    height: 32px;
-    font-size: 1.3rem;
-    transition:
-      transform 0.1s ease,
-      background 0.1s ease;
-  }
-
-  .nav:active {
-    transform: scale(0.9);
-    background: rgba(255, 255, 255, 0.25);
+    width: 34px;
+    height: 34px;
+    font-size: 1.35rem;
   }
 
   .galleryCard {
-    flex: 0 0 85%;
-  }
-
-  /* Disable scale effect on mobile */
-  .galleryCard {
+    flex: 0 0 88%;
     transform: scale(1);
-  }
-
-  .active {
-    transform: scale(1);
-  }
-}
-
-/* Small mobile devices */
-@media (max-width: 480px) {
-  .page {
-    padding: 2.5rem 0.625rem;
-  }
-
-  .container {
-    padding: 1.25rem 1.25rem;
-  }
-
-  .title {
-    font-size: 1.5rem;
-  }
-
-  .carouselWrap {
-    gap: 0.4rem;
-  }
-
-  .nav {
-    width: 30px;
-    height: 30px;
-    font-size: 1.2rem;
-    transition:
-      transform 0.08s ease,
-      background 0.08s ease;
-  }
-
-  .nav:active {
-    transform: scale(0.88);
-  }
-
-  .galleryCard {
-    flex: 0 0 90%;
-  }
-
-  .caption {
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
-  }
-}
-
-/* Very small mobile devices */
-@media (max-width: 380px) {
-  .page {
-    padding: 2rem 0.5rem;
-  }
-
-  .container {
-    padding: 1rem 1rem;
-    border-radius: 0.875rem;
-  }
-
-  .title {
-    font-size: 1.3rem;
-  }
-
-  .carouselWrap {
-    gap: 0.35rem;
-  }
-
-  .nav {
-    width: 28px;
-    height: 28px;
-    font-size: 1.1rem;
-    transition:
-      transform 0.08s ease,
-      background 0.08s ease;
-  }
-
-  .galleryCard {
-    flex: 0 0 95%;
-  }
-
-  .caption {
-    font-size: 0.7rem;
-  }
-}
-
-/* Touch devices - faster response */
-@media (hover: none) and (pointer: coarse) {
-  .nav {
-    transition:
-      transform 0.05s ease,
-      background 0.05s ease;
-  }
-
-  .nav:active {
-    transform: scale(0.85);
-    background: rgba(255, 255, 255, 0.3);
-  }
-
-  /* Remove scale transitions on touch devices */
-  .galleryCard {
-    transform: scale(1);
-    transition: opacity 0.35s ease;
-  }
-
-  .active {
-    transform: scale(1);
-  }
-}
-
-/* Landscape orientation for mobile */
-@media (max-height: 600px) and (orientation: landscape) {
-  .page {
-    padding: 2rem 1rem;
-  }
-
-  .container {
-    padding: 1.5rem 2rem;
-  }
-
-  .title {
-    font-size: 1.6rem;
-  }
-
-  .carouselWrap {
-    margin-top: 1rem;
-  }
-
-  .galleryCard {
-    flex: 0 0 50%;
+    opacity: 0.9;
   }
 }
