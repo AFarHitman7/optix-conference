@@ -6,7 +6,7 @@ const images = import.meta.glob("./assets/speakers/*.png", { eager: true });
 const speakerMeta = {
   "101.png": {
     name: "Prof Chennupati  Jagadish",
-    designation: "The Australian National University Canberra",
+    designation: "The Australian National University, Canberra",
   },
   "102.png": {
     name: "Prof Ashokan",

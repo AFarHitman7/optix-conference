@@ -53,7 +53,7 @@ const AboutPage = () => {
             <div className={styles.content}>
               <div className={styles.tag}>Student Initiative</div>
               <h2 className={styles.heading}>
-                NITC <span>Optica Student Chapter</span>
+                NIT Calicut <span>Optica Student Chapter</span>
               </h2>
               <p className={styles.description}>
                 Optica serves as a prominent global platform for optics and
@@ -125,45 +125,45 @@ const AboutPage = () => {
                   {
                     name: "Dr Vari Sivaji Reddy",
                     role: "HoD - Associate Professor",
-                    dept: "Dept of Physics, NIT Calicut",
+                    dept: "NIT Calicut",
                     image: vs,
                   },
                   {
                     name: "Prof. Chandrasekharan K.",
                     role: "Professor (HAG)",
-                    dept: "Dept of Physics, NIT Calicut",
+                    dept: "NIT Calicut",
                     image: cs,
                   },
                   {
-                    name: "Prof Ravi Varma Mundakkara Kovilakam",
+                    name: "Prof M K Ravi Varma",
                     role: "Professor",
-                    dept: "Dept of Physics, NIT Calicut",
+                    dept: "NIT Calicut",
                     image: rv,
                   },
                   {
                     name: "Prof Aji A Anappara",
                     role: "Professor",
-                    dept: "Dept of Physics, NIT Calicut",
+                    dept: "NIT Calicut",
                   },
                   {
                     name: "Prof T Srinivas",
                     role: "Professor",
-                    dept: "Dept of Physics, IISc Banglore",
+                    dept: "IISc Bangalore",
                   },
                   {
                     name: "Prof R Ganesan",
                     role: "Professor",
-                    dept: "Dept of Physics, IISc Banglore",
+                    dept: "IISc Bangalore",
                   },
                   {
                     name: "Prof Ganesan A R",
                     role: "Professor",
-                    dept: "Dept of Physics, IIT Madras",
+                    dept: "IIT Madras",
                   },
                   {
                     name: "Prof C S Narayananmurthy",
                     role: "Professor",
-                    dept: "Dept of Physics, IIST Thiruvananthapuram",
+                    dept: "IIST Thiruvananthapuram",
                   },
                 ].map((person, index) => (
                   <div key={index} className={styles.personCard}>
@@ -197,14 +197,14 @@ const AboutPage = () => {
                       name: "Dr Natesan Yogesh",
                       role: "Faculty Advisor",
                       designation: "Asst. Professor (Grade I)",
-                      dept: "Dept of Physics, NIT Calicut",
+                      dept: "NIT Calicut",
                       image: vs,
                     },
                     {
                       name: "Dr P Muhammed Shafi",
                       role: "Faculty Co-Advisor",
                       designation: "Inspire Faculty",
-                      dept: "Dept of Physics, NIT Calicut",
+                      dept: "NIT Calicut",
                       image: cs,
                     },
                   ].map((person, index) => (
@@ -222,13 +222,13 @@ const AboutPage = () => {
               </div>
 
               {/* ===== Student Chapter Section ===== */}
-              <h3 className={styles.subHeading}>NITC Optica Student Chapter</h3>
+              <h3 className={styles.subHeading}>NIT Calicut Optica Student Chapter</h3>
 
               <div className={styles.peopleGrid}>
                 {[
                   ["President", "Hasana Jahan E K"],
                   ["Vice President", "Salma Jose"],
-                  ["Secretary", "Nazeeb Abdu Taikkaden"],
+                  ["Secretary", "Naseeb Abdu Taikkaden"],
                   ["Joint Secretary", "Sreedath Chandran"],
                   ["Treasurer", "Arunya Raj R"],
                 ].map(([role, name], index) => (
