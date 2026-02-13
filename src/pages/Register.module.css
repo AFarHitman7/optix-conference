@@ -231,6 +231,12 @@
   margin-top: 0.4rem;
 }
 
+.note {
+  font-size: 0.8rem;
+  color: #475569;
+  margin-top: 0.4rem;
+}
+
 /* ================= PRESENTATION ================= */
 
 .presentRow {
