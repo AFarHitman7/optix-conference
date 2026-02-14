@@ -25,9 +25,7 @@ const Footer = () => {
           <div className={styles.column}>
             <div className={styles.logoSection}>
               <img src={logo} alt="OPTIX Logo" className={styles.logo} />
-              <h3 className={styles.brandName}>
-                OPTIX International Conference 2026
-              </h3>
+              <h3 className={styles.brandName}>OPTIX 2026</h3>
             </div>
             <p className={styles.description}>
               Join us for an immersive exploration of cutting-edge research in

@@ -44,15 +44,14 @@ export default function Home() {
               National Institute of Technology Calicut
             </p>
             <p className={styles.venue}>
-              Venue: ABC Complex, National Institute of Technology
-              Calicut
+              Venue: ABC Complex, National Institute of Technology Calicut
             </p>
             <div className={styles.buttons}>
               <button
                 className={`${styles.registerButton} ${styles.btnShine}`}
                 onClick={() => navigate("./abstract")}
               >
-                <span>Call for Abstract</span>
+                <span>Call for Abstracts</span>
               </button>{" "}
               <button
                 className={`${styles.moreButton} ${styles.btnShine}`}

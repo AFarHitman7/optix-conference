@@ -185,7 +185,7 @@ const AboutPage = () => {
                     image: gar,
                   },
                   {
-                    name: "Prof C S Narayananmurthy",
+                    name: "Prof C S Narayanamurthy",
                     role: "Professor",
                     dept: "IIST Thiruvananthapuram",
                     image: narayanan,
