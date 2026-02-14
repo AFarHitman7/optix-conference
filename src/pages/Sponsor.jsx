@@ -24,7 +24,7 @@ export default function Sponsors() {
       <div className={styles.container}>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>
-            <span>Platinum Sponsors</span>
+            <span>Platinum Sponsor</span>
           </h1>
         </div>
 
@@ -45,7 +45,7 @@ export default function Sponsors() {
       <div className={styles.container}>
         <div className={styles.textContainer}>
           <h1 className={`${styles.title} ${styles.coTitle}`}>
-            <span>Bronze Sponsors</span>
+            <span>Bronze Sponsor</span>
           </h1>
         </div>
 

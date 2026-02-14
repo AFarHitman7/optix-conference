@@ -29,7 +29,6 @@ export default function Contact() {
                 </span>
               </div>
 
-
               <div className={styles.item}>
                 <span className={styles.label}>Venue</span>
                 <span className={styles.value}>
@@ -45,9 +44,9 @@ export default function Contact() {
             <div className={styles.mapCard}>
               <iframe
                 title="NIT Calicut Map"
-                src="https://www.google.com/maps?q=Department%20of%20Physics%2C%20NIT%20Calicut&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.1884886086746!2d75.9340528!3d11.3209296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba643485e72f1a1%3A0xec2880df47736a18!2sAryabhata%20Hall!5e0!3m2!1sen!2sin!4v1771070980691!5m2!1sen!2sin"
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerpolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>

@@ -41,7 +41,8 @@ const Footer = () => {
               </p>
               <p className={styles.infoItem}>
                 <span className={styles.icon}>📍</span>
-                Department of Physics, National Institute of Technology Calicut, NIT Campus P.O., PIN - 673601, Kozhikode, Kerala, India
+                ABC Complex, National Institute of Technology Calicut,
+                Kozhikode, Kerala{" "}
               </p>
             </div>
           </div>
@@ -98,7 +99,8 @@ const Footer = () => {
               <li>
                 <span className={styles.icon}>🏛️</span>
                 <span className={styles.text}>
-                  Department of Physics, National Institute of Technology Calicut
+                  Department of Physics, National Institute of Technology
+                  Calicut
                 </span>
               </li>
             </ul>
