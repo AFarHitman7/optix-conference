@@ -16,7 +16,7 @@ const Abstract = () => {
       topics: [
         "Laser system and materials (CW, pulsed, ultrafast)",
         "Solid-state, fiber, semiconductor, and gas lasers",
-        "Laser–matter interaction",
+        "Laser-matter interaction",
         "High-power and high-energy lasers",
         "Laser spectroscopy and diagnostics",
         "Laser processing and micromachining",
@@ -42,7 +42,7 @@ const Abstract = () => {
       title: "Optofluidics",
       topics: [
         "Integrated optofluidic systems and lab-on-chip devices",
-        "Light–matter interaction in micro/nanofluidic platforms",
+        "Light-matter interaction in micro/nanofluidic platforms",
         "Optofluidic biosensing and chemical sensing",
         "Reconfigurable and tunable photonic devices using fluids",
         "Optical manipulation and trapping in fluids",
@@ -59,12 +59,12 @@ const Abstract = () => {
         "Quantum communication and cryptography",
         "Quantum sensing and metrology",
         "Integrated and chip-scale quantum photonics",
-        "Atom–photon and matter–light interactions",
+        "Atom-photon and matter-light interactions",
       ],
     },
     {
       id: "nonlinear",
-      title: "Nonlinear and Optical Materials",
+      title: "Nonlinear Optics and Optical Materials",
       topics: [
         "Nonlinear optical phenomena and frequency conversion",
         "Novel optical and photonic materials",
@@ -104,7 +104,7 @@ const Abstract = () => {
       description: "",
     },
     {
-      title: "A detailed summary (300–1000 words)",
+      title: "A detailed summary (300-1000 words)",
       description:
         "Describing the problem, methods, and results. Maximum length: two pages, including figures",
     },
@@ -134,8 +134,8 @@ const Abstract = () => {
               <p className={styles.heroDescription}>
                 All accepted submissions will be included in the Conference
                 Abstract Book / Digital Proceedings. Selected high-quality
-                papers will be invited for submission to a special collection
-                in Journal of the Optical Society of America B (JOSA B), Optica
+                papers will be invited for submission to a special collection in
+                Journal of the Optical Society of America B (JOSA B), Optica
                 Publishing Group, (subject to peer review), with full paper
                 submission scheduled after the conference.
               </p>
@@ -225,7 +225,7 @@ const Abstract = () => {
               {guidelines.map((item, index) => (
                 <li key={index} className={styles.guidelineListItem}>
                   <strong>{item.title}</strong>
-                  {item.description && <span> — {item.description}</span>}
+                  {item.description && <span> - {item.description}</span>}
                 </li>
               ))}
             </ol>

@@ -76,7 +76,7 @@ export default function Register() {
     }
 
     // Faculty/Scientists/Postdocs
-    if (["faculty", "postdoc"].includes(designation)) {
+    if (["faculty", "postdoc", "scientist"].includes(designation)) {
       if (isMember) {
         return isEarly ? 5900 : 7080;
       }
@@ -343,7 +343,8 @@ export default function Register() {
               <option value="ug">Student (UG)</option>
               <option value="pg">Student (PG)</option>
               <option value="phd">PhD Scholar</option>
-              <option value="postdoc">Post Doctorate Fellow</option>
+              <option value="postdoc">Post Doctoral Fellow</option>
+              <option value="scientist">Scientist</option>
               <option value="faculty">Faculty</option>
               <option value="industry">Industry Expert</option>
             </select>
@@ -504,8 +505,8 @@ export default function Register() {
                   </option>
                   <option value="Optofluidics">Optofluidics</option>
                   <option value="Quantum Optics">Quantum Optics</option>
-                  <option value="Nonlinear and Optical Materials">
-                    Nonlinear and Optical Materials
+                  <option value="Nonlinear Optics and Optical Materials">
+                    Nonlinear Optics and Optical Materials
                   </option>
                   <option value="Applied Optics">Applied Optics</option>
                 </select>

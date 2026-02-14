@@ -29,7 +29,7 @@ const speakerMeta = {
     designation: "IISER Pune",
   },
   "107.png": {
-    name: "Dr Shivakiran Bhaktha",
+    name: "Dr Shivakiran B N Bhaktha",
     designation: "IIT Kharagpur",
   },
   "108.png": {
