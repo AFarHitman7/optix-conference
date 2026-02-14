@@ -247,6 +247,20 @@
   transform: rotate(3deg);
 }
 
+.feeWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #131314;
+  margin-top: 2rem;
+}
+
+.feeWrapper img {
+  width: 60%;
+  height: 100%;
+  object-fit: fill;
+}
+
 /* ===============================
    PEOPLE GRID
 ================================= */
@@ -355,5 +369,11 @@
 
   .mediaWrapper {
     display: none;
+  }
+
+  .feeWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
   }
 }

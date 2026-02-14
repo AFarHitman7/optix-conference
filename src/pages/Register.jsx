@@ -240,9 +240,7 @@ export default function Register() {
         </div>
         <div className={styles.leftColumn}>
           <div className={styles.date}>April 1 - 2 2026, NIT Calicut</div>
-          <h1 className={styles.title}>
-            OPTIX 2026 | International Conference
-          </h1>
+          <h1 className={styles.title}>OPTIX 2026</h1>
           <p className={styles.description}>
             <HiOutlineLocationMarker />
             NIT Calicut

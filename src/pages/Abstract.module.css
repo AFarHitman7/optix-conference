@@ -464,20 +464,6 @@
   color: #d1d5db;
 }
 
-.feeWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #131314;
-  margin-top: 2rem;
-}
-
-.feeWrapper img {
-  width: 60%;
-  height: 100%;
-  object-fit: fill;
-}
-
 /* ===============================
    CATEGORIES
 ================================= */
@@ -632,7 +618,7 @@
 .categoryItem {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  padding: 0.4rem 1.25rem 1rem;
+  padding: 1rem;
   background: rgba(255, 255, 255, 0.03);
 }
 
@@ -815,11 +801,5 @@
 
   .ctaSection {
     padding: 2rem 1.5rem;
-  }
-
-  .feeWrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
   }
 }

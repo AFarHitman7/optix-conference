@@ -149,8 +149,8 @@ const Footer = () => {
 
         <div className={styles.bottomSection}>
           <p className={styles.copyright}>
-            © 2026 OPTIX International Conference - NIT Calicut Optica Student
-            Chapter, NIT Calicut. All rights reserved.
+            © OPTIX 2026 - NIT Calicut Optica Student Chapter, NIT Calicut. All
+            rights reserved.
           </p>
         </div>
       </div>

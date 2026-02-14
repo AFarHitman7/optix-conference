@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import styles from "./Abstract.module.css";
 import { useNavigate } from "react-router-dom";
-import fees from "./assets/fees.png";
+import { IoIosArrowDropdown } from "react-icons/io";
 
 const Abstract = () => {
   const navigate = useNavigate();
@@ -33,8 +33,8 @@ const Abstract = () => {
         "Topological photonics",
         "Tunable, active, and nonlinear metamaterials",
         "Metasurfaces and flat optics",
-        "Electromagnetic, THz and Optical Metamaterials",
-        "Hyperbolic Metamaterials, Graphene based Tunable Metamaterials.",
+        "Electromagnetic, THz and optical metamaterials",
+        "Hyperbolic metamaterials, graphene based tunable metamaterials.",
         "Applications in sensing, imaging, and communication",
       ],
     },
@@ -93,7 +93,7 @@ const Abstract = () => {
 
   const guidelines = [
     {
-      title: "Full paper title",
+      title: "The title of the research work",
       description: "",
     },
     {
@@ -218,8 +218,7 @@ const Abstract = () => {
               DOC Submission Guidelines
             </h3>
             <p className={styles.subsectionIntro}>
-              To be eligible for publication, all DOC submissions must include
-              the following components:
+              all submissions must include the following components:
             </p>
 
             <ol className={styles.guidelinesList}>
@@ -230,16 +229,6 @@ const Abstract = () => {
                 </li>
               ))}
             </ol>
-
-            <div className={styles.infoBox}>
-              <div className={styles.infoContent}>
-                <h4>Copyright Agreement</h4>
-                <p>
-                  The submission process includes an electronic copyright
-                  transfer agreement. No additional documentation is required.
-                </p>
-              </div>
-            </div>
 
             <div className={styles.infoBox}>
               <div className={styles.infoContent}>
@@ -279,7 +268,9 @@ const Abstract = () => {
                 <details key={category.id} className={styles.categoryItem}>
                   <summary className={styles.categorySummary}>
                     <h3>{category.title}</h3>
-                    <span className={styles.categoryChevron}>⌄</span>
+                    <span className={styles.categoryChevron}>
+                      <IoIosArrowDropdown />
+                    </span>
                   </summary>
                   <ul>
                     {category.topics.map((topic, i) => (
@@ -290,11 +281,6 @@ const Abstract = () => {
               ))}
             </div>
           </section>
-          <div id="fees">
-            <div className={styles.feeWrapper}>
-              <img src={fees} alt="fee structure" />
-            </div>
-          </div>
 
           {/* CTA Section */}
           <section className={styles.ctaSection}>
