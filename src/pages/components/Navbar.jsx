@@ -28,7 +28,7 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       {/* Logo */}
       <div className={styles.logo} onClick={() => navigate("/")} role="button">
-        <img src={logo} alt="Optix Logo" />
+        <img src={logo} alt="OPTIX Logo" />
       </div>
       {/* Nav links */}
       <div className={styles.navlinks}>

@@ -43,6 +43,10 @@ export default function Home() {
               Organised by NIT Calicut Optica Student Chapter, <br />
               National Institute of Technology Calicut
             </p>
+            <p className={styles.venue}>
+              Venue: ABC Complex, National Institute of Technology
+              Calicut
+            </p>
             <div className={styles.buttons}>
               <button
                 className={`${styles.registerButton} ${styles.btnShine}`}

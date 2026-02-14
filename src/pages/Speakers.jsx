@@ -10,7 +10,7 @@ const speakerMeta = {
   },
   "102.png": {
     name: "Prof Ashokan",
-    designation: "IISc Bangalore",
+    designation: "IISc Bengaluru",
   },
   "103.png": {
     name: "Dr Ashok Kumar",
@@ -29,7 +29,7 @@ const speakerMeta = {
     designation: "IISER Pune",
   },
   "107.png": {
-    name: "Dr Amol Choudhary",
+    name: "Dr Shivakiran Bhaktha",
     designation: "IIT Delhi",
   },
   "108.png": {
@@ -85,6 +85,14 @@ const SpeakerCarousel = () => {
   const updateActive = () => {
     const el = carouselRef.current;
     if (!el) return;
+
+    const setWidth = el.scrollWidth / 3;
+
+    if (el.scrollLeft <= setWidth * 0.5) {
+      el.scrollLeft += setWidth;
+    } else if (el.scrollLeft >= setWidth * 2.5) {
+      el.scrollLeft -= setWidth;
+    }
 
     const center = el.scrollLeft + el.offsetWidth / 2;
 

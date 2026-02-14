@@ -24,9 +24,9 @@ const Footer = () => {
         <div className={styles.topSection}>
           <div className={styles.column}>
             <div className={styles.logoSection}>
-              <img src={logo} alt="Optix Logo" className={styles.logo} />
+              <img src={logo} alt="OPTIX Logo" className={styles.logo} />
               <h3 className={styles.brandName}>
-                Optix International Conference 2026
+                OPTIX International Conference 2026
               </h3>
             </div>
             <p className={styles.description}>
@@ -41,7 +41,7 @@ const Footer = () => {
               </p>
               <p className={styles.infoItem}>
                 <span className={styles.icon}>📍</span>
-                Department of Physics, NIT Calicut Campus, Kerala, India
+                Department of Physics, National Institute of Technology Calicut, NIT Campus P.O., PIN - 673601, Kozhikode, Kerala, India
               </p>
             </div>
           </div>
@@ -96,15 +96,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <span className={styles.icon}>📞</span>
-                <a href="tel:+916235747806" className={styles.link}>
-                  +91 6235747806
-                </a>
-              </li>
-              <li>
                 <span className={styles.icon}>🏛️</span>
                 <span className={styles.text}>
-                  National Institute of Technology Calicut
+                  Department of Physics, National Institute of Technology Calicut
                 </span>
               </li>
             </ul>

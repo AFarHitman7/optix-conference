@@ -240,7 +240,7 @@ export default function Register() {
         </div>
         <div className={styles.leftColumn}>
           <div className={styles.date}>April 1 - 2 2026, NIT Calicut</div>
-          <h1 className={styles.title}>Optix International Conference 2026</h1>
+          <h1 className={styles.title}>OPTIX International Conference 2026</h1>
           <p className={styles.description}>
             <HiOutlineLocationMarker />
             NIT Calicut
@@ -583,9 +583,8 @@ export default function Register() {
             <select className={styles.select} name="transactionType">
               <option value="">Transaction Type</option>
               <option value="upi">UPI</option>
-              <option value="neft">NEFT</option>
-              <option value="rtgs">RTGS</option>
-              <option value="imps">IMPS</option>
+              <option value="netbanking">NetBanking</option>
+              <option value="card">Card</option>
             </select>
             {errors.transactionType && (
               <span className={styles.error}>{errors.transactionType}</span>
