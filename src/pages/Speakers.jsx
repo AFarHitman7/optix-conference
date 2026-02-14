@@ -30,7 +30,7 @@ const speakerMeta = {
   },
   "107.png": {
     name: "Dr Shivakiran Bhaktha",
-    designation: "IIT Delhi",
+    designation: "IIT Kharagpur",
   },
   "108.png": {
     name: "Prof V Subramanian",
