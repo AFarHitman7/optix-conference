@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import styles from "./Abstract.module.css";
@@ -6,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const Abstract = () => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const abstractTemplateUrl =
     "https://docs.google.com/document/d/197eLkyrAXZBg2RQGu4oAmn5xLBHGgr3P/";
@@ -16,9 +14,9 @@ const Abstract = () => {
       id: "laser",
       title: "Laser & Laser Technology",
       topics: [
-        "Laser sources and systems (CW, pulsed, ultrafast)",
+        "Laser system and materials (CW, pulsed, ultrafast)",
         "Solid-state, fiber, semiconductor, and gas lasers",
-        "Laser-matter interaction",
+        "Laser–matter interaction",
         "High-power and high-energy lasers",
         "Laser spectroscopy and diagnostics",
         "Laser processing and micromachining",
@@ -29,13 +27,13 @@ const Abstract = () => {
       id: "metamaterials",
       title: "Metamaterials & Photonic Crystals",
       topics: [
-        "Electromagnetic and optical metamaterials",
         "Photonic crystals and bandgap engineering",
         "Plasmonics and nanophotonics",
         "Topological photonics",
         "Tunable, active, and nonlinear metamaterials",
         "Metasurfaces and flat optics",
-        "Electromagnetic, THz and optical metamaterials",
+        "Electromagnetic, THz and Optical Metamaterials",
+        "Hyperbolic Metamaterials, Graphene based Tunable Metamaterials.",
         "Applications in sensing, imaging, and communication",
       ],
     },
@@ -44,7 +42,7 @@ const Abstract = () => {
       title: "Optofluidics",
       topics: [
         "Integrated optofluidic systems and lab-on-chip devices",
-        "Light-matter interaction in micro/nanofluidic platforms",
+        "Light–matter interaction in micro/nanofluidic platforms",
         "Optofluidic biosensing and chemical sensing",
         "Reconfigurable and tunable photonic devices using fluids",
         "Optical manipulation and trapping in fluids",
@@ -61,7 +59,7 @@ const Abstract = () => {
         "Quantum communication and cryptography",
         "Quantum sensing and metrology",
         "Integrated and chip-scale quantum photonics",
-        "Atom-photon and matter-light interactions",
+        "Atom–photon and matter–light interactions",
       ],
     },
     {
@@ -79,9 +77,8 @@ const Abstract = () => {
     },
     {
       id: "applied",
-      title: "Applied Optics",
-      subtitle:
-        "(Optoelectronics, Optical Instrumentation, Fiber Optics & Sensing)",
+      title:
+        "Applied Optics (Optoelectronics, Optical Instrumentation, Fiber Optics & Sensing)",
       topics: [
         "Optoelectronic devices and systems",
         "Optical instrumentation and metrology",
@@ -136,14 +133,12 @@ const Abstract = () => {
                 Call for <span>Abstracts</span>
               </h1>
               <p className={styles.heroDescription}>
-                All submitted abstracts undergo peer-review process to curate a
-                high-quality technical program focused on emerging research
-                works. Presenters will be part of a strong scientific forum
-                alongside leading researchers and subject-matter experts. The
-                audience will include fellow researchers, industry
-                professionals, and prospective collaborators. Additionally,
-                every accepted abstract will be published in the OPTIX-2026
-                Abstract Book and assigned an ISBN number.
+                All accepted submissions will be included in the Conference
+                Abstract Book / Digital Proceedings. Selected high-quality
+                papers will be invited for submission to a special collection
+                in Journal of the Optical Society of America B (JOSA B), Optica
+                Publishing Group, (subject to peer review), with full paper
+                submission scheduled after the conference.
               </p>
               <div className={styles.deadline}>
                 <div className={styles.deadlineLabel}>
@@ -164,7 +159,7 @@ const Abstract = () => {
               <div className={styles.formatCard}>
                 <h3>Oral Presentations</h3>
                 <p className={styles.formatDetails}>
-                  10 minutes presentation followed by 5 minutes of discussion
+                  10 minutes presentation followed by 2 minutes of discussion
                 </p>
                 <div className={styles.award}>
                   Awards will be presented for Best Oral Presentation in each
@@ -227,17 +222,14 @@ const Abstract = () => {
               the following components:
             </p>
 
-            <div className={styles.guidelinesGrid}>
+            <ol className={styles.guidelinesList}>
               {guidelines.map((item, index) => (
-                <div key={index} className={styles.guidelineCard}>
-                  <div className={styles.guidelineNumber}>{index + 1}</div>
-                  <div className={styles.guidelineContent}>
-                    <h3>{item.title}</h3>
-                    {item.description && <p>{item.description}</p>}
-                  </div>
-                </div>
+                <li key={index} className={styles.guidelineListItem}>
+                  <strong>{item.title}</strong>
+                  {item.description && <span> — {item.description}</span>}
+                </li>
               ))}
-            </div>
+            </ol>
 
             <div className={styles.infoBox}>
               <div className={styles.infoContent}>
@@ -280,43 +272,15 @@ const Abstract = () => {
               Topic <span>Categories</span>
             </h2>
 
-            <div className={styles.categoriesGrid}>
-              {categories.map((category, index) => (
-                <div
-                  key={category.id}
-                  className={`${styles.categoryCard} ${
-                    selectedCategory === category.id
-                      ? styles.categoryActive
-                      : ""
-                  }`}
-                  onClick={() =>
-                    setSelectedCategory(
-                      selectedCategory === category.id ? null : category.id,
-                    )
-                  }
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className={styles.categoryHeader}>
-                    <h3>{category.title}</h3>
-                    {category.subtitle && (
-                      <p className={styles.categorySubtitle}>
-                        {category.subtitle}
-                      </p>
-                    )}
-                    <div className={styles.expandIcon}>
-                      {selectedCategory === category.id ? "−" : "+"}
-                    </div>
-                  </div>
-
-                  {selectedCategory === category.id && (
-                    <div className={styles.categoryTopics}>
-                      <ul>
-                        {category.topics.map((topic, i) => (
-                          <li key={i}>{topic}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+            <div className={styles.categoryList}>
+              {categories.map((category) => (
+                <div key={category.id} className={styles.categoryItem}>
+                  <h3>{category.title}</h3>
+                  <ul>
+                    {category.topics.map((topic, i) => (
+                      <li key={i}>{topic}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
@@ -336,7 +300,7 @@ const Abstract = () => {
                 }}
                 className={styles.ctaButton}
               >
-                Register and Submit
+                Submit Abstract
               </a>
             </div>
           </section>

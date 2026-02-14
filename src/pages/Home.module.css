@@ -205,6 +205,15 @@
   text-align: center;
 }
 
+
+.mainColumn .venue {
+  font-family: Satoshi-Light;
+  font-size: 0.9rem;
+  color: #bfc7d6;
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
 .mainColumn .buttons {
   font-family: Satoshi-Regular;
   display: flex;
@@ -414,7 +423,16 @@
     max-width: 400px;
   }
 
-  .mainColumn .buttons {
+  
+.mainColumn .venue {
+  font-family: Satoshi-Light;
+  font-size: 0.9rem;
+  color: #bfc7d6;
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+.mainColumn .buttons {
     gap: 0.75rem;
     margin-top: 0.5rem;
   }
@@ -503,7 +521,16 @@
     max-width: 300px;
   }
 
-  .mainColumn .buttons {
+  
+.mainColumn .venue {
+  font-family: Satoshi-Light;
+  font-size: 0.9rem;
+  color: #bfc7d6;
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+.mainColumn .buttons {
     flex-direction: column;
     width: 100%;
     max-width: 250px;
@@ -531,7 +558,16 @@
     font-size: 0.8rem;
   }
 
-  .mainColumn .buttons {
+  
+.mainColumn .venue {
+  font-family: Satoshi-Light;
+  font-size: 0.9rem;
+  color: #bfc7d6;
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+.mainColumn .buttons {
     margin-top: 0.5rem;
   }
 }

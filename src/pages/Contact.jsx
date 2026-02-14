@@ -20,21 +20,15 @@ export default function Contact() {
                   osc@nitc.ac.in
                 </a>
               </div>
-
               <div className={styles.item}>
-                <span className={styles.label}>Phone</span>
-                <a href="tel:+917358377064" className={styles.value}>
-                  +91 7358377064 Dr Natesan Yogesh (Convenor, OPTIX 2026)
-                </a>
+                <span className={styles.label}>Address</span>
+                <span className={styles.value}>
+                  Department of Physics, National Institute of Technology
+                  Calicut, NIT Campus P.O., PIN - 673601, Kozhikode, Kerala,
+                  India
+                </span>
               </div>
 
-              <div className={styles.item}>
-                <span className={styles.label}>Phone</span>
-                <a href="tel:+916235747806" className={styles.value}>
-                  +91 6235747806 Naseeb Abdu Taikkaden (Student Coordinator,
-                  OPTIX 2026)
-                </a>
-              </div>
 
               <div className={styles.item}>
                 <span className={styles.label}>Venue</span>
@@ -51,7 +45,7 @@ export default function Contact() {
             <div className={styles.mapCard}>
               <iframe
                 title="NIT Calicut Map"
-                src="https://www.google.com/maps?q=NIT%20Calicut&output=embed"
+                src="https://www.google.com/maps?q=Department%20of%20Physics%2C%20NIT%20Calicut&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

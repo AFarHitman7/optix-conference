@@ -169,13 +169,13 @@ const AboutPage = () => {
                   {
                     name: "Prof T Srinivas",
                     role: "Professor",
-                    dept: "IISc Bangalore",
+                    dept: "IISc Bengaluru",
                     image: ts,
                   },
                   {
                     name: "Prof R Ganesan",
                     role: "Professor",
-                    dept: "IISc Bangalore",
+                    dept: "IISc Bengaluru",
                     image: rg,
                   },
                   {
@@ -263,9 +263,8 @@ const AboutPage = () => {
                 {[
                   ["President", "Hasana Jahan E K"],
                   ["Vice President", "Salma Jose"],
-                  ["Secretary", "Naseeb Abdu Taikkaden"],
-
                   ["Treasurer", "Arunya Raj R"],
+                  ["Secretary", "Naseeb Abdu Taikkaden"],
                 ].map(([role, name], index) => (
                   <div key={index} className={styles.personCard}>
                     <div className={styles.photoPlaceholder}>
