@@ -36,6 +36,10 @@ export default function Contact() {
                   National Institute of Technology Calicut,
                   <br />
                   Kozhikode, Kerala
+                  <br />
+                  <br />
+                  For the conference venue, please see the Google Map displayed
+                  on the right.
                 </span>
               </div>
             </div>
