@@ -29,8 +29,8 @@ export default function Register() {
     "https://docs.google.com/document/d/197eLkyrAXZBg2RQGu4oAmn5xLBHGgr3P/";
 
   const scrollToSection = (sectionId) => {
-    if (location.pathname !== "/") {
-      navigate("/", { state: { scrollTo: sectionId } });
+    if (location.pathname !== "/about") {
+      navigate("/about", { state: { scrollTo: sectionId } });
     } else {
       const element = document.getElementById(sectionId);
       if (element) {

@@ -319,11 +319,10 @@ const AboutPage = () => {
               </div>
             </div>
           </section>
-
-          <div id="fees">
-            <div className={styles.feeWrapper}>
-              <img src={fees} alt="fee structure" />
-            </div>
+        </div>
+        <div id="fees">
+          <div className={styles.feeWrapper}>
+            <img src={fees} alt="fee structure" />
           </div>
         </div>
       </div>
