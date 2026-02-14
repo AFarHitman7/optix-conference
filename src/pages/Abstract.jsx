@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import styles from "./Abstract.module.css";
 import { useNavigate } from "react-router-dom";
+import fees from "./assets/fees.png";
 
 const Abstract = () => {
   const navigate = useNavigate();
@@ -289,6 +290,11 @@ const Abstract = () => {
               ))}
             </div>
           </section>
+          <div id="fees">
+            <div className={styles.feeWrapper}>
+              <img src={fees} alt="fee structure" />
+            </div>
+          </div>
 
           {/* CTA Section */}
           <section className={styles.ctaSection}>

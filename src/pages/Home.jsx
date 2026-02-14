@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import styles from "./Home.module.css";
 import background2 from "./assets/background.png";
-import fees from "./assets/fees.png";
 import About from "./About";
 import Speakers from "./Speakers";
 import Contact from "./Contact";
@@ -71,11 +70,7 @@ export default function Home() {
         <div id="technical">
           <TechnicalProgramme />
         </div>
-        <div id="fees">
-          <div className={styles.feeWrapper}>
-            <img src={fees} alt="fee structure" />
-          </div>
-        </div>
+
         <div id="sponsor">
           <Sponsors />
         </div>
