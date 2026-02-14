@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import styles from "./Home.module.css";
 import background2 from "./assets/background.png";
+import optixLogo from "./assets/optix.svg";
+import nitcLogo from "./assets/nitc.png";
 import About from "./About";
 import Speakers from "./Speakers";
 import Contact from "./Contact";
@@ -33,6 +35,10 @@ export default function Home() {
             <img src={background2} alt="Background" />
           </div>
           <div className={styles.mainColumn}>
+            <div className={styles.logoRow}>
+              <img src={optixLogo} alt="Optix logo" className={styles.topLogo} />
+              <img src={nitcLogo} alt="NIT Calicut logo" className={styles.topLogo} />
+            </div>
             <div className={styles.date}>April 1 - 2 2026, NIT Calicut</div>
             <h1 className={styles.title}>OPTIX 2026</h1>
             <h1 className={styles.subtitle}>
