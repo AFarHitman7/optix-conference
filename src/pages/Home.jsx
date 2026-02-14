@@ -44,7 +44,7 @@ export default function Home() {
               National Institute of Technology Calicut
             </p>
             <p className={styles.venue}>
-              Venue: Department of Physics, National Institute of Technology
+              Venue: ABC Complex, National Institute of Technology
               Calicut
             </p>
             <div className={styles.buttons}>
