@@ -9,6 +9,8 @@ const Abstract = () => {
 
   const abstractTemplateUrl =
     "https://docs.google.com/document/d/197eLkyrAXZBg2RQGu4oAmn5xLBHGgr3P/";
+  const abstractUploadNote =
+    "The abstract must be uploaded as a DOC file to a secure cloud-based platform (e.g., Google Drive) with public access enabled. The shared link will be used by the organizing committee to access and review the submitted abstract.";
 
   const categories = [
     {
@@ -290,6 +292,7 @@ const Abstract = () => {
                 Be part of a strong scientific forum alongside leading
                 researchers and subject-matter experts at OPTIX 2026.
               </p>
+              <p>{abstractUploadNote}</p>
               <a
                 onClick={() => {
                   navigate("/register");

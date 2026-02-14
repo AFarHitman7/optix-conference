@@ -74,7 +74,12 @@ const TechnicalProgramme = () => {
             papers, thus forming a permanent scientific record of OPTIX 2026.
           </p>
           <div className={styles.downloadSection}>
-            <a className={styles.downloadButton}>
+            <a
+              href="https://drive.google.com/file/d/1sasr7Hrv0H3tEb0Ztujob4wNfIHcn1HS/view?usp=drive_link"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.downloadButton}
+            >
               Download Brochure
               <svg
                 width="16"

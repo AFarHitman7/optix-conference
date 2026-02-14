@@ -27,6 +27,8 @@ export default function Register() {
 
   const abstractTemplateUrl =
     "https://docs.google.com/document/d/197eLkyrAXZBg2RQGu4oAmn5xLBHGgr3P/";
+  const abstractUploadNote =
+    "The abstract must be uploaded as a DOC file to a secure cloud-based platform (e.g., Google Drive) with public access enabled. The shared link will be used by the organizing committee to access and review the submitted abstract.";
 
   const scrollToSection = (sectionId) => {
     if (location.pathname !== "/about") {
@@ -44,22 +46,6 @@ export default function Register() {
   // Early Bird deadline - March 22, 2026
   const EARLY_BIRD_DEADLINE = new Date("2026-03-22T23:59:59");
   const isEarlyBird = new Date() <= EARLY_BIRD_DEADLINE;
-
-  /* ---------------- Abstract Upload Links ---------------- */
-  const abstractUploadLinks = {
-    "Laser & Laser Technology":
-      "https://drive.google.com/drive/folders/1bFySP594DGSTH0_WGSjUL8WMCu_GJ6vg?usp=drive_link",
-    "Metamaterials & Photonic Crystals":
-      "https://drive.google.com/drive/folders/1O-S1KLiYwbnPTLuXTqzAO_69BHR-WY_j?usp=drive_link",
-    Optofluidics:
-      "https://drive.google.com/drive/folders/1RNtsxENyqK6raelSaMk1Mbvx-qrF3cM9?usp=drive_link",
-    "Quantum Optics":
-      "https://drive.google.com/drive/folders/10SHqxfv74FoQr4BwlNeKDeIGCdPCM6T3?usp=sharing",
-    "Nonlinear and Optical Materials":
-      "https://drive.google.com/drive/folders/1Ip1w4D8FQodHYckCKhiCQkP8nquSB1Mb?usp=drive_link",
-    "Applied Optics":
-      "https://drive.google.com/drive/folders/1qrEiQVRWwf-NjcZExtOdMOqlvRBnj3c0?usp=drive_link",
-  };
 
   /* ---------------- Pricing ---------------- */
 
@@ -145,6 +131,8 @@ export default function Register() {
         errs.presentation = "Select presentation type";
       if (!form.get("abstractTopic"))
         errs.abstractTopic = "Select abstract topic";
+      if (!form.get("abstractLink")?.trim())
+        errs.abstractLink = "Abstract link required";
     }
 
     if (!form.get("transactionType"))
@@ -531,23 +519,17 @@ export default function Register() {
                 </p>
               </div>
 
-              {abstractTopic && (
-                <div className={`${styles.field} ${styles.full}`}>
-                  <div className={styles.uploadBox}>
-                    <p className={styles.uploadText}>
-                      Upload your abstract for <strong>{abstractTopic}</strong>
-                    </p>
-                    <a
-                      href={abstractUploadLinks[abstractTopic]}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.uploadLink}
-                    >
-                      Click here to upload abstract →
-                    </a>
-                  </div>
-                </div>
-              )}
+              <div className={`${styles.field} ${styles.full}`}>
+                <input
+                  className={styles.input}
+                  name="abstractLink"
+                  placeholder="Abstract Link"
+                />
+                {errors.abstractLink && (
+                  <span className={styles.error}>{errors.abstractLink}</span>
+                )}
+                <span className={styles.note}>{abstractUploadNote}</span>
+              </div>
             </>
           )}
 

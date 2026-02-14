@@ -79,14 +79,14 @@ const Footer = () => {
                   onClick={() => scrollToSection("contact")}
                   className={styles.link}
                 >
-                  Contact
+                  Contact Us
                 </a>
               </li>
             </ul>
           </div>
 
           <div className={styles.column}>
-            <h3 className={styles.columnTitle}>Contact</h3>
+            <h3 className={styles.columnTitle}>Contact Us</h3>
             <ul className={styles.contactList}>
               <li>
                 <span className={styles.icon}>📧</span>

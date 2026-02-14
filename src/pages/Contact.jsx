@@ -6,7 +6,7 @@ export default function Contact() {
         <div className={styles.container}>
           <div className={styles.hero}>
             <div className={styles.heroOverlay} />
-            <h1 className={styles.heroTitle}>Contacts</h1>
+            <h1 className={styles.heroTitle}>Contact Us</h1>
           </div>
 
           <div className={styles.grid}>
