@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import styles from "./Home.module.css";
 import background2 from "./assets/background.png";
-import optixLogo from "./assets/optix.svg";
+import optica from "./assets/optica.png";
 import nitcLogo from "./assets/nitc.png";
 import About from "./About";
 import Speakers from "./Speakers";
@@ -37,11 +37,15 @@ export default function Home() {
           <div className={styles.mainColumn}>
             <div className={styles.logoRow}>
               <img
-                src={optixLogo}
+                src={optica}
                 alt="Optix logo"
-                className={`${styles.topLogo} ${styles.optixLogo}`}
+                className={`${styles.topLogo}`}
               />
-              <img src={nitcLogo} alt="NIT Calicut logo" className={styles.topLogo} />
+              <img
+                src={nitcLogo}
+                alt="NIT Calicut logo"
+                className={styles.topLogo}
+              />
             </div>
             <div className={styles.date}>April 1 - 2 2026, NIT Calicut</div>
             <h1 className={styles.title}>OPTIX 2026</h1>
