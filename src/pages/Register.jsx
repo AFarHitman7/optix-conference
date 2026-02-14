@@ -511,9 +511,11 @@ export default function Register() {
                   <span className={styles.error}>{errors.abstractTopic}</span>
                 )}
                 <p className={styles.abstractLinkWrapper}>
-                  Category Selection Authors must select the topic category that
-                  best aligns with their work. Submissions may also be nominated
-                  for consideration under a relevant session
+                  Authors are requested to submit abstracts under the topic
+                  category that most closely aligns with their work; however,
+                  submissions are not strictly limited to the listed categories,
+                  and relevant contributions in related areas are also
+                  encouraged.
                 </p>
                 <p className={styles.abstractLinkWrapper}>
                   Abstract template{" "}

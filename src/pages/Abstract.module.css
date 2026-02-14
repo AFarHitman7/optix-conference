@@ -619,16 +619,39 @@
 .categoryItem {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  padding: 1rem 1.25rem;
+  padding: 0.4rem 1.25rem 1rem;
   background: rgba(255, 255, 255, 0.03);
 }
 
+.categorySummary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  padding: 0.6rem 0;
+}
+
+.categorySummary::-webkit-details-marker {
+  display: none;
+}
+
 .categoryItem h3 {
-  margin-bottom: 0.6rem;
+  margin: 0;
+}
+
+.categoryChevron {
+  color: #90caf9;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.categoryItem[open] .categoryChevron {
+  transform: rotate(180deg);
 }
 
 .categoryItem ul {
-  margin: 0;
+  margin: 0.75rem 0 0;
   padding-left: 1.2rem;
   color: #b0b7c3;
   line-height: 1.6;

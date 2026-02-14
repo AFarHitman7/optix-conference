@@ -150,7 +150,7 @@ const AboutPage = () => {
                   },
                   {
                     name: "Prof Chandrasekharan K",
-                    role: "Professor (HAG)",
+                    role: "Professor",
                     dept: "NIT Calicut",
                     image: cs,
                   },

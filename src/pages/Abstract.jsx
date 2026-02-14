@@ -77,8 +77,7 @@ const Abstract = () => {
     },
     {
       id: "applied",
-      title:
-        "Applied Optics (Optoelectronics, Optical Instrumentation, Fiber Optics & Sensing)",
+      title: "Applied Optics",
       topics: [
         "Optoelectronic devices and systems",
         "Optical instrumentation and metrology",
@@ -258,9 +257,11 @@ const Abstract = () => {
               <div className={styles.infoContent}>
                 <h4>Category Selection</h4>
                 <p>
-                  Category Selection Authors must select the topic category that
-                  best aligns with their work. Submissions may also be nominated
-                  for consideration under a relevant session.
+                  Authors are requested to submit abstracts under the topic
+                  category that most closely aligns with their work; however,
+                  submissions are not strictly limited to the listed categories,
+                  and relevant contributions in related areas are also
+                  encouraged.
                 </p>
               </div>
             </div>
@@ -274,14 +275,17 @@ const Abstract = () => {
 
             <div className={styles.categoryList}>
               {categories.map((category) => (
-                <div key={category.id} className={styles.categoryItem}>
-                  <h3>{category.title}</h3>
+                <details key={category.id} className={styles.categoryItem}>
+                  <summary className={styles.categorySummary}>
+                    <h3>{category.title}</h3>
+                    <span className={styles.categoryChevron}>⌄</span>
+                  </summary>
                   <ul>
                     {category.topics.map((topic, i) => (
                       <li key={i}>{topic}</li>
                     ))}
                   </ul>
-                </div>
+                </details>
               ))}
             </div>
           </section>
