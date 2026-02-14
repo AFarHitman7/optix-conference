@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import styles from "./AboutPage.module.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -31,6 +33,17 @@ import about2 from "./assets/about/about2.jpeg";
 import fees from "./assets/fees.png";
 
 const AboutPage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <Navbar />
@@ -135,8 +148,8 @@ const AboutPage = () => {
           {/* Section 5: Organizing Committee */}
           <section className={styles.section}>
             <div className={styles.content}>
-              <div className={styles.tag}>Execution Team</div>
-              <h2 className={styles.heading}>
+              <div className={`${styles.tag} ${styles.committeeTag}`}>Execution Team</div>
+              <h2 className={`${styles.heading} ${styles.committeeHeading}`}>
                 Organizing <span>Committee</span>
               </h2>
 
@@ -216,7 +229,7 @@ const AboutPage = () => {
                 {[
                   ["Secretary", "Athul C Nagesh"],
                   ["Joint Secretary", "Amana Fathima Ali S"],
-                  ["Assistant Secretary & Media Head", "Allen Stephen Samuel"],
+                  ["Assistant Secretary & Media Head", "Allen Samuel Stephen"],
                   ["Treasurer", "Sreedath Chandran"],
                 ].map(([role, name], index) => (
                   <div key={index} className={styles.personCard}>
@@ -226,7 +239,7 @@ const AboutPage = () => {
                           {
                             "Athul C Nagesh": athul,
                             "Amana Fathima Ali S": amana,
-                            "Allen Stephen Samuel": allen,
+                            "Allen Samuel Stephen": allen,
                             "Sreedath Chandran": sreedath,
                           }[name]
                         }
@@ -244,8 +257,8 @@ const AboutPage = () => {
           {/* Section 4: Advisory Committee */}
           <section className={styles.section}>
             <div className={styles.content}>
-              <div className={styles.tag}>Guidance & Oversight</div>
-              <h2 className={styles.heading}>
+              <div className={`${styles.tag} ${styles.committeeTag}`}>Guidance & Oversight</div>
+              <h2 className={`${styles.heading} ${styles.committeeHeading}`}>
                 Advisory <span>Committee</span>
               </h2>
               <h3 className={styles.subHeading}></h3>

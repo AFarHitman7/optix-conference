@@ -179,6 +179,10 @@
   object-fit: contain;
 }
 
+.optixLogo {
+  height: clamp(32px, 4.4vw, 50px);
+}
+
 .mainColumn .date {
   border: 1px solid transparent;
   background:

@@ -36,7 +36,11 @@ export default function Home() {
           </div>
           <div className={styles.mainColumn}>
             <div className={styles.logoRow}>
-              <img src={optixLogo} alt="Optix logo" className={styles.topLogo} />
+              <img
+                src={optixLogo}
+                alt="Optix logo"
+                className={`${styles.topLogo} ${styles.optixLogo}`}
+              />
               <img src={nitcLogo} alt="NIT Calicut logo" className={styles.topLogo} />
             </div>
             <div className={styles.date}>April 1 - 2 2026, NIT Calicut</div>
