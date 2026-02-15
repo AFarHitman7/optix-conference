@@ -492,23 +492,6 @@ export default function Register() {
               {errors.abstractTopic && (
                 <span className={styles.error}>{errors.abstractTopic}</span>
               )}
-              <p className={styles.abstractLinkWrapper}>
-                Authors are requested to submit abstracts under the topic
-                category that most closely aligns with their work; however,
-                submissions are not strictly limited to the listed categories,
-                and relevant contributions in related areas are also encouraged.
-              </p>
-              <p className={styles.abstractLinkWrapper}>
-                Abstract template{" "}
-                <a
-                  href={abstractTemplateUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.abstractLink}
-                >
-                  Open template →
-                </a>
-              </p>
             </div>
           )}
 
