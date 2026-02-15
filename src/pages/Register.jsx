@@ -27,8 +27,6 @@ export default function Register() {
 
   const abstractTemplateUrl =
     "https://docs.google.com/document/d/197eLkyrAXZBg2RQGu4oAmn5xLBHGgr3P/";
-  const abstractUploadNote =
-    "The abstract must be uploaded as a DOC file to a secure cloud-based platform (e.g., Google Drive) with public access enabled. The shared link will be used by the organizing committee to access and review the submitted abstract.";
 
   const scrollToSection = (sectionId) => {
     if (location.pathname !== "/about") {
@@ -131,8 +129,6 @@ export default function Register() {
         errs.presentation = "Select presentation type";
       if (!form.get("abstractTopic"))
         errs.abstractTopic = "Select abstract topic";
-      if (!form.get("abstractLink")?.trim())
-        errs.abstractLink = "Abstract link required";
     }
 
     if (!form.get("transactionType"))
@@ -474,63 +470,48 @@ export default function Register() {
           </div>
 
           {isPresenting === "yes" && (
-            <>
-              <div className={`${styles.field} ${styles.full}`}>
-                <select
-                  className={styles.select}
-                  name="abstractTopic"
-                  value={abstractTopic}
-                  onChange={(e) => setAbstractTopic(e.target.value)}
+            <div className={`${styles.field} ${styles.full}`}>
+              <select
+                className={styles.select}
+                name="abstractTopic"
+                value={abstractTopic}
+                onChange={(e) => setAbstractTopic(e.target.value)}
+              >
+                <option value="">Select Abstract Topic</option>
+                <option value="Laser & Laser Technology">
+                  Laser & Laser Technology
+                </option>
+                <option value="Metamaterials & Photonic Crystals">
+                  Metamaterials & Photonic Crystals
+                </option>
+                <option value="Optofluidics">Optofluidics</option>
+                <option value="Quantum Optics">Quantum Optics</option>
+                <option value="Nonlinear Optics and Optical Materials">
+                  Nonlinear Optics and Optical Materials
+                </option>
+                <option value="Applied Optics">Applied Optics</option>
+              </select>
+              {errors.abstractTopic && (
+                <span className={styles.error}>{errors.abstractTopic}</span>
+              )}
+              <p className={styles.abstractLinkWrapper}>
+                Authors are requested to submit abstracts under the topic
+                category that most closely aligns with their work; however,
+                submissions are not strictly limited to the listed categories,
+                and relevant contributions in related areas are also encouraged.
+              </p>
+              <p className={styles.abstractLinkWrapper}>
+                Abstract template{" "}
+                <a
+                  href={abstractTemplateUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.abstractLink}
                 >
-                  <option value="">Select Abstract Topic</option>
-                  <option value="Laser & Laser Technology">
-                    Laser & Laser Technology
-                  </option>
-                  <option value="Metamaterials & Photonic Crystals">
-                    Metamaterials & Photonic Crystals
-                  </option>
-                  <option value="Optofluidics">Optofluidics</option>
-                  <option value="Quantum Optics">Quantum Optics</option>
-                  <option value="Nonlinear Optics and Optical Materials">
-                    Nonlinear Optics and Optical Materials
-                  </option>
-                  <option value="Applied Optics">Applied Optics</option>
-                </select>
-                {errors.abstractTopic && (
-                  <span className={styles.error}>{errors.abstractTopic}</span>
-                )}
-                <p className={styles.abstractLinkWrapper}>
-                  Authors are requested to submit abstracts under the topic
-                  category that most closely aligns with their work; however,
-                  submissions are not strictly limited to the listed categories,
-                  and relevant contributions in related areas are also
-                  encouraged.
-                </p>
-                <p className={styles.abstractLinkWrapper}>
-                  Abstract template{" "}
-                  <a
-                    href={abstractTemplateUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.abstractLink}
-                  >
-                    Open template →
-                  </a>
-                </p>
-              </div>
-
-              <div className={`${styles.field} ${styles.full}`}>
-                <input
-                  className={styles.input}
-                  name="abstractLink"
-                  placeholder="Abstract Link"
-                />
-                {errors.abstractLink && (
-                  <span className={styles.error}>{errors.abstractLink}</span>
-                )}
-                <span className={styles.note}>{abstractUploadNote}</span>
-              </div>
-            </>
+                  Open template →
+                </a>
+              </p>
+            </div>
           )}
 
           {amount && (

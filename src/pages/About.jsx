@@ -24,18 +24,22 @@ export default function About() {
               </h1>
 
               <p className={styles.description}>
-                The National Institute of Technology Calicut (NITC), recognised
-                as an Institution of National Importance and fully funded by the
-                Government of India, boasts a remarkable 63-year legacy of
-                excellence. As one of the leading technical education
-                institutions in the country, NITC is the largest among the NITs,
-                hosting approximately 8,000 students and 420 faculty members.
-                Committed to attaining international acclaim of the highest
-                calibre, NITC offers 11 undergraduate and 30 postgraduate
-                programs across 15 departments, along with several
-                inter-disciplinary and multidisciplinary centres. Additionally,
-                full-time and part-time doctoral research programs are available
-                in all departments.
+                The NIT Calicut Optica Student Chapter has continuously been
+                active in advancing education and awareness in these fields
+                through a series of events. OPTIX-2026 is the chapter&apos;s
+                first international conference, a major milestone built upon
+                this solid foundation of the successful initiatives. The
+                chapter&apos;s dedication to promoting excellent scientific
+                exchange and providing a forum for communication among academia
+                and business, is reflected in the conference. By organising
+                OPTIX-2026, the chapter hopes to transform its academic
+                involvement from regional endeavours into a worldwide research
+                forum in optics, lasers and photonics. By introducing them to
+                innovative research fields and distinguished professionals, the
+                event also aims to inspire young researchers. All things
+                considered, OPTIX-2026 is a calculated move to improve the
+                culture of optics and photonics research at NIT Calicut and
+                elsewhere.
               </p>
             </div>
           </div>
