@@ -267,7 +267,7 @@ const AboutPage = () => {
                 {[
                   {
                     name: "Dr Vari Sivaji Reddy",
-                    role: "HoD - Associate Professor",
+                    role: "HOD, Dept of Physics",
                     dept: "NIT Calicut",
                     image: vs,
                   },
