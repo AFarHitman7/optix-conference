@@ -14,7 +14,6 @@ export default function Register() {
   const [accommodation, setAccommodation] = useState("");
   const [isPresenting, setIsPresenting] = useState("");
   const [presentation, setPresentation] = useState([]);
-  const [abstractTopic, setAbstractTopic] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [amount, setAmount] = useState(null);
@@ -206,7 +205,6 @@ export default function Register() {
       setIsOpticaMember("");
       setAccommodation("");
       setIsPresenting("");
-      setAbstractTopic("");
       setEmail("");
     } catch {
       setShowErrorModal(true);
@@ -432,7 +430,6 @@ export default function Register() {
                   setIsPresenting(e.target.value);
                   if (e.target.value === "no") {
                     setPresentation([]);
-                    setAbstractTopic("");
                   }
                 }}
               >
