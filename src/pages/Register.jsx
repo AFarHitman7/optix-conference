@@ -12,6 +12,7 @@ export default function Register() {
   const [designation, setDesignation] = useState("");
   const [isOpticaMember, setIsOpticaMember] = useState("");
   const [accommodation, setAccommodation] = useState("");
+  const [abstractTopic, setAbstractTopic] = useState("");
   const [isPresenting, setIsPresenting] = useState("");
   const [presentation, setPresentation] = useState([]);
   const [loading, setLoading] = useState(false);
