@@ -136,18 +136,21 @@
 
 .textContainer {
   margin-bottom: 1.8rem;
+  text-align: center;
 }
 
 .textContainer .title {
   font-size: clamp(1.4rem, 2vw, 1.8rem);
   font-weight: 600;
   margin-bottom: 0.4rem;
+  text-align: center;
 }
 
 .subtitle {
   font-size: 0.95rem;
   color: #475569;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .earlyBirdBanner {
