@@ -205,6 +205,8 @@
 
 .input,
 .select {
+  width: 100%;
+  box-sizing: border-box;
   padding: 0.75rem 0.9rem;
   border: 1px solid #33333333;
   border-radius: 6px;
@@ -249,20 +251,24 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .presentRow select {
   flex: 1;
-  min-width: 200px;
+  width: 100%;
+  min-width: 0;
 }
 
 .presentationBoxInline {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .checkboxCard {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -271,7 +277,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
+  white-space: normal;
   min-width: 150px;
 }
 
