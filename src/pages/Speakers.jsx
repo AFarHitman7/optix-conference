@@ -84,6 +84,7 @@ const SpeakerCard = ({ speaker }) => (
 const SpeakerCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(getVisibleCount(window.innerWidth));
+  const [isAutoPaused, setIsAutoPaused] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setVisibleCount(getVisibleCount(window.innerWidth));
@@ -107,8 +108,26 @@ const SpeakerCarousel = () => {
     setActiveIndex((prev) => (prev <= 0 ? maxStartIndex : prev - 1));
   };
 
+  useEffect(() => {
+    if (isAutoPaused || maxStartIndex === 0) return;
+
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev >= maxStartIndex ? 0 : prev + 1));
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [isAutoPaused, maxStartIndex]);
+
   return (
-    <div className={styles.carouselContainer}>
+    <div
+      className={styles.carouselContainer}
+      onMouseEnter={() => setIsAutoPaused(true)}
+      onMouseLeave={() => setIsAutoPaused(false)}
+      onFocusCapture={() => setIsAutoPaused(true)}
+      onBlurCapture={() => setIsAutoPaused(false)}
+      onTouchStart={() => setIsAutoPaused(true)}
+      onTouchEnd={() => setIsAutoPaused(false)}
+    >
       <button
         className={styles.navButton}
         onClick={previous}
