@@ -249,17 +249,20 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .presentRow select {
   flex: 1;
-  min-width: 200px;
+  width: 100%;
+  min-width: 0;
 }
 
 .presentationBoxInline {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .checkboxCard {
@@ -271,7 +274,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
+  white-space: normal;
   min-width: 150px;
 }
 
