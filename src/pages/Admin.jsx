@@ -5,6 +5,9 @@ import styles from "./Admin.module.css";
 const ADMIN_USERNAME = import.meta.env.VITE_ADMIN_USERNAME;
 const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD;
 
+const SUPABASE_ADMIN_EMAIL = import.meta.env.VITE_SUPABASE_ADMIN_EMAIL;
+const SUPABASE_ADMIN_PASSWORD = import.meta.env.VITE_SUPABASE_ADMIN_PASSWORD;
+
 export default function Admin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +17,7 @@ export default function Admin() {
   const [registrations, setRegistrations] = useState([]);
   const [loading, setLoading] = useState(false);
   const [fetchError, setFetchError] = useState("");
+  const [rowCount, setRowCount] = useState(0);
 
   const columns = useMemo(() => {
     if (!registrations.length) return [];
@@ -24,19 +28,33 @@ export default function Admin() {
     setLoading(true);
     setFetchError("");
 
-    const { data, error } = await supabase
-      .from("registrations")
-      .select("*")
-      .order("created_at", { ascending: false });
+    let query = supabase.from("registrations").select("*", { count: "exact" });
+
+    // If created_at exists we keep newest-first ordering. If not, retry below.
+    query = query.order("created_at", { ascending: false });
+
+    let { data, error, count } = await query;
+
+    if (error?.message?.includes('column "created_at" does not exist')) {
+      const retry = await supabase
+        .from("registrations")
+        .select("*", { count: "exact" });
+      data = retry.data;
+      error = retry.error;
+      count = retry.count;
+    }
 
     if (error) {
       setFetchError(error.message || "Failed to fetch registrations.");
       setRegistrations([]);
+      setRowCount(0);
       setLoading(false);
       return;
     }
 
-    setRegistrations(data || []);
+    const rows = data || [];
+    setRegistrations(rows);
+    setRowCount(count ?? rows.length);
     setLoading(false);
   };
 
@@ -55,17 +73,32 @@ export default function Admin() {
       return;
     }
 
+    // Optional: sign into Supabase Auth for tables protected by RLS.
+    if (SUPABASE_ADMIN_EMAIL && SUPABASE_ADMIN_PASSWORD) {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: SUPABASE_ADMIN_EMAIL,
+        password: SUPABASE_ADMIN_PASSWORD,
+      });
+
+      if (error) {
+        setAuthError(`Supabase auth failed: ${error.message}`);
+        return;
+      }
+    }
+
     setAuthError("");
     setIsAuthenticated(true);
     await fetchRegistrations();
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     setIsAuthenticated(false);
     setUsername("");
     setPassword("");
     setRegistrations([]);
     setFetchError("");
+    setRowCount(0);
+    await supabase.auth.signOut();
   };
 
   return (
@@ -113,10 +146,18 @@ export default function Admin() {
               </button>
             </div>
 
+            {!loading && !fetchError ? (
+              <p className={styles.meta}>Rows fetched: {rowCount}</p>
+            ) : null}
+
             {fetchError ? <p className={styles.error}>{fetchError}</p> : null}
 
             {!loading && !fetchError && registrations.length === 0 ? (
-              <p className={styles.empty}>No registrations found.</p>
+              <p className={styles.empty}>
+                No registrations found. If your table uses RLS, set
+                VITE_SUPABASE_ADMIN_EMAIL and VITE_SUPABASE_ADMIN_PASSWORD in
+                env so this page can authenticate before reading rows.
+              </p>
             ) : null}
 
             {registrations.length > 0 ? (
@@ -130,8 +171,8 @@ export default function Admin() {
                     </tr>
                   </thead>
                   <tbody>
-                    {registrations.map((entry) => (
-                      <tr key={entry.id || JSON.stringify(entry)}>
+                    {registrations.map((entry, index) => (
+                      <tr key={entry.id || `${index}-${JSON.stringify(entry)}`}>
                         {columns.map((column) => (
                           <td key={column}>{String(entry[column] ?? "")}</td>
                         ))}

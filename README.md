@@ -23,3 +23,5 @@ Set the following environment variables to use `/admin`:
 - `VITE_SUPABASE_URL` (optional, defaults to `https://bnjxlenjjcouhxxnzmtq.supabase.co`)
 - `VITE_ADMIN_USERNAME`
 - `VITE_ADMIN_PASSWORD`
+- `VITE_SUPABASE_ADMIN_EMAIL` (optional, recommended when `registrations` table uses RLS)
+- `VITE_SUPABASE_ADMIN_PASSWORD` (optional pair for the admin email above)
