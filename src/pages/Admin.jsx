@@ -1,12 +1,33 @@
+import { createClient } from "@supabase/supabase-js";
 import { useMemo, useState } from "react";
 import { supabase } from "../../lib/supabase";
 import styles from "./Admin.module.css";
+
+const SUPABASE_URL =
+  import.meta.env.VITE_SUPABASE_URL ||
+  "https://bnjxlenjjcouhxxnzmtq.supabase.co";
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+function createAuthedClient(accessToken) {
+  return createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+    global: {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    },
+  });
+}
 
 export default function Admin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [accessToken, setAccessToken] = useState("");
 
   const [registrations, setRegistrations] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,17 +39,19 @@ export default function Admin() {
     return Object.keys(registrations[0]);
   }, [registrations]);
 
-  const fetchRegistrations = async () => {
+  const fetchRegistrations = async (token = accessToken) => {
     setLoading(true);
     setFetchError("");
 
-    let query = supabase.from("registrations").select("*", { count: "exact" });
+    const client = token ? createAuthedClient(token) : supabase;
+
+    let query = client.from("registrations").select("*", { count: "exact" });
     query = query.order("created_at", { ascending: false });
 
     let { data, error, count } = await query;
 
     if (error?.message?.includes('column "created_at" does not exist')) {
-      const retry = await supabase
+      const retry = await client
         .from("registrations")
         .select("*", { count: "exact" });
       data = retry.data;
@@ -54,7 +77,7 @@ export default function Admin() {
     event.preventDefault();
     setAuthError("");
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
@@ -64,14 +87,23 @@ export default function Admin() {
       return;
     }
 
+    const token = data.session?.access_token;
+
+    if (!token) {
+      setAuthError("Supabase auth succeeded but no access token was returned.");
+      return;
+    }
+
+    setAccessToken(token);
     setIsAuthenticated(true);
-    await fetchRegistrations();
+    await fetchRegistrations(token);
   };
 
   const handleLogout = async () => {
     setIsAuthenticated(false);
     setEmail("");
     setPassword("");
+    setAccessToken("");
     setRegistrations([]);
     setFetchError("");
     setRowCount(0);
@@ -115,7 +147,7 @@ export default function Admin() {
         ) : (
           <>
             <div className={styles.actions}>
-              <button type="button" onClick={fetchRegistrations} disabled={loading}>
+              <button type="button" onClick={() => fetchRegistrations()} disabled={loading}>
                 {loading ? "Refreshing..." : "Refresh"}
               </button>
               <button type="button" className={styles.secondary} onClick={handleLogout}>
@@ -130,7 +162,10 @@ export default function Admin() {
             {fetchError ? <p className={styles.error}>{fetchError}</p> : null}
 
             {!loading && !fetchError && registrations.length === 0 ? (
-              <p className={styles.empty}>No registrations found.</p>
+              <p className={styles.empty}>
+                No registrations found. If the table has rows, check your RLS
+                policy allows the authenticated admin user to `select` rows.
+              </p>
             ) : null}
 
             {registrations.length > 0 ? (
