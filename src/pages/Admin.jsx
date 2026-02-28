@@ -2,14 +2,11 @@ import { useMemo, useState } from "react";
 import { supabase } from "../../lib/supabase";
 import styles from "./Admin.module.css";
 
-const ADMIN_USERNAME = import.meta.env.VITE_ADMIN_USERNAME;
-const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD;
-
 const SUPABASE_ADMIN_EMAIL = import.meta.env.VITE_SUPABASE_ADMIN_EMAIL;
 const SUPABASE_ADMIN_PASSWORD = import.meta.env.VITE_SUPABASE_ADMIN_PASSWORD;
 
 export default function Admin() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -30,7 +27,6 @@ export default function Admin() {
 
     let query = supabase.from("registrations").select("*", { count: "exact" });
 
-    // If created_at exists we keep newest-first ordering. If not, retry below.
     query = query.order("created_at", { ascending: false });
 
     let { data, error, count } = await query;
@@ -61,29 +57,26 @@ export default function Admin() {
   const handleLogin = async (event) => {
     event.preventDefault();
 
-    if (!ADMIN_USERNAME || !ADMIN_PASSWORD) {
+    if (!SUPABASE_ADMIN_EMAIL || !SUPABASE_ADMIN_PASSWORD) {
       setAuthError(
-        "Admin credentials are not configured. Add VITE_ADMIN_USERNAME and VITE_ADMIN_PASSWORD in env.",
+        "Admin credentials are not configured. Add VITE_SUPABASE_ADMIN_EMAIL and VITE_SUPABASE_ADMIN_PASSWORD in env.",
       );
       return;
     }
 
-    if (username !== ADMIN_USERNAME || password !== ADMIN_PASSWORD) {
-      setAuthError("Invalid username or password.");
+    if (email !== SUPABASE_ADMIN_EMAIL || password !== SUPABASE_ADMIN_PASSWORD) {
+      setAuthError("Invalid admin email or password.");
       return;
     }
 
-    // Optional: sign into Supabase Auth for tables protected by RLS.
-    if (SUPABASE_ADMIN_EMAIL && SUPABASE_ADMIN_PASSWORD) {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: SUPABASE_ADMIN_EMAIL,
-        password: SUPABASE_ADMIN_PASSWORD,
-      });
+    const { error } = await supabase.auth.signInWithPassword({
+      email: SUPABASE_ADMIN_EMAIL,
+      password: SUPABASE_ADMIN_PASSWORD,
+    });
 
-      if (error) {
-        setAuthError(`Supabase auth failed: ${error.message}`);
-        return;
-      }
+    if (error) {
+      setAuthError(`Supabase auth failed: ${error.message}`);
+      return;
     }
 
     setAuthError("");
@@ -93,7 +86,7 @@ export default function Admin() {
 
   const handleLogout = async () => {
     setIsAuthenticated(false);
-    setUsername("");
+    setEmail("");
     setPassword("");
     setRegistrations([]);
     setFetchError("");
@@ -110,18 +103,18 @@ export default function Admin() {
         {!isAuthenticated ? (
           <form className={styles.form} onSubmit={handleLogin}>
             <label>
-              Username
+              Admin email
               <input
-                type="text"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 autoComplete="username"
                 required
               />
             </label>
 
             <label>
-              Password
+              Admin password
               <input
                 type="password"
                 value={password}
@@ -153,11 +146,7 @@ export default function Admin() {
             {fetchError ? <p className={styles.error}>{fetchError}</p> : null}
 
             {!loading && !fetchError && registrations.length === 0 ? (
-              <p className={styles.empty}>
-                No registrations found. If your table uses RLS, set
-                VITE_SUPABASE_ADMIN_EMAIL and VITE_SUPABASE_ADMIN_PASSWORD in
-                env so this page can authenticate before reading rows.
-              </p>
+              <p className={styles.empty}>No registrations found.</p>
             ) : null}
 
             {registrations.length > 0 ? (
