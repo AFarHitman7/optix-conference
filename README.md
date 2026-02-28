@@ -21,5 +21,4 @@ Set the following environment variables to use `/admin`:
 
 - `VITE_SUPABASE_ANON_KEY`
 - `VITE_SUPABASE_URL` (optional, defaults to `https://bnjxlenjjcouhxxnzmtq.supabase.co`)
-- `VITE_SUPABASE_ADMIN_EMAIL` (optional, recommended when `registrations` table uses RLS)
-- `VITE_SUPABASE_ADMIN_PASSWORD` (optional pair for the admin email above)
+- Use a valid Supabase Auth admin user email/password to sign in on `/admin`

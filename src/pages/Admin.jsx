@@ -2,9 +2,6 @@ import { useMemo, useState } from "react";
 import { supabase } from "../../lib/supabase";
 import styles from "./Admin.module.css";
 
-const SUPABASE_ADMIN_EMAIL = import.meta.env.VITE_SUPABASE_ADMIN_EMAIL;
-const SUPABASE_ADMIN_PASSWORD = import.meta.env.VITE_SUPABASE_ADMIN_PASSWORD;
-
 export default function Admin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +23,6 @@ export default function Admin() {
     setFetchError("");
 
     let query = supabase.from("registrations").select("*", { count: "exact" });
-
     query = query.order("created_at", { ascending: false });
 
     let { data, error, count } = await query;
@@ -56,22 +52,11 @@ export default function Admin() {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-
-    if (!SUPABASE_ADMIN_EMAIL || !SUPABASE_ADMIN_PASSWORD) {
-      setAuthError(
-        "Admin credentials are not configured. Add VITE_SUPABASE_ADMIN_EMAIL and VITE_SUPABASE_ADMIN_PASSWORD in env.",
-      );
-      return;
-    }
-
-    if (email !== SUPABASE_ADMIN_EMAIL || password !== SUPABASE_ADMIN_PASSWORD) {
-      setAuthError("Invalid admin email or password.");
-      return;
-    }
+    setAuthError("");
 
     const { error } = await supabase.auth.signInWithPassword({
-      email: SUPABASE_ADMIN_EMAIL,
-      password: SUPABASE_ADMIN_PASSWORD,
+      email,
+      password,
     });
 
     if (error) {
@@ -79,7 +64,6 @@ export default function Admin() {
       return;
     }
 
-    setAuthError("");
     setIsAuthenticated(true);
     await fetchRegistrations();
   };
@@ -98,7 +82,7 @@ export default function Admin() {
     <main className={styles.page}>
       <section className={styles.card}>
         <h1>Admin Dashboard</h1>
-        <p className={styles.subtitle}>Registrations from Supabase table.</p>
+        <p className={styles.subtitle}>Sign in with Supabase Auth to view registrations.</p>
 
         {!isAuthenticated ? (
           <form className={styles.form} onSubmit={handleLogin}>
