@@ -180,7 +180,7 @@ export default function Register() {
 
     try {
       const res = await fetch(
-        "https://bnjxlenjjcouhxxnzmtq.supabase.co/functions/v1/clever-task",
+        "https://karmaboard.jiobase.com/functions/v1/clever-task",
         {
           method: "POST",
           headers: {
