@@ -216,18 +216,18 @@
 
 .chairsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 2rem;
   justify-items: center;
 }
 
 .chairCard {
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 10px;
-  padding: 0.9rem;
+  padding: 0.75rem;
   background: rgba(255, 255, 255, 0.04);
   width: 100%;
-  max-width: 320px;
+  max-width: 260px;
   text-align: center;
 }
 
@@ -257,4 +257,35 @@
   margin: 0;
   color: #cbd5e1;
   font-size: 0.9rem;
+}
+
+
+@media (max-width: 900px) {
+  .chairsGrid {
+    gap: 1.5rem;
+  }
+
+  .chairCard {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 640px) {
+  .chairsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .chairCard {
+    max-width: 180px;
+    padding: 0.65rem;
+  }
+
+  .chairName {
+    font-size: 0.9rem;
+  }
+
+  .chairDesignation {
+    font-size: 0.8rem;
+  }
 }
