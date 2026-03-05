@@ -6,7 +6,10 @@ import { IoIosArrowDropdown } from "react-icons/io";
 const Abstract = () => {
 
   const abstractTemplateUrl =
-    "https://docs.google.com/document/d/197eLkyrAXZBg2RQGu4oAmn5xLBHGgr3P/";
+    "https://docs.google.com/document/d/197eLkyrAXZBg2RQGu4oAmn5xLBHGgr3P/export?format=docx";
+
+  const presenterNotice =
+    "Individuals intending to present at the conference are required to submit their abstracts and refrain from completing registration, including payment, until official notification of abstract acceptance has been communicated via email by the review committee.";
 
   const categories = [
     {
@@ -210,6 +213,7 @@ const Abstract = () => {
               >
                 Open template →
               </a>
+              <p className={styles.highlightNotice}>{presenterNotice}</p>
             </div>
 
             <h3 className={styles.subsectionTitle}>

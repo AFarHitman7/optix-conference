@@ -368,6 +368,16 @@
   text-decoration: underline;
 }
 
+.highlightNotice {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  background: #fde047;
+  color: #111827;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
 .subsectionTitle {
   font-size: 1.5rem;
   font-weight: 600;
