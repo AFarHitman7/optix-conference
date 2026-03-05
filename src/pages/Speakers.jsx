@@ -9,7 +9,7 @@ const speakerMeta = {
     designation: "The Australian National University, Canberra",
   },
   "102.png": {
-    name: "Prof Ashokan",
+    name: "Prof Asokan",
     designation: "IISc Bengaluru",
   },
   "103.png": {
@@ -65,28 +65,32 @@ const speakers = Object.entries(images)
 
 const chairs = [
   {
-    name: "Dr Anirban Sarkar",
-    designation: "Asst. Professor (Grade II), NIT Calicut",
+    name: "Dr Saurabh Gupta",
+    designation: "NIT Calicut",
   },
   {
-    name: "Dr C S Suchand Sangeeth",
-    designation: "Asst. Professor (Grade I), NIT Calicut",
-  },
-  {
-    name: "Dr Raman Namboodiri",
-    designation: "Asst. Professor (Grade II), NIT Calicut",
-  },
-  {
-    name: "Dr Arjunan M S",
-    designation: "Asst. Professor, NIT Calicut",
+    name: "Dr Natesan Yogesh",
+    designation: "NIT Calicut",
   },
   {
     name: "Dr Subramanian N V",
-    designation: "Asst. Professor (Grade I), NIT Calicut",
+    designation: "NIT Calicut",
   },
   {
-    name: "Dr. Saurabh Gupta",
-    designation: "Asst. Professor, NIT Calicut",
+    name: "Dr Anirban Sarkar",
+    designation: "NIT Calicut",
+  },
+  {
+    name: "Dr C S Suchand Sangeeth",
+    designation: "NIT Calicut",
+  },
+  {
+    name: "Dr Raman Namboodiri C K",
+    designation: "NIT Calicut",
+  },
+  {
+    name: "Dr Arjunan M S",
+    designation: "NIT Calicut",
   },
 ];
 
