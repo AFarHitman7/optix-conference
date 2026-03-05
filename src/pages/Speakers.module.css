@@ -203,7 +203,6 @@
   }
 }
 
-
 .chairsSection {
   width: 100%;
   margin-top: 1rem;
@@ -218,7 +217,7 @@
 .chairsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: 3rem;
   justify-items: center;
 }
 
