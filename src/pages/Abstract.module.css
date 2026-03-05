@@ -368,7 +368,7 @@
   text-decoration: underline;
 }
 
-.highlightNotice {
+.requirementBox .highlightNotice {
   margin-top: 1rem;
   color: #facc15;
   font-weight: 400;
