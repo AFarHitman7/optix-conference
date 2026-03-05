@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./Speakers.module.css";
 
 const images = import.meta.glob("./assets/speakers/*.png", { eager: true });
+const chairImages = import.meta.glob("./assets/chair/*.png", { eager: true });
 
 const speakerMeta = {
   "101.png": {
@@ -67,32 +68,42 @@ const chairs = [
   {
     name: "Dr Saurabh Gupta",
     designation: "NIT Calicut",
+    imageFile: "Dr Saurabh Gupta.png",
   },
   {
     name: "Dr Natesan Yogesh",
     designation: "NIT Calicut",
+    imageFile: "Dr Nateshan.png",
   },
   {
     name: "Dr Subramanian N V",
     designation: "NIT Calicut",
+    imageFile: "Dr Subramanyan N V.png",
   },
   {
     name: "Dr Anirban Sarkar",
     designation: "NIT Calicut",
+    imageFile: "Dr Anirban Sarkar.png",
   },
   {
     name: "Dr C S Suchand Sangeeth",
     designation: "NIT Calicut",
+    imageFile: "Dr C S Suchand Sangeeth.png",
   },
   {
     name: "Dr Raman Namboodiri C K",
     designation: "NIT Calicut",
+    imageFile: "Dr Raman Namboodiri C K.png",
   },
   {
     name: "Dr Arjunan M S",
     designation: "NIT Calicut",
+    imageFile: "Dr Arjunan M S.png",
   },
-];
+].map((chair) => ({
+  ...chair,
+  img: chairImages[`./assets/chair/${chair.imageFile}`]?.default,
+}));
 
 const getVisibleCount = (width) => {
   if (width <= 640) return 1;
@@ -218,7 +229,9 @@ export default function Speakers() {
           <div className={styles.chairsGrid}>
             {chairs.map((chair) => (
               <article key={chair.name} className={styles.chairCard}>
-                <div className={styles.chairImagePlaceholder}>Image to be uploaded later</div>
+                <div className={styles.chairImageWrap}>
+                  <img src={chair.img} alt={chair.name} className={styles.chairImage} />
+                </div>
                 <h3 className={styles.chairName}>{chair.name}</h3>
                 <p className={styles.chairDesignation}>{chair.designation}</p>
               </article>
