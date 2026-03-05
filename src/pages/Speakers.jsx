@@ -76,7 +76,7 @@ const chairs = [
     imageFile: "Dr Nateshan.png",
   },
   {
-    name: "Dr Subramanian N V",
+    name: "Dr Subramanyan N V",
     designation: "NIT Calicut",
     imageFile: "Dr Subramanyan N V.png",
   },
@@ -125,11 +125,14 @@ const SpeakerCard = ({ speaker }) => (
 
 const SpeakerCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(getVisibleCount(window.innerWidth));
+  const [visibleCount, setVisibleCount] = useState(
+    getVisibleCount(window.innerWidth),
+  );
   const [isAutoPaused, setIsAutoPaused] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => setVisibleCount(getVisibleCount(window.innerWidth));
+    const handleResize = () =>
+      setVisibleCount(getVisibleCount(window.innerWidth));
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -230,7 +233,11 @@ export default function Speakers() {
             {chairs.map((chair) => (
               <article key={chair.name} className={styles.chairCard}>
                 <div className={styles.chairImageWrap}>
-                  <img src={chair.img} alt={chair.name} className={styles.chairImage} />
+                  <img
+                    src={chair.img}
+                    alt={chair.name}
+                    className={styles.chairImage}
+                  />
                 </div>
                 <h3 className={styles.chairName}>{chair.name}</h3>
                 <p className={styles.chairDesignation}>{chair.designation}</p>
