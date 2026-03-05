@@ -63,6 +63,33 @@ const speakers = Object.entries(images)
   })
   .sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
 
+const chairs = [
+  {
+    name: "Dr Anirban Sarkar",
+    designation: "Asst. Professor (Grade II), NIT Calicut",
+  },
+  {
+    name: "Dr C S Suchand Sangeeth",
+    designation: "Asst. Professor (Grade I), NIT Calicut",
+  },
+  {
+    name: "Dr Raman Namboodiri",
+    designation: "Asst. Professor (Grade II), NIT Calicut",
+  },
+  {
+    name: "Dr Arjunan M S",
+    designation: "Asst. Professor, NIT Calicut",
+  },
+  {
+    name: "Dr Subramanian N V",
+    designation: "Asst. Professor (Grade I), NIT Calicut",
+  },
+  {
+    name: "Dr. Saurabh Gupta",
+    designation: "Asst. Professor, NIT Calicut",
+  },
+];
+
 const getVisibleCount = (width) => {
   if (width <= 640) return 1;
   if (width <= 1024) return 2;
@@ -182,6 +209,18 @@ export default function Speakers() {
           </p>
         </div>
         <SpeakerCarousel />
+        <div className={styles.chairsSection}>
+          <h2 className={styles.chairsTitle}>Chairs</h2>
+          <div className={styles.chairsGrid}>
+            {chairs.map((chair) => (
+              <article key={chair.name} className={styles.chairCard}>
+                <div className={styles.chairImagePlaceholder}>Image to be uploaded later</div>
+                <h3 className={styles.chairName}>{chair.name}</h3>
+                <p className={styles.chairDesignation}>{chair.designation}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

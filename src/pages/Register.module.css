@@ -184,6 +184,15 @@
   border-color: #0f172a;
 }
 
+.highlightNotice {
+  margin: 0.75rem auto 1rem;
+  max-width: 760px;
+  color: #d4a900;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+}
+
 /* ================= FORM GRID ================= */
 
 .form {

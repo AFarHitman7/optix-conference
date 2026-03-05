@@ -21,12 +21,12 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const presenterNotice =
+    "Individuals intending to present at the conference are required to submit their abstracts and refrain from completing registration, including payment, until official notification of abstract acceptance has been communicated via email by the review committee.";
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const abstractTemplateUrl =
-    "https://docs.google.com/document/d/197eLkyrAXZBg2RQGu4oAmn5xLBHGgr3P/";
 
   const scrollToSection = (sectionId) => {
     if (location.pathname !== "/about") {
@@ -256,6 +256,7 @@ export default function Register() {
               View details →
             </a>
           </p>
+          <p className={styles.highlightNotice}>{presenterNotice}</p>
           <p className={styles.abstractLinkWrapper}>
             See Fee Structure{" "}
             <a
