@@ -187,12 +187,9 @@
 .highlightNotice {
   margin: 0.75rem auto 1rem;
   max-width: 760px;
-  background: #fde047;
-  color: #111827;
-  font-weight: 600;
+  color: #d4a900;
+  font-weight: 400;
   line-height: 1.5;
-  border-radius: 8px;
-  padding: 0.8rem 1rem;
   text-align: left;
 }
 
