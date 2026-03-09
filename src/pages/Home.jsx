@@ -48,6 +48,18 @@ export default function Home() {
               />
             </div>
             <div className={styles.date}>April 1 - 2 2026, NIT Calicut</div>
+            <div className={styles.marqueeWrapper} aria-label="Conference update">
+              <p className={styles.marqueeTrack}>
+                <span>
+                  Abstract Submission Deadline: 10 March 2026 | Publication
+                  opportunity in JOSA B (Optica Publishing Group)
+                </span>
+                <span aria-hidden="true">
+                  Abstract Submission Deadline: 10 March 2026 | Publication
+                  opportunity in JOSA B (Optica Publishing Group)
+                </span>
+              </p>
+            </div>
             <h1 className={styles.title}>OPTIX 2026</h1>
             <h1 className={styles.subtitle}>
               International Conference on Optics, Lasers & Photonics
