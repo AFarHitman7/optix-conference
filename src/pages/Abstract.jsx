@@ -167,9 +167,9 @@ const Abstract = () => {
             <div className={styles.orDivider}>OR</div>
 
             <div className={styles.requirementBox}>
-              <h3>Expanded Description</h3>
+              <h3>Extended Description</h3>
               <p>
-                An expanded description must clearly state the research problem,
+                An extended description must clearly state the research problem,
                 methodology, key results, and conclusions.
               </p>
             </div>
