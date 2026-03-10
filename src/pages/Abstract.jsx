@@ -114,7 +114,7 @@ const Abstract = () => {
               </p>
               <div className={styles.deadline}>
                 <div className={styles.deadlineLabel}>
-                  Abstract and summary submission deadline
+                  Abstract/Summary submission deadline
                 </div>
                 <div className={styles.deadlineDate}><s>10th March 2026</s> 17th March 2026</div>
                 <div className={styles.deadlineExtension}>
