@@ -213,6 +213,22 @@
   color: #fff;
 }
 
+.orDivider {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #90caf9;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.deadlineExtension {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #facc15;
+  font-weight: 600;
+}
+
 /* ===============================
    SECTION
 ================================= */
