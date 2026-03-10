@@ -92,35 +92,6 @@ const Abstract = () => {
     },
   ];
 
-  const guidelines = [
-    {
-      title: "The title of the research work",
-      description: "",
-    },
-    {
-      title: "Complete list of authors with institutional affiliations",
-      description: "",
-    },
-    {
-      title: "A self-contained abstract limited to 50 words",
-      description: "",
-    },
-    {
-      title: "A detailed summary (300-1000 words)",
-      description:
-        "Describing the problem, methods, and results. Maximum length: two pages, including figures",
-    },
-    {
-      title: "References",
-      description: "",
-    },
-    {
-      title: "Written permission and proper attribution",
-      description:
-        "For any copyrighted or trademarked images. This includes images of individuals, logos, or materials owned by third parties",
-    },
-  ];
-
   return (
     <>
       <Navbar />
@@ -145,7 +116,10 @@ const Abstract = () => {
                 <div className={styles.deadlineLabel}>
                   Abstract and summary submission deadline
                 </div>
-                <div className={styles.deadlineDate}>10th March 2026</div>
+                <div className={styles.deadlineDate}><s>10th March 2026</s> 17th March 2026</div>
+                <div className={styles.deadlineExtension}>
+                  Abstract deadline extended to 17 March 2026
+                </div>
               </div>
             </div>
           </section>
@@ -186,9 +160,11 @@ const Abstract = () => {
             </h2>
 
             <div className={styles.requirementBox}>
-              <h3>50-word Abstract</h3>
+              <h3>250-word Abstract</h3>
               <p>A concise summary highlighting the presentation topic.</p>
             </div>
+
+            <div className={styles.orDivider}>OR</div>
 
             <div className={styles.requirementBox}>
               <h3>Expanded Description</h3>
@@ -216,21 +192,21 @@ const Abstract = () => {
               <p className={styles.highlightNotice}>{presenterNotice}</p>
             </div>
 
-            <h3 className={styles.subsectionTitle}>
-              DOC Submission Guidelines
-            </h3>
+            <h3 className={styles.subsectionTitle}>Abstract Submission Guidelines</h3>
             <p className={styles.subsectionIntro}>
-              all submissions must include the following components:
+              Authors may submit either a self-contained abstract (up to 250
+              words) or a two-page extended summary of their work.
             </p>
-
-            <ol className={styles.guidelinesList}>
-              {guidelines.map((item, index) => (
-                <li key={index} className={styles.guidelineListItem}>
-                  <strong>{item.title}</strong>
-                  {item.description && <span> - {item.description}</span>}
-                </li>
-              ))}
-            </ol>
+            <p className={styles.subsectionIntro}>
+              Authors who initially submit a 250-word abstract will be required
+              to submit a two-page extended summary before the conference for
+              inclusion in the Conference Abstract Proceedings (ISBN).
+            </p>
+            <p className={styles.subsectionIntro}>
+              Templates for both the abstract and the two-page extended summary
+              are provided, and authors are requested to follow the prescribed
+              formats.
+            </p>
 
             <div className={styles.infoBox}>
               <div className={styles.infoContent}>
