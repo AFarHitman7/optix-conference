@@ -73,6 +73,13 @@
   justify-content: center;
 }
 
+.sponsorGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
 .imageWrap {
   position: relative;
   width: 21rem;
@@ -245,7 +252,8 @@
     font-size: 1rem;
   }
 
-  .grid {
+  .grid,
+  .sponsorGrid {
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }

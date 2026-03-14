@@ -131,19 +131,18 @@ const SpeakerCarousel = () => {
   const [isAutoPaused, setIsAutoPaused] = useState(false);
 
   useEffect(() => {
-    const handleResize = () =>
-      setVisibleCount(getVisibleCount(window.innerWidth));
+    const handleResize = () => {
+      const nextVisibleCount = getVisibleCount(window.innerWidth);
+      const nextMaxStartIndex = Math.max(0, speakers.length - nextVisibleCount);
+      setVisibleCount(nextVisibleCount);
+      setActiveIndex((prev) => Math.min(prev, nextMaxStartIndex));
+    };
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const maxStartIndex = Math.max(0, speakers.length - visibleCount);
-
-  useEffect(() => {
-    if (activeIndex > maxStartIndex) {
-      setActiveIndex(maxStartIndex);
-    }
-  }, [activeIndex, maxStartIndex]);
 
   const next = () => {
     setActiveIndex((prev) => (prev >= maxStartIndex ? 0 : prev + 1));
@@ -156,12 +155,13 @@ const SpeakerCarousel = () => {
   useEffect(() => {
     if (isAutoPaused || maxStartIndex === 0) return;
 
-    const timer = setInterval(() => {
+    const isLastVisibleSet = activeIndex >= maxStartIndex;
+    const timer = setTimeout(() => {
       setActiveIndex((prev) => (prev >= maxStartIndex ? 0 : prev + 1));
-    }, 3000);
+    }, isLastVisibleSet ? 5000 : 3000);
 
-    return () => clearInterval(timer);
-  }, [isAutoPaused, maxStartIndex]);
+    return () => clearTimeout(timer);
+  }, [activeIndex, isAutoPaused, maxStartIndex]);
 
   return (
     <div
