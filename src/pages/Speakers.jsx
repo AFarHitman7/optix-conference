@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./Speakers.module.css";
 
 const images = import.meta.glob("./assets/speakers/*.png", { eager: true });
@@ -129,6 +129,7 @@ const SpeakerCarousel = () => {
     getVisibleCount(window.innerWidth),
   );
   const [isAutoPaused, setIsAutoPaused] = useState(false);
+  const endRepeatCountRef = useRef(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -136,6 +137,7 @@ const SpeakerCarousel = () => {
       const nextMaxStartIndex = Math.max(0, speakers.length - nextVisibleCount);
       setVisibleCount(nextVisibleCount);
       setActiveIndex((prev) => Math.min(prev, nextMaxStartIndex));
+      endRepeatCountRef.current = 0;
     };
 
     window.addEventListener("resize", handleResize);
@@ -144,24 +146,41 @@ const SpeakerCarousel = () => {
 
   const maxStartIndex = Math.max(0, speakers.length - visibleCount);
 
+  const advanceToNextSpeaker = useCallback(() => {
+    setActiveIndex((prev) => {
+      if (prev < maxStartIndex) {
+        endRepeatCountRef.current = 0;
+        return prev + 1;
+      }
+
+      if (endRepeatCountRef.current < 1) {
+        endRepeatCountRef.current += 1;
+        return maxStartIndex;
+      }
+
+      endRepeatCountRef.current = 0;
+      return 0;
+    });
+  }, [maxStartIndex]);
+
   const next = () => {
-    setActiveIndex((prev) => (prev >= maxStartIndex ? 0 : prev + 1));
+    advanceToNextSpeaker();
   };
 
   const previous = () => {
+    endRepeatCountRef.current = 0;
     setActiveIndex((prev) => (prev <= 0 ? maxStartIndex : prev - 1));
   };
 
   useEffect(() => {
     if (isAutoPaused || maxStartIndex === 0) return;
 
-    const isLastVisibleSet = activeIndex >= maxStartIndex;
     const timer = setTimeout(() => {
-      setActiveIndex((prev) => (prev >= maxStartIndex ? 0 : prev + 1));
-    }, isLastVisibleSet ? 5000 : 3000);
+      advanceToNextSpeaker();
+    }, 3000);
 
     return () => clearTimeout(timer);
-  }, [activeIndex, isAutoPaused, maxStartIndex]);
+  }, [activeIndex, advanceToNextSpeaker, isAutoPaused, maxStartIndex]);
 
   return (
     <div
