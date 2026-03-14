@@ -54,7 +54,6 @@ const speakerMeta = {
 const speakers = Object.entries(images)
   .map(([path, module]) => {
     const fileName = path.split("/").pop();
-
     return {
       id: fileName,
       img: module.default,
@@ -63,6 +62,9 @@ const speakers = Object.entries(images)
     };
   })
   .sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
+
+const displaySpeakers = [...speakers, ...speakers, ...speakers];
+const totalCount = displaySpeakers.length;
 
 const chairs = [
   {
@@ -134,7 +136,7 @@ const SpeakerCarousel = () => {
   useEffect(() => {
     const handleResize = () => {
       const nextVisibleCount = getVisibleCount(window.innerWidth);
-      const nextMaxStartIndex = Math.max(0, speakers.length - nextVisibleCount);
+      const nextMaxStartIndex = Math.max(0, totalCount - nextVisibleCount);
       setVisibleCount(nextVisibleCount);
       setActiveIndex((prev) => Math.min(prev, nextMaxStartIndex));
       endRepeatCountRef.current = 0;
@@ -144,7 +146,7 @@ const SpeakerCarousel = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxStartIndex = Math.max(0, speakers.length - visibleCount);
+  const maxStartIndex = Math.max(0, totalCount - visibleCount);
 
   const advanceToNextSpeaker = useCallback(() => {
     setActiveIndex((prev) => {
@@ -205,15 +207,15 @@ const SpeakerCarousel = () => {
         <div
           className={styles.track}
           style={{
-            width: `${(speakers.length * 100) / visibleCount}%`,
-            transform: `translateX(-${(activeIndex * 100) / speakers.length}%)`,
+            width: `${(totalCount / visibleCount) * 100}%`,
+            transform: `translateX(-${(activeIndex / totalCount) * 100}%)`,
           }}
         >
-          {speakers.map((speaker) => (
+          {displaySpeakers.map((speaker, index) => (
             <div
-              key={speaker.id}
+              key={`${speaker.id}-${index}`}
               className={styles.slide}
-              style={{ width: `${100 / speakers.length}%` }}
+              style={{ width: `${100 / totalCount}%` }}
             >
               <SpeakerCard speaker={speaker} />
             </div>
