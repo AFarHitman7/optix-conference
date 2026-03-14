@@ -1,0 +1,30 @@
+<svg width="1600" height="800" viewBox="0 0 1600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="800" fill="#F2F2F2"/>
+
+  <g transform="translate(70 80)">
+    <polygon points="380,0 0,560 90,590 380,170" fill="#43BCDA"/>
+    <polygon points="380,0 760,560 670,590 380,170" fill="#08556F"/>
+
+    <polygon points="380,300 240,520 380,585" fill="#43BCDA"/>
+    <polygon points="380,300 520,520 380,585" fill="#08556F"/>
+
+    <polygon points="380,460 170,560 380,660" fill="#43BCDA"/>
+    <polygon points="380,460 590,560 380,660" fill="#08556F"/>
+  </g>
+
+  <line x1="840" y1="90" x2="840" y2="710" stroke="#B5B8BA" stroke-width="8"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="110" letter-spacing="0.5">
+    <text x="900" y="280" fill="#0B9AC6">A</text>
+    <text x="980" y="280" fill="#111111">nusandhan</text>
+
+    <text x="900" y="420" fill="#0B9AC6">N</text>
+    <text x="980" y="420" fill="#111111">ational</text>
+
+    <text x="900" y="560" fill="#0B9AC6">R</text>
+    <text x="980" y="560" fill="#111111">esearch</text>
+
+    <text x="900" y="700" fill="#0B9AC6">F</text>
+    <text x="980" y="700" fill="#111111">oundation</text>
+  </g>
+</svg>

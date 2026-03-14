@@ -2,8 +2,9 @@ import styles from "./Sponsor.module.css";
 
 import sponsor1 from "./assets/sponsors/01.png";
 import sponsor2 from "./assets/sponsors/02.jpeg";
+import sponsor3 from "./assets/sponsors/anrf.svg";
 
-const sponsors = [
+const platinumSponsors = [
   {
     id: 1,
     img: sponsor1,
@@ -12,6 +13,15 @@ const sponsors = [
   },
   {
     id: 2,
+    img: sponsor3,
+    name: "Anusandhan National Research Foundation",
+    tagline: "Platinum Sponsor",
+  },
+];
+
+const bronzeSponsors = [
+  {
+    id: 1,
     img: sponsor2,
     name: "COMTEK",
     tagline: "Industry Collaborator",
@@ -28,18 +38,18 @@ export default function Sponsors() {
           </h1>
         </div>
 
-        <div className={styles.sponsorCard}>
-          <div className={`${styles.imageWrap} ${styles.mainSponsorImageWrap}`}>
-            <img
-              src={sponsors[0].img}
-              alt={sponsors[0].name}
-              className={styles.image}
-            />
-            <div className={styles.overlay}>
-              <h3 className={styles.sponsorName}>{sponsors[0].name}</h3>
-              <p className={styles.sponsorTagline}>{sponsors[0].tagline}</p>
+        <div className={styles.sponsorGrid}>
+          {platinumSponsors.map((sponsor) => (
+            <div key={sponsor.id} className={styles.sponsorCard}>
+              <div className={`${styles.imageWrap} ${styles.mainSponsorImageWrap}`}>
+                <img src={sponsor.img} alt={sponsor.name} className={styles.image} />
+                <div className={styles.overlay}>
+                  <h3 className={styles.sponsorName}>{sponsor.name}</h3>
+                  <p className={styles.sponsorTagline}>{sponsor.tagline}</p>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
       <div className={styles.container}>
@@ -49,18 +59,18 @@ export default function Sponsors() {
           </h1>
         </div>
 
-        <div className={styles.sponsorCard}>
-          <div className={`${styles.imageWrap} ${styles.coSponsorImageWrap}`}>
-            <img
-              src={sponsors[1].img}
-              alt={sponsors[1].name}
-              className={styles.image}
-            />
-            <div className={styles.overlay}>
-              <h3 className={styles.sponsorName}>{sponsors[1].name}</h3>
-              <p className={styles.sponsorTagline}>{sponsors[1].tagline}</p>
+        <div className={styles.sponsorGrid}>
+          {bronzeSponsors.map((sponsor) => (
+            <div key={sponsor.id} className={styles.sponsorCard}>
+              <div className={`${styles.imageWrap} ${styles.coSponsorImageWrap}`}>
+                <img src={sponsor.img} alt={sponsor.name} className={styles.image} />
+                <div className={styles.overlay}>
+                  <h3 className={styles.sponsorName}>{sponsor.name}</h3>
+                  <p className={styles.sponsorTagline}>{sponsor.tagline}</p>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
