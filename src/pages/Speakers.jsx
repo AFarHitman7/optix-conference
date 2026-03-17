@@ -26,7 +26,7 @@ const speakerMeta = {
     designation: "Senior Scientist, CSIR -NPL",
   },
   "106.png": {
-    name: "Prof Pavan Kumar GV",
+    name: "Prof B V R Tata",
     designation: "IISER Pune",
   },
   "107.png": {
