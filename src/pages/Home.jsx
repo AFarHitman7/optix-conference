@@ -51,11 +51,11 @@ export default function Home() {
             <div className={styles.marqueeWrapper} aria-label="Conference update">
               <p className={styles.marqueeTrack}>
                 <span>
-                  Abstract Submission Deadline Extended: <s>10 March 2026</s> 17 March 2026 |
+                  Abstract Submission Deadline Extended: <s>10 March 2026</s> 20 March 2026 |
                   Publication opportunity in JOSA B (Optica Publishing Group)
                 </span>
                 <span aria-hidden="true">
-                  Abstract Submission Deadline Extended: <s>10 March 2026</s> 17 March 2026 |
+                  Abstract Submission Deadline Extended: <s>10 March 2026</s> 20 March 2026 |
                   Publication opportunity in JOSA B (Optica Publishing Group)
                 </span>
               </p>

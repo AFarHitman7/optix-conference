@@ -27,7 +27,7 @@ const speakerMeta = {
   },
   "106.png": {
     name: "Prof B V R Tata",
-    designation: "IISER Pune",
+    designation: "University of Hyderabad",
   },
   "107.png": {
     name: "Dr Shivakiran B N Bhaktha",
