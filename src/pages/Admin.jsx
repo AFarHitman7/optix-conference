@@ -5,7 +5,7 @@ import styles from "./Admin.module.css";
 
 const SUPABASE_URL =
   import.meta.env.VITE_SUPABASE_URL ||
-  "https://karmaboard.jiobase.com";
+  "https://bnjxlenjjcouhxxnzmtq.supabase.co";
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 function createAuthedClient(accessToken) {
