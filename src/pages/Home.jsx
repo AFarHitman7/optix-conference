@@ -51,12 +51,10 @@ export default function Home() {
             <div className={styles.marqueeWrapper} aria-label="Conference update">
               <p className={styles.marqueeTrack}>
                 <span>
-                  Abstract Submission Deadline Extended: <s>17 March 2026</s> 20 March 2026 (Final Extension) |
-                  Publication opportunity in JOSA B (Optica Publishing Group)
+                  Early Bird Registration Deadline : 22nd March 2026
                 </span>
                 <span aria-hidden="true">
-                  Abstract Submission Deadline Extended: <s>17 March 2026</s> 20 March 2026 (Final Extension) |
-                  Publication opportunity in JOSA B (Optica Publishing Group)
+                  Early Bird Registration Deadline : 22nd March 2026
                 </span>
               </p>
             </div>
@@ -74,9 +72,9 @@ export default function Home() {
             <div className={styles.buttons}>
               <button
                 className={`${styles.registerButton} ${styles.btnShine}`}
-                onClick={() => navigate("./abstract")}
+                onClick={() => navigate("./register")}
               >
-                <span>Call for Abstracts</span>
+                <span>Register Now</span>
               </button>{" "}
               <button
                 className={`${styles.moreButton} ${styles.btnShine}`}

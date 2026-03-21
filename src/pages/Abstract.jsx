@@ -113,12 +113,10 @@ const Abstract = () => {
                 submission scheduled after the conference.
               </p>
               <div className={styles.deadline}>
-                <div className={styles.deadlineLabel}>
-                  Abstract/Summary submission deadline
-                </div>
-                <div className={styles.deadlineDate}><s>17th March 2026</s> 20th March 2026 (Final Extension)</div>
-                <div className={styles.deadlineExtension}>
-                  Abstract deadline extended to 20 March 2026 (Final Extension)
+                <div className={styles.deadlineDate}>
+                  Abstract Submission for OPTIX 2026 Closed on 20 March 2026
+                  <br />
+                  We appreciate the overwhelming response from participants and contributors.
                 </div>
               </div>
             </div>
@@ -260,24 +258,6 @@ const Abstract = () => {
             </div>
           </section>
 
-          {/* CTA Section */}
-          <section className={styles.ctaSection}>
-            <div className={styles.ctaContent}>
-              <h2>Submit Your Abstract</h2>
-              <p>
-                Be part of a strong scientific forum alongside leading
-                researchers and subject-matter experts at OPTIX 2026.
-              </p>
-              <a
-                href="https://forms.gle/7EsF9rMywhZpVzRw9"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.ctaButton}
-              >
-                Submit Abstract
-              </a>
-            </div>
-          </section>
         </div>
       </div>
       <Footer />
