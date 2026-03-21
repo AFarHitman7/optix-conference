@@ -20,6 +20,6 @@ If you are developing a production application, we recommend using TypeScript wi
 Set the following environment variables to use `/admin`:
 
 - `VITE_SUPABASE_ANON_KEY`
-- `VITE_SUPABASE_URL` (optional, defaults to `https://karmaboard.jiobase.com`)
+- `VITE_SUPABASE_URL` (optional, defaults to `https://bnjxlenjjcouhxxnzmtq.supabase.co`)
 - Use a valid Supabase Auth admin user email/password to sign in on `/admin`
 - Ensure your Supabase RLS policy allows that authenticated admin user to `select` from `registrations`

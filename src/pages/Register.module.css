@@ -220,6 +220,7 @@
   border: 1px solid #33333333;
   border-radius: 6px;
   font-size: 0.95rem;
+  color: #000000;
   background: #ffffff;
   transition:
     border-color 0.2s ease,
