@@ -27,7 +27,6 @@ export default function Register() {
   const navigate = useNavigate();
   const location = useLocation();
 
-
   const scrollToSection = (sectionId) => {
     if (location.pathname !== "/about") {
       navigate("/about", { state: { scrollTo: sectionId } });
@@ -448,7 +447,7 @@ export default function Register() {
                       checked={presentation.includes("paper")}
                       onChange={() => togglePresentation("paper")}
                     />
-                    Paper
+                    Poster
                   </label>
 
                   <label className={styles.checkboxCard}>
