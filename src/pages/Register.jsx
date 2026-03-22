@@ -297,6 +297,10 @@ export default function Register() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email Address"
             />
+            <span className={styles.note}>
+              NIT Calicut students are requested to use their institute email
+              ID for registration.
+            </span>
             {errors.email && (
               <span className={styles.error}>{errors.email}</span>
             )}
