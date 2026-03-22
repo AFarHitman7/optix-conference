@@ -225,6 +225,7 @@
 .mainColumn .marqueeTrack span {
   flex-shrink: 0;
   font-family: Satoshi-Medium;
+  font-weight: 700;
   color: #d9ecff;
   letter-spacing: 0.03em;
   font-size: 0.88rem;
