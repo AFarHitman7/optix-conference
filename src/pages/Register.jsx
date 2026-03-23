@@ -40,38 +40,24 @@ export default function Register() {
 
   const formRef = useRef(null);
 
-  // Early Bird deadline - March 22, 2026
-  const EARLY_BIRD_DEADLINE = new Date("2026-03-22T23:59:59");
-  const isEarlyBird = new Date() <= EARLY_BIRD_DEADLINE;
-
   /* ---------------- Pricing ---------------- */
 
   const deriveAmount = (designation, isOpticaMember) => {
     const isMember = isOpticaMember === "yes";
-    const isEarly = isEarlyBird;
 
     // Students (UG/PG/PhD)
     if (["ug", "pg", "phd"].includes(designation)) {
-      if (isMember) {
-        return isEarly ? 2950 : 3894;
-      }
-      return isEarly ? 3540 : 4484;
+      return isMember ? 3894 : 4484;
     }
 
     // Faculty/Scientists/Postdocs
     if (["faculty", "postdoc", "scientist"].includes(designation)) {
-      if (isMember) {
-        return isEarly ? 5900 : 7080;
-      }
-      return isEarly ? 6490 : 7788;
+      return isMember ? 7080 : 7788;
     }
 
     // Industry
     if (designation === "industry") {
-      if (isMember) {
-        return isEarly ? 8260 : 9440;
-      }
-      return isEarly ? 8850 : 10030;
+      return isMember ? 9440 : 10030;
     }
 
     return null;
@@ -191,7 +177,6 @@ export default function Register() {
             ...formData,
             amount,
             presentation,
-            isEarlyBird,
           }),
         },
       );
@@ -266,11 +251,6 @@ export default function Register() {
               View details →
             </a>
           </p>
-          {isEarlyBird && (
-            <div className={styles.earlyBirdBanner}>
-              🎉 Early Bird Registration Available Until March 22, 2026
-            </div>
-          )}
         </div>
         <form
           id="registerForm"
@@ -504,9 +484,6 @@ export default function Register() {
               <div className={styles.paymentBox}>
                 <h3>
                   Registration Fee: ₹{amount}
-                  {isEarlyBird && (
-                    <span className={styles.earlyBirdTag}>Early Bird</span>
-                  )}
                 </h3>
                 <img src={qrImage} alt="QR" className={styles.qrImage} />
                 <div className={styles.bankDetails}>

@@ -51,10 +51,10 @@ export default function Home() {
             <div className={styles.marqueeWrapper} aria-label="Conference update">
               <p className={styles.marqueeTrack}>
                 <span>
-                  Early Bird Registration Deadline : 22nd March 2026 | Publication opportunity in JOSA B (Optica Publishing Group)
+                  Publication opportunity in JOSA B (Optica Publishing Group)
                 </span>
                 <span aria-hidden="true">
-                  Early Bird Registration Deadline : 22nd March 2026 | Publication opportunity in JOSA B (Optica Publishing Group)
+                  Publication opportunity in JOSA B (Optica Publishing Group)
                 </span>
               </p>
             </div>
