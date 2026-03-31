@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./Speakers.module.css";
+import swapnaSpeakerImage from "./assets/about/Swapna s Nair.png";
 
 const images = import.meta.glob("./assets/speakers/*.png", { eager: true });
 const chairImages = import.meta.glob("./assets/chair/*.png", { eager: true });
@@ -10,8 +11,8 @@ const speakerMeta = {
     designation: "The Australian National University, Canberra",
   },
   "102.png": {
-    name: "Prof Asokan",
-    designation: "IISc Bengaluru",
+    name: "Prof Swapna S Nair",
+    designation: "Central University of Kerala",
   },
   "103.png": {
     name: "Dr Ashok Kumar",
@@ -27,7 +28,7 @@ const speakerMeta = {
   },
   "106.png": {
     name: "Prof B V R Tata",
-    designation: "University of Hyderabad",
+    designation: "GITAM University Hyderabad",
   },
   "107.png": {
     name: "Dr Shivakiran B N Bhaktha",
@@ -56,7 +57,7 @@ const speakers = Object.entries(images)
     const fileName = path.split("/").pop();
     return {
       id: fileName,
-      img: module.default,
+      img: fileName === "102.png" ? swapnaSpeakerImage : module.default,
       name: speakerMeta[fileName]?.name || "Unknown Speaker",
       designation: speakerMeta[fileName]?.designation || "",
     };
