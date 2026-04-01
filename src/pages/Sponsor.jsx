@@ -3,7 +3,7 @@ import styles from "./Sponsor.module.css";
 import sponsor1 from "./assets/sponsors/01.png";
 import sponsor2 from "./assets/sponsors/02.jpeg";
 import sponsor3 from "./assets/sponsors/anrf.svg";
-import sponsor4 from "./assets/sponsors/comsol.svg";
+import sponsor4 from "./assets/sponsors/comsol.jpeg";
 
 const platinumSponsors = [
   {
@@ -48,8 +48,14 @@ export default function Sponsors() {
         <div className={styles.sponsorGrid}>
           {platinumSponsors.map((sponsor) => (
             <div key={sponsor.id} className={styles.sponsorCard}>
-              <div className={`${styles.imageWrap} ${styles.mainSponsorImageWrap}`}>
-                <img src={sponsor.img} alt={sponsor.name} className={styles.image} />
+              <div
+                className={`${styles.imageWrap} ${styles.mainSponsorImageWrap}`}
+              >
+                <img
+                  src={sponsor.img}
+                  alt={sponsor.name}
+                  className={styles.image}
+                />
                 <div className={styles.overlay}>
                   <h3 className={styles.sponsorName}>{sponsor.name}</h3>
                   <p className={styles.sponsorTagline}>{sponsor.tagline}</p>
@@ -69,8 +75,14 @@ export default function Sponsors() {
         <div className={styles.sponsorGrid}>
           {bronzeSponsors.map((sponsor) => (
             <div key={sponsor.id} className={styles.sponsorCard}>
-              <div className={`${styles.imageWrap} ${styles.coSponsorImageWrap}`}>
-                <img src={sponsor.img} alt={sponsor.name} className={styles.image} />
+              <div
+                className={`${styles.imageWrap} ${styles.coSponsorImageWrap}`}
+              >
+                <img
+                  src={sponsor.img}
+                  alt={sponsor.name}
+                  className={styles.image}
+                />
                 <div className={styles.overlay}>
                   <h3 className={styles.sponsorName}>{sponsor.name}</h3>
                   <p className={styles.sponsorTagline}>{sponsor.tagline}</p>

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./Speakers.module.css";
-import swapnaSpeakerImage from "./assets/about/Swapna s Nair.png";
+import swapnaSpeakerImage from "./assets/speakers/swapna.png";
 
 const images = import.meta.glob("./assets/speakers/*.png", { eager: true });
 const chairImages = import.meta.glob("./assets/chair/*.png", { eager: true });
