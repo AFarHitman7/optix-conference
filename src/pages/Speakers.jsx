@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./Speakers.module.css";
-import swapnaSpeakerImage from "./assets/speakers/swapna.png";
 
 const images = import.meta.glob("./assets/speakers/*.png", { eager: true });
 const chairImages = import.meta.glob("./assets/chair/*.png", { eager: true });
@@ -53,13 +52,14 @@ const speakerMeta = {
 };
 
 const speakers = Object.entries(images)
+  .filter(([path]) => speakerMeta[path.split("/").pop()] !== undefined)
   .map(([path, module]) => {
     const fileName = path.split("/").pop();
     return {
       id: fileName,
-      img: fileName === "102.png" ? swapnaSpeakerImage : module.default,
-      name: speakerMeta[fileName]?.name || "Unknown Speaker",
-      designation: speakerMeta[fileName]?.designation || "",
+      img: module.default,
+      name: speakerMeta[fileName].name,
+      designation: speakerMeta[fileName].designation,
     };
   })
   .sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
