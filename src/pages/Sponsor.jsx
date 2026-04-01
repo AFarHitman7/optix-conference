@@ -3,6 +3,7 @@ import styles from "./Sponsor.module.css";
 import sponsor1 from "./assets/sponsors/01.png";
 import sponsor2 from "./assets/sponsors/02.jpeg";
 import sponsor3 from "./assets/sponsors/anrf.svg";
+import sponsor4 from "./assets/sponsors/comsol.svg";
 
 const platinumSponsors = [
   {
@@ -25,6 +26,12 @@ const bronzeSponsors = [
     img: sponsor2,
     name: "COMTEK",
     tagline: "Industry Collaborator",
+  },
+  {
+    id: 2,
+    img: sponsor4,
+    name: "COMSOL",
+    tagline: "Bronze Sponsor",
   },
 ];
 
